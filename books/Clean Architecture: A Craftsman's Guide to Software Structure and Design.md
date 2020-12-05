@@ -74,3 +74,43 @@ This principle tells us that the most flexible systems are those in which source
 **4. Never mention the name of anything concrete and volatile:** Import a wrapper function/class instead.
 
 So, that way we can make sure that our software code is not coupled directly to volatile implementations and we can avoid changing old code / breaking old implementations.
+
+# Components Principles
+
+Components are the smallest entities that can be deployed separately as part of the system. It means that a component is a group of entities that share the same context.
+
+Suppose we have a context called **Picture**, so we can say that we have a **PictureComponent** that is composed by **PictureController, PictureService, PictureRepository and PictureModel**.
+
+This idea of components came from some problems developers experienced in the future, an example was the application growing a lot that it was really expensive to make deploys since they were slowing so much.
+
+That way, by separating the system into components can help us deploying the part of the system we want to. If components are deployed separately and they are reused all around the application, it is important to give them a version number (Ex: PictureComponent v1.0.2) in order to help other developer teams that are implementing this component to only use the version they are braced for.
+
+## Components Cohesion
+
+We should look for components cohesion, that are basically the idea that the classes and modules that are formed into a component must belong to a cohesive group (it can not be composed of random classes and modules).
+
+### 1. The Common Closure Principle
+
+Try to gather into components those classes that change for the same reasons and at the same times. Separate into different components those classes that change at different time and for different reasons.
+
+In some systems, maintainability is more important than reusability. Being minded about that, you should sometimes worry about confining changes to a single component instead of having to change multiple at a time.
+
+### 2. The Common Reuse Principle
+
+Try not to force users of a component to depend on things they don't need. It states that classes and modules that tend to be reused together belong in the same component.
+
+## Components Coupling
+
+Sometimes we will need to deal with component coupling, that is basically the idea that some components can have a link between them. In order to help getting the best of it, we have some principles to think about.
+
+### 1. The Acyclic Dependencies Principle
+
+Try to not allow no cycles in the component dependency graph. It basically tell us that it is important to keep a dependency relationship flow that goes from higher-level entities to lower-level entities, avoiding to do that upside down as well.
+
+### 2. The Stable Dependencies Principle
+
+Try to depend in the direction of stability. It basically shows us that it is better to depend on things that rarely changes (so we can call them 'stable'), since by doing that, it is less likely to change all the dependent entities.
+
+### 3. The Stable Abstractions Principle
+
+A component should be as abstract as it is stable. Since we want to keep business rules on high level entities, without making all the system being stuck and stable forever, it is good to make use of abstractions (usually with use of interfaces), that way we can make entities more flexible and extensible (that way the dependencies run in the direction of abstraction and not to concrete classes).
