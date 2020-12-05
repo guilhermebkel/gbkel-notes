@@ -20,7 +20,11 @@ The measure of a good design quality is simply the measure of the effort require
 
 - You do not need a specific language paradigm to use the clean architecture principles (but some times some paradigms can help implementing some good patterns).
 
-- If you are using external libraries on your software, instead of importing them directly to the code, make an adapter for them (wrapper function/class that implements this library) and use this adapter, in order to decrease coupling the system from external libraries (it makes the system flexible to change this library without breaking other modules). 
+- If you are using external libraries on your software, instead of importing them directly to the code, make an adapter for them (wrapper function/class that implements this library) and use this adapter, in order to decrease coupling the system from external libraries (it makes the system flexible to change this library without breaking other modules).
+
+- Even if use cases are too much equal in functionality, try to avoid coupling them, instead of doing that, make them separately and wait for the time to passes by (sometimes we see that use cases does the same thing and so we try to couple it, but, after some time you will notice that these use cases were different from each other and you will have to separate them, what is really hard to do).
+
+- A good architecture should worry about decoupling layers, like decoupling use cases, hardware from software.
 
 ## Design Principles
 
@@ -114,3 +118,55 @@ Try to depend in the direction of stability. It basically shows us that it is be
 ### 3. The Stable Abstractions Principle
 
 A component should be as abstract as it is stable. Since we want to keep business rules on high level entities, without making all the system being stuck and stable forever, it is good to make use of abstractions (usually with use of interfaces), that way we can make entities more flexible and extensible (that way the dependencies run in the direction of abstraction and not to concrete classes).
+
+## Architecture
+
+### What is architecture?
+
+The architecture of the system is the shape given to that system by those who build it. The form of that shape is in the division of that system into components, the arrangement of those components, and the ways in which those components communicate with each other.
+
+The purpose of that shape is to facilitate the development, deployment, operation and maintenance of the software system contained within it.
+
+The main strategy behind that facilitation is to leave as many options open as possible (maximizing the number of decisions not made), for as long as possible (what means that is really good to make the software flexible enough to work while giving that change to take some important decisions later, since you will have more knowledge about it).
+
+Usually good architecture makes the system easy to understand, easy to develop, easy to maintain and easy to deploy. The ultimate goal is to minimize the lifetime cost of the system and to maximize programmer productivity.
+
+### What a good architecture should support?
+
+**1. The use cases of the system**
+
+The architecture of the system must support the intent of the system. Per example, if the system is a shopping cart application, then the system must support shopping cart use cases.
+
+A shopping cart application with a good architecture will look like a shopping cart application, its use cases will be plainly visible on the system structure and the developers will not have to hunt for behaviors since them will be elements visible at the top level of the system with names that clearly describe their function.
+
+**2. The operation of the system**
+
+If the system must handle 100.000 customers per second, the architecture must support that. If the system must query big data in milliseconds, the architecture must be structure to handle it.
+
+Sometimes it means breaking down the system into processes, threads or even microservices, but, that's a good decision to try to leave open for a long time since you are totally sure about what you are doing.
+
+So, a way to leave this operational decision open is to make an architecture that maintains the proper isolation of its components and not assume the means of communication between those components. That way it will be much easier to break the components down into threads, processes or microservices as the operation needs of the system change over time.
+
+**3. The maintenance of the system**
+
+Every system should be easy to maintain and keep working with little effort. So, try to use some of the best practices of architecture when building the system.
+
+**4. The development of the system**
+
+Any organization that designs a system will produce a design hose structure is a copy of the organization's communication structure.
+
+If a system is being developed with many teams and many concerns, it is important to facilitate independent actions by those teams (so that the teams do not interfere with each other during development).
+
+**5. The deployment of the system**
+
+The goal here is to make a deployment of the system with a single action (without having to execute dozens of scripts).
+
+### Boundaries
+
+We make use of boundaries to separate software elements from one another, and restrict those on one side from knowing about those on the other. Ex: 
+- A GUI does not matter to the business rules, so there should be a boundary between them.
+- The type of database being used does not matter to business rules, so there should be a boundary between them. 
+
+Some boundaries are drawn very early in the project and others later. The early ones usually are made in order to defer decisions for as long as possible and avoiding those decisions from polluting the core business logic.
+
+Usually to do that boundaries we make the communication of all the sides with help of interfaces. The use of boundaries creates a pattern described as **Plugin architecture**.
