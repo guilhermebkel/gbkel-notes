@@ -63,3 +63,65 @@ The main operators used here are: **AND**, **OR** and **NOT**. Because of that w
 With help of CMOS Transistors, we are able to group them into logic gates, and so to use boolean logic to operate our circuits.
 
 <img src="../assets/logic-gates-transistors.png"></img>
+
+### Boolean Algebra
+
+The logic gates are pretty useful for implementing circuits, but the equations are better to manipulate these circuits. The boolean algebra tools help us manipulating boolean equations in order to simplify them, checking if two equations are the same, etc. That way, we can turn boolean equations into boolean gates easily.
+
+Below you can see some properties that revolves around boolean algebra. Be aware that the letters can have a value of 0 or 1 since it is a boolean system.
+
+**Operators notation in boolean algebra:**
+> **NOT**(a) = **a'** or **ā**
+> 
+> a **OR** b = **a + b**
+>
+> a **AND** b = **ab** or **a * b**
+> 
+Example: w = (p AND NOT(s) AND k) OR t = ps'k + t
+
+**Basic properties:**
+
+1. Commutative
+> a + b = b + a
+>
+> a * b = b * a
+
+2. Distributive
+> a * (b + c) = (a * b) + (a * c)
+>
+> a + (b * c) = (a + b) * (a + c)
+
+3. Associative
+> (a + b) + c = a + (b + c)
+>
+> (a * b) * c = a * (b * c)
+
+4. Identity
+> 0 + a = a + 0 = a
+>
+> 1 * a = a * 1 = a
+
+5. Complement
+> a + a' = 1
+>
+> a * a' = 0
+
+**Additional properties:**
+
+1. Null elements
+> a + 1 = 1
+>
+> a * 0 = 0
+
+2. Idempotence rule
+> a + a = a
+>
+> a * a = a
+
+3. Involution rule
+> (a')' = a
+
+4. DeMorgan rule
+> (a + b)' = a'b'
+>
+> (ab)' = a' + b'
