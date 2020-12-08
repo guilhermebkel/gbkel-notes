@@ -125,3 +125,45 @@ Example: w = (p AND NOT(s) AND k) OR t = ps'k + t
 > (a + b)' = a'b'
 >
 > (ab)' = a' + b'
+
+### Boolean Function Representations
+
+A boolean function is basically a mapping for each of the possible function input combinations for some output (0 or 1).
+
+<img src="../assets/boolean-function.png"></img>
+
+We are able to represent the boolean functions with equations, circuits or even truth-tables.
+
+Usually if we want to know if a **Function X** is equal to a **Function Y** we can do a truth-table compare, since a function can have only a single truth-table.
+
+### The Logic Combination Project
+
+Being minded about the idea we have got above, a simple way to make a logic combination can be:
+
+**1. Capture the function:** Create a truth-table or equations to describe the desired behavior for the logic combination.
+
+**2. Convert to equations:** This step is only needed if you created the function using a truth-table. Create an equation for every output using an OR operator with all minterms of that output (simplify the equations if needed).
+
+**3. Implement a circuit based on gates:** For every output, create a correspondent circuit for this output equation (optionally you can share gates between the multiple outputs).
+
+**Case Study:**
+
+<img src="../assets/logic-combination-project-1.png"></img>
+
+<img src="../assets/logic-combination-project-2.png"></img>
+
+<img src="../assets/logic-combination-project-3.png"></img>
+
+### Decoders and Multiplexers
+
+Decoders and multiplexers are digital circuit constructive blocks, even if they can be made using logic gates. 
+
+**Decoder:** Decodes a binary number of a *n* bits input adding exactly one of the 2^*n* outputs of it in 1. 
+
+<img src="../assets/decoder.png"></img>
+
+**Multiplexer:** Works as a selector to enable only a single input to pass through an output (determines which input will get to the output).
+
+<img src="../assets/multiplexer-1.png"></img>
+
+<img src="../assets/multiplexer-2.png"></img>
