@@ -12,6 +12,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## 📓 Books
 
+- [Sistemas Digitais - Projetos de Otimização e HDLs](./books/Sistemas%20Digitais%20-%20Projetos%20de%20Otimiza%C3%A7%C3%A3o%20e%20HDLs.md)
+
 - [Clean Architecture: A Craftsman's Guide to Software Structure and Design](./books/Clean%20Architecture:%20A%20Craftsman's%20Guide%20to%20Software%20Structure%20and%20Design.md)
 
 - [O jeito Peter Lynch de investir](./books/O%20jeito%20Peter%20Lynch%20de%20investir.md)
