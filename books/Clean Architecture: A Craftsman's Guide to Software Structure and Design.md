@@ -26,6 +26,12 @@ The measure of a good design quality is simply the measure of the effort require
 
 - A good architecture should worry about decoupling layers, like decoupling use cases, hardware from software.
 
+- Try to make sure that your UseCases/Entities only receives input data that it understands and outputs a result based on that (avoid passing a request object directly to it per example).
+
+- Try to give names that make sense for your UseCases/Entities (we call ly Screaming Architecture because we just have to look at the name of stuffs and we will understand what each thing means). Your architecture should tell readers about the system, not about the frameworks you used in your system - "frameworks are tools, not ways of life".
+
+- Avoid passing boundary-formed-data across boundaries. For example, many database frameworks return a convenient format in response to a query. We might call this a "row structure". We don't want to pass that row structure inward across a boundary. Doing so would violate the Dependency Rule because it would force an inner circle to know something about an outer circle.
+
 ## Design Principles
 
 We have some principles provided by SOLID that tells us how to arrange our functions and data structures into classes and how those classes should be interconnected (classes refers not only to the OO paradigm, but everything that is grouped that way). The goal of it is to create software structures that tolerate changes, are easy to understand and provided a good basis to be used by many software systems.
@@ -170,3 +176,122 @@ We make use of boundaries to separate software elements from one another, and re
 Some boundaries are drawn very early in the project and others later. The early ones usually are made in order to defer decisions for as long as possible and avoiding those decisions from polluting the core business logic.
 
 Usually to do that boundaries we make the communication of all the sides with help of interfaces. The use of boundaries creates a pattern described as **Plugin architecture**.
+
+Then, a clearly example of a Plugin architecture should be: You have a **Business Rule Module** that is used by a **GUI Module** and a **Database Module**. That way we can make sure that any change we make to outside modules, will not break any business rule or anything that is important for the system to work.
+
+It is very easy when we are dealing with boundaries inside a monolith (since the communications are made only with function calls). The complexity increases when we start making boundaries with threads, local processes and services.
+
+### Policy and Level
+
+Usually the policy is broken down into smaller statements that tell us how some particular business rules are calculated, other tell us how certain reports are to be formatted even others describe how input data are to be validated.
+
+Usually we need to part this policies one from another and group the ones that change for the same reason and the same times (we should keep them in the same component).
+
+When we talk about levels, we are saying that policies can be organized in different levels. Usually the policies that deal with data input/output are on the lower level of policy.
+
+If we create a Encrypt application, it should be organized by policies and levels that way below:
+```sh
+----------------------------------------- Boundary
+             (Encrypt)
+        _________|_________
+       |                   |
+ (Char Reader)       (Char Writer)        # Interfaces
+       |                   |
+----------------------------------------- Boundary
+       |                   |
+(Console Reader)    (Console Writer)	  # Plugins
+```
+
+### Business Rules
+
+Strictly speaking, business rules are rules of procedures that make or save the business money (it does not matter if is make manually or on a computer).
+
+Usually we divide business rules into objects with the following names:
+
+**1. Entity**
+
+Usually the business rules that are critical to the business itself and would exist even if there were no system to automate them, are called **Critical Business Rules**, and they usually require some data to work with that are called **Critical Business Data**.
+
+The critical business rules are implemented by objects that we call **Entities**. They can access business data really fast and have functions that implement the Critical Business Rules that operate on that data. So, entities are pure business rules and nothing else.
+
+An example of Entity could be a **LoanEntity** that uses the Business Data: **principle, rate, period** and has the Functions/Methods: **makePayment, applyInterest and chargeLateFee**.
+
+**2. UseCases**
+
+Some business rules make or save money for the business by defining and constraining the way that an automated system operates. These rules would not be used in a manual environment, because they make sense only as part of an automated system.
+
+Usually use cases define application-specific business rules as opposed to the Critical Business Rules within Entities.
+
+An example of UseCase could be a **CreateCustomerUseCase** that has a validation inside it to make sure each customer has a unique email value.
+
+So, the use cases define the application-specific rules that govern the interaction between the users and the Entities.
+
+### Clean Architecture
+
+Being minded about the clean architecture, usually the systems that has  been implemented this way has some of the characteristics below:
+
+**1. Independent of frameworks:** Frameworks should be used as tools and should not force you to follow an architecture.
+
+**2. Testable:** The business rules can be tested without UI, database, web server or any other external element.
+
+**3. Independent of the UI:** The UI can change easily without changing the rest of the system.
+
+**4. Independent of the Database:** Your business rules are not bound to the database, so you can swap between them.
+
+**5. Independent of any external agency:** Your business rules don't know anything at all about the interfaces to the outside world.
+
+Being minded about it, an example of a well constructed clean architecture in a hierarchy would be the one that follows the Dependency Rule - "Source code dependencies must point only inward, toward higher level policies":
+
+```sh
+# Enterprise Business Rules
+Entities                    
+--------------------------- Boundary 1
+# Application Business Rules
+UseCases
+--------------------------- Boundary 2
+# Interface Adapters
+Controllers
+Gateways
+Presenters
+--------------------------- Boundary 3
+# Frameworks and Drivers
+Devices
+Web
+UI
+Database
+External Interfaces
+```
+
+### Partial Boundaries
+
+Completely created architectural boundaries are expensive. In many situations a good architect might judge that the expense of such a boundary is too high (but might still want to hold a place for such a boundary in case it is needed later).
+
+This kind of anticipatory design is often frowned by many in the Agile community as a violation of YAGNI: "You aren't Going to Need It". Architects however, sometimes look at the problem and think "Yeah, but I might". In that case, they may implement a partial boundary.
+
+One way to create a partial boundary is to start separating the system into boundaries and component, but all together in the same place (obviously you will use the amount of code you could use for a full boundary, but you will not have to worry about the administration of multiple components).
+
+You are able to make sure the boundaries are partially with use of interfaces between them (usually expensive since you need a interface for each method) or you can even use **Facade Class** pattern which you have a Big class that implements each service that will be used by some boundary.
+
+### Main Component
+
+Every system should have a main component, usually it creates and starts all core dependencies of the system related to higher level policies.
+
+Think of a Main Component of a Plugin, so you can have many main components, one for each configuration of your application (such as database, language, etc)
+
+### Services: Great and Small
+
+Services are just function call across process and/or platform boundaries. Usually that are some benefits implementing the use of services, but we'll take a look of some fallacies that revolve around it:
+
+**1. The Decoupling Fallacy:**
+
+One of the supposed benefits of breaking a system up into services is that services are strongly decoupled from each other.
+
+There is certainly some truth to this, but not very much truth. Services are really decoupled at the level of individual variables, **however they can still be coupled by shared resources within a processor, or on the network**.
+
+Per example, if a new field is added to a data record that is passed between services, then every service that operates on the new field must be changed (the data coupling make them coupled to each other services).
+
+**2. The Fallacy of Independent Development And Deployment:**
+
+Another of the suppose benefits of services is that they can be owned and operated by a dedicated team. This independence of development and deployment is presumed to be scalable, so a large enterprise can be created from dozens, hundreds of even thousand of independently developable and deployable services.
+
+There is some truth to this belief, but only some. First, history has shown that large enterprise systems can be built from monoliths and component-based system as well as service-based systems. Thus services are not the only option for building scalable systems, since we can make independent development and deployment with help of some clean architecture patterns.
