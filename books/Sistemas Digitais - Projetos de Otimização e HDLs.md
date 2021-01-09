@@ -210,3 +210,17 @@ In order to help enabling actions on memoized circuits only when the switches ha
 Generally we use something called as **oscillator** in order to help us using **clock** inside memoized circuits, its value varies from 0 to 1 in some period of time that is determined by its rate.
 
 <img src="../assets/clock.png"></img>
+
+## Flip-flop D
+
+Since Latches usually stores the bit value **after** the clock value changes, it can lead to some bugs. Being minded about that, some circuits were created to solve that problem by storing the bit value **during** the clock value change. That way it gets harder to have two switches matching the same value.
+
+<img src="../assets/flip-flop-d.png"></img>
+
+## Latch vs Flip-flop
+
+Being minded about the info above, we can differ latch from flip-flops by the idea:
+
+- **Latch:** Sensible to level (it changes its value after the clock reached some value)
+
+- **Flip-flop:** Sensible to border (it changes its value during clock value change)
