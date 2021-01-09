@@ -8,6 +8,10 @@ This book shows us a deep study into the digital world, giving some tips about h
 
 When we talk about digital systems, we are talking about almost everything with technology that surrounds us, from medical tools to stuffs we find to be simple on our life, like our smartphone or even cameras.
 
+---
+
+# 1st Chapter
+
 ## Signals
 
 In the digital system world we have two common signals: **Digital** and **Analog**.
@@ -27,6 +31,10 @@ Being minded about it, **the digital signal works basically by sending binary va
 ### Transformation
 
 <img src="../assets/analog-digital-transformation.png"></img>
+
+---
+
+# 2nd Chapter
 
 ## Logic Combination
 
@@ -167,3 +175,7 @@ Decoders and multiplexers are digital circuit constructive blocks, even if they 
 <img src="../assets/multiplexer-1.png"></img>
 
 <img src="../assets/multiplexer-2.png"></img>
+
+---
+
+# 3rd Chapter
