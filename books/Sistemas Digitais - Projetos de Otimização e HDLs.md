@@ -184,7 +184,7 @@ Decoders and multiplexers are digital circuit constructive blocks, even if they 
 
 A digital circuit which its outputs depend on persistent bit values are called **Sequential Logic Circuit**.
 
-## Bit Persistence
+## Bit Storage
 
 When we are talking about bit persistence, we're saying that we are able to store a bit value inside a block and use it later. The basic method of storing bits is refeeding the system with its own return.
 
@@ -224,3 +224,9 @@ Being minded about the info above, we can differ latch from flip-flops by the id
 - **Latch:** Sensible to level (it changes its value after the clock reached some value)
 
 - **Flip-flop:** Sensible to border (it changes its value during clock value change)
+
+## Multiple Bit Storage
+
+Usually we use a **register** to store multiple bits, besides, we can make a **register** by joining multiple flip-flops. Below you can see an example of a 4-bit register.
+
+<img src="../assets/register.png"></img>
