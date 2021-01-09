@@ -179,3 +179,28 @@ Decoders and multiplexers are digital circuit constructive blocks, even if they 
 ---
 
 # 3rd Chapter
+
+## Sequential Logic
+
+A digital circuit which its outputs depend on persistent bit values are called **Sequential Logic Circuit**.
+
+## Bit Persistence
+
+When we are talking about bit persistence, we're saying that we are able to store a bit value inside a block and use it later. The basic method of storing bits is refeeding the system with its own return.
+
+## Latch SR
+
+This circuit is made of a pair of NOR switches with crossed interconnections. We can use this simple circuit in order to keep a value in state and implement some extra logics (like making something to work for some time [set] and stopping it later [reset]).
+
+<img src="../assets/latch-sr.png"></img>
+
+One of the main issues of this circuit is that if **S** and **R** are 1 at the same time, some random action can happen in a loop till it reaches a final random value. Being minded about it, we never plug buttons directly to the Latch SR, instead we use a logic block before in order to force different values between [set] and [reset] actions, what does not happen in practice since the added switches have a delay by default and that delay can cause the two values to be the same sometimes.
+
+<img src="../assets/latch-sr-2.png"></img>
+
+In order to avoid the issues shown on the image above, we add can add a new item to circuit that will be able to determine if the action should work or not, that way we can make sure we only start some action after the circuit switch values are stable.
+
+<img src="../assets/latch-sr-3.png"></img>
+<img src="../assets/latch-sr-4.png"></img>
+
+## Clocks and synchrone circuits
