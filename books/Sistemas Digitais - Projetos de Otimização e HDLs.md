@@ -230,3 +230,9 @@ Being minded about the info above, we can differ latch from flip-flops by the id
 Usually we use a **register** to store multiple bits, besides, we can make a **register** by joining multiple flip-flops. Below you can see an example of a 4-bit register.
 
 <img src="../assets/register.png"></img>
+
+## Finite State Machines
+
+FSM is a basically a way to represent all states of a circuit. That way we are able to organize our circuit to work by transitioning into different kind of states.
+
+<img src="../assets/state-machine.png"></img>
