@@ -204,3 +204,9 @@ In order to avoid the issues shown on the image above, we add can add a new item
 <img src="../assets/latch-sr-4.png"></img>
 
 ## Clocks and synchrone circuits
+
+In order to help enabling actions on memoized circuits only when the switches have stable values, we usually use a signal that pulses at a constant rate (that is what we call **clock**, the famous clock used by computer processors).
+
+Generally we use something called as **oscillator** in order to help us using **clock** inside memoized circuits, its value varies from 0 to 1 in some period of time that is determined by its rate.
+
+<img src="../assets/clock.png"></img>
