@@ -236,3 +236,26 @@ Usually we use a **register** to store multiple bits, besides, we can make a **r
 FSM is a basically a way to represent all states of a circuit. That way we are able to organize our circuit to work by transitioning into different kind of states.
 
 <img src="../assets/state-machine.png"></img>
+
+There are a ot of ways of implementing a FSM circuit, but we can follow a basic pattern in order to replicate it easily to the most problems we find there. This pattern consists of a state register and a combinational logic, you can see it below:
+
+<img src="../assets/state-machine-2.png"></img>
+
+A state register is a 2-bit register with a binary value that is equal to the current state (since it has 2 bits, it can represent a maximum amount of 4 states).
+
+Being minded about the idea we have got above, a simple way to make a FSM can be:
+
+**1. Capture the FSM:** Create a FSM that describes the circuit behavior.
+
+**2. Create the Architecture:** Create a default architecture using a state register with the needed bits and a combinational logic, which inputs are register bits and FSM inputs and the outputs are the next state bits and FSM outputs.
+
+**3. Code the states:** Give a binary number for each state (each state number is known as codification, it is like an ID for the state).
+
+**4. Create a state table:** Create an truth table for the combinational logic in a way that the logic shows outputs and next state signal for the FSM.
+
+**5. Implement the combinational logic:** Start implementing the combinational logic with any method you want.
+
+Case Study:
+
+<img src="../assets/fsm-case-study.png"></img>
+<img src="../assets/fsm-case-study-2.png"></img>
