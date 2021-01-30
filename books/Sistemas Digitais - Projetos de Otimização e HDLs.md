@@ -277,3 +277,13 @@ A register of N bits is a sequential component capable of storing N bits.
 That's the most simple register we can create, it consists of a group of flip-flops that are charged in each clock cycle.
 
 <img src="../assets/digital-systems/parallel-register.png"></img>
+
+Being minded about the idea we have got above, a simple way to make a register project can be:
+
+**1. Determine the multiplexer size:** Get the function count and add a multiplexer in front of each flip-flop with at least these input count.
+
+**2. Create the table of multiplexer functions:** Create a table of functions that defines the desired operations for every possible value of the multiplexer selector lines.
+
+**3. Connect the multiplexer inputs:** For each function, connect the correct input of the multiplexer to the external input or the output of the correct flip-flop to get the desired function.
+
+**4. Map all the control lines:** Create a truthy table that maps the external control lines into the internal ones of multiplexer selector, with correct priorities and so, project the combinational logic that implements that map.
