@@ -287,3 +287,63 @@ Being minded about the idea we have got above, a simple way to make a register p
 **3. Connect the multiplexer inputs:** For each function, connect the correct input of the multiplexer to the external input or the output of the correct flip-flop to get the desired function.
 
 **4. Map all the control lines:** Create a truthy table that maps the external control lines into the internal ones of multiplexer selector, with correct priorities and so, project the combinational logic that implements that map.
+
+## Adder
+
+Thats a circuit component able to sum two numbers (two inputs) and give the proper result (an output).
+
+### Half Adder
+<img src="../assets/digital-systems/half-adder.png"></img>
+
+### Complete Adder
+<img src="../assets/digital-systems/adder-1.png"></img>
+<img src="../assets/digital-systems/adder-2.png"></img>
+<img src="../assets/digital-systems/adder-3.png"></img>
+
+## Shifters
+
+They are a component useful for changing bits position. It is usually used to multiply numbers and even to transmit data serially.
+
+<img src="../assets/digital-systems/shifter.png"></img>
+
+## Comparators
+
+They are useful to check if numbers are equal, or even if the first one is greater or smaller than the second one.
+
+<img src="../assets/digital-systems/comparator.png"></img>
+
+## Counters
+
+They are useful to increment or decrement the value of its register for each clock cycle when its input is 1.
+
+### Ascending Counter
+
+<img src="../assets/digital-systems/ascending-counter.png"></img>
+
+### Descending Counter
+
+<img src="../assets/digital-systems/descending-counter.png"></img>
+
+### Ascending/Descending Counter
+
+<img src="../assets/digital-systems/ascending-descending-counter.png"></img>
+
+### Parallel Charge Counter
+
+<img src="../assets/digital-systems/parallel-counter.png"></img>
+
+### Timer
+
+A timer is a special kind of counter that measures the time. It is based on the descending counter.
+
+## Multipliers (array style)
+
+They are used to multiply bits and get a result from it (so if we multiply two bits, we will get a single result of that multiplication).
+
+## Subtractors
+
+They are useful to get a result of a number minus another (like A - B = C).
+
+## Register banks
+
+They are useful to access a group of registers in a efficient way. It is really good to solve the problem of congestion.
