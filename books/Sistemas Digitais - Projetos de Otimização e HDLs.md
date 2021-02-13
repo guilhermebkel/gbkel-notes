@@ -347,3 +347,43 @@ They are useful to get a result of a number minus another (like A - B = C).
 ## Register banks
 
 They are useful to access a group of registers in a efficient way. It is really good to solve the problem of congestion.
+
+---
+
+# 5th Chapter
+
+## Register Transfer Level
+
+It is a way to abstract the use of registers in order to do some actions (what we call as a processor). Ex: The LCD of a car has a group of registers inside it to accomplish some work, but the way the LCD works with it is done by the abstraction of some processor.
+
+## The RTL method
+
+<img src="../assets/digital-systems/rlt-method.png"></img>
+
+## Determining clock frequency
+
+Usually we want our systems to work the faster way possible (basically by increasing the clock frequency), but we can not increase clock frequency in a great amount, since it can cause some issues (bugs per example). Being minded about that, we need to choose the greater frequency while dealing with all the circuit components and project expectations.
+
+The simple way to do that, is to giving a look at the existing delays during some task execution and so, to use the greater delay as the foundation on the clock frequency value. Ex: I have a circuit with 3 actions, the first one has 2ns delay, the second one 3ns and the third one 5ns, it basically means that my clock must have at least a time of 5ns.
+
+<img src="../assets/digital-systems/clock-frequency.png"></img>
+
+## Memory components
+
+Usually when dealing with RTL, we need to use external components such as memories.
+
+They are basically a set of data that can be written and found by an address. Each data can be considered a register.
+
+The two common types are: **RAM** and **ROM**. The main difference between them are:
+
+- RAM can have its data read and written, the ROM can only be read.
+
+- RAM loses data after losing energy and ROM preserves data even if it is not being supplied with any energy.
+
+- ROM can handle more data inside it when compared with RAM.
+
+## Queues
+
+We will start talking about FIFO queues (that uses the idea of first in first out policy).
+
+Usually the processor instructions and memory writing follows the policy above.
