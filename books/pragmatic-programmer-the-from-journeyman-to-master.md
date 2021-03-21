@@ -93,3 +93,65 @@ As developers, we have to communicate on many levels. We spend hours in meetings
 > Know your audience, you are communicating only if you are conveying what you mean to convey. So try to communicate in a way your audience understands you.
 >
 > Try to show your idea in a easier way to understand, by making a lot of use of drawings and even by sorting out the topic you want to talk about (introduction, development, conclusion).
+
+## A Pragmatic Approach
+
+There are a lot of tips we can follow in order to become a pragmatic programmer. Some of them will be shown below:
+
+### The Essence of Good Design
+
+There are a lot of "rules" to follow when it comes to design good software. You will notice that most of them leads to a design that is easy to change (Decoupling, Single Responsibility Principle, Naming).
+
+> Usually a good designed code/architecture is easier to change than bad design, what means that you have flexibility to change something later. Most of the time it will help you taking paths during software development.
+>
+> Try to think "Did the thing I just did make the overall system easier or harder to change?"
+
+### Don't Repeat Yourself
+
+In our day-to-day work, while creating features, doing some maintenance on the system, it gets easier to duplicate knowledge (business rules).
+
+Knowledge duplication is considered to be a bad thing since if you change it in some place, you will have to change in another as well since it is duplicated. If you forget to change on all places, you will probably face a bug on your production environment.
+
+> Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+>
+> DRY is about the duplication of knowledge, of intent. It's about expressing the same thing in two different places, possibly in two totally different ways.
+>
+> All services offered by a module should be available through a uniform notation, which does not betray whether they are implemented through storage or through computation.
+>
+> Make sure the knowledge you write is easy to find and reuse existing stuff than to write it yourself.
+
+### Orthogonality
+
+In computing, two or more things are orthogonal if changes in one do not affect any of the others.
+
+In case a change affects an unrelated part of the system, you will probably face bugs on production.
+
+> Try to avoid creating side effects between unrelated things. It means that you must write code in a way that you mix same contexts and not different contexts.
+>
+> Try to design components that are self-contained: independent, and with a single, well-defined purpose.
+>
+> Try to draw the architecture design and think if some unrelated part of it changes another. That way you will be able to architecture code in a orthogonality way.
+>
+> Keep your code decoupled, avoid global data, avoid similar functions.
+>
+> Get into the habit of being constantly critical of your code. Look for any opportunities to reorganize it to improve its structure and orthogonality (it is what we call refactoring).
+
+### Reversibility
+
+*"Nothing is more dangerous than an idea if it's the only one you have - Emil-Auguste Chartier"*
+
+There is always more than one way to implement something, and there is usually more than one vendor available to provide a third-party product.
+
+If you go into a project hampered by the myopic notion that there is only one way to do it, you may be in for an unpleasant surprise.
+
+With reversibility, we are able to create our own implementation for third part integrations of our system and make it more flexible for future changes.
+
+> Try to create an interface on the front of specific part of your system (such as database implementations, etc).
+>
+> Try to think about maintaining flexibility in the areas of architecture, deployment, and vendor integration.
+
+### Tracer Bullets
+
+*"Ready, fire, aim... - Anon"*
+
+We use the term tracer bullet development to visually illustrate the need for immediate feedback under actual conditions with a moving goal.
