@@ -154,4 +154,38 @@ With reversibility, we are able to create our own implementation for third part 
 
 *"Ready, fire, aim... - Anon"*
 
+*"Thinking before doing - Guilherme Mota"*
+
 We use the term tracer bullet development to visually illustrate the need for immediate feedback under actual conditions with a moving goal.
+
+The tracer code approach has many advantages: **Users get to see something working early, Developers build a structure to work in, You have an integration platform, You have something to demonstrate, You have a better feel for progress.**
+
+> Look for the important requirements, the ones that define the system. Look for the areas where you have doubts, and where you see the biggest risks. Then prioritize your development so that these are the first areas you code.
+>
+> Focus on doing the important stuffs for the system to work and so, later on you can do the improvements.
+>
+> You will not always hit the target, so you just have to adjust your aim until you hit it. Sometimes the user will not like the layout, the data will not be available for you, the system will bad perform, but the only thing you need to do is to adjust your changes to improve all of that.
+>
+> Tracer code is lean but complete, and forms part of the skeleton of the final system. Think of prototyping as the reconnaissance and intelligence gathering that takes place before a single tracer bullet is fired.
+
+### Prototypes and Post-it Notes
+
+Prototypes must be a simple way to test your ideas, so it means that you do not need to write code to that. Sometimes the only thing you need to do is to create a drawing or doing manual stuffs.
+
+Common things to be prototyped: **Architecture, New functionality in an existing system, structure or contents of external data, third-party tools or components, performance issues, user interface design.**
+
+Some questions you are able to answer: **Are the responsibilities of the major areas well defined and appropriate? Are the collaborations between major components well defined? Is coupling minimized? Can you identify potential sources of duplication? Are interface definitions and constraints acceptable? Does every module have an access path to the data it needs during execution? Does it have that access when it needs it?**
+
+> Prototype to learn.
+>
+> When prototyping, you can ignore: Correctness, completeness, robustness, style.
+
+### Domain Languages
+
+*"The limits of language are the limits of one's world. - Ludwig Wittgenstein"*
+
+Computer languages influence how you think about a problem, and how you think about communicating.
+
+Sometimes pragmatic programmers can actually program using the vocabulary, syntax and semantics of the domain.
+
+> When programming in some language, try to write the code closer to that domain language, per example, if you programmed in Java fro 10 years and start learning LUA, you will try to apply domain concepts of Java on it, but the correct stuff to do is to get into the LUA domain without trying to write Java on it.
