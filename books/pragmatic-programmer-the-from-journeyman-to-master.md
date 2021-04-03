@@ -189,3 +189,110 @@ Computer languages influence how you think about a problem, and how you think ab
 Sometimes pragmatic programmers can actually program using the vocabulary, syntax and semantics of the domain.
 
 > When programming in some language, try to write the code closer to that domain language, per example, if you programmed in Java fro 10 years and start learning LUA, you will try to apply domain concepts of Java on it, but the correct stuff to do is to get into the LUA domain without trying to write Java on it.
+
+### Estimating
+
+By learning to estimate, and by developing this skill to the point where you have an intuitive feel for the magnitudes of things, you will be able to show an apparent magical ability to determine their feasibility.
+
+The first part of any estimation exercise is building an understanding of what is being asked.
+
+> When someone asks for an estimate, try to ask yourself: Do they need high accuracy, or are they looking for a ballpark figure?
+>
+> Try to build a model for what is being estimate (write down the requirements and everything that need to be done in order to get it to work).
+
+## The Basic Tools
+
+In everything we do on our life, most of the time we are able to use some tools to help us increasing productivity or even quality.
+
+### IDE
+
+An IDE is an example of a tool that help us a lot when programming, since we can use a lot of shortcuts to deal with code and even some plugins to help us understand lots of things.
+
+> Always be on the lookout for better ways of doing things.
+>
+> Try to achieve editor fluency.
+>
+> Try to learn the IDE commands that make your life easier.
+
+### Version Control
+
+*"Progress, far from consisting in change, depends on retentiveness. Those who can not remember the past are condemned to repeat it. - George Santayana"*
+
+One of the most important tools are the ones that help you making code version control, since if you change to a version that broken everything, you can turn it back and even debug which version caused it.
+
+Usually we use **Git** for versioning our code, it keeps in track every code line change made by everyone that is contributing to some code repository.
+
+### Debugging
+
+*"It is a painful thing to look at your own trouble and know that you yourself and no one else has made it. - Sophocles"*
+
+On our day-to-day work, we will always encounter bugs during the programming process, so embrace the fact that debugging is just problem solving, and attack it as such.
+
+Beware of myopia when debugging. Resist the urge to fix just the symptoms you see: it is more likely that the actual fault may be several steps removed from what you are observing, and may involve a number of other related things. Always try to discover the root cause of a problem, not just this particular appearance of it.
+
+Sometimes by forcing yourself to isolate the circumstances that display the bug, you will even gain an insight on how to fix it. The act of writing the test informs the solution.
+
+Sometimes you need to watch the state of a program or a data structure over time. You can do that by simply logging variables after executions.
+
+A very simple but particularly useful technique for finding the cause of a problem is simply to explain it to someone else.
+
+If you "changed only one thing" and the system stopped working, that one thing was likely to be responsible, directly or indirectly, no matter how farfetched it seems.
+
+When you come across a surprise bug, beyond merely fixing it, you need to determine why this failure was not caught earlier. Consider whether you need to amend the unit or other tests so that they would have caught it.
+
+A debugging checklist:
+- Is the problem being reported a direct result of the underlying bug, or merely s symptom?
+- Is the bug really in the framework you are using? Is it in the OS? Or is it in your code?
+- If you explained this problem in detail to a coworker, what would you say?
+- If the suspect code passes its unit tests, are the tests complete enough? What happens if you run the tests with this data?
+- Do the conditions that caused this bug exist anywhere else in the system? Are there other bugs still in the larval stage, just waiting to hatch?
+
+> It does not really matter whether the bug is your fault or someone else's. It is still your problem.
+>
+> You may need to interview the user who reported the bug in order to gather more data than you were initially given.
+>
+> You must brutally test both boundary conditions and realistic end-user usage patterns. You need to do this systematically.
+>
+> Read the error message. Most of the time just reading when the exception happened will give you a beautiful insight about what need to be done.
+>
+> Don't assume what caused the bug but prove it.
+
+### Engineering Daybooks
+
+Usually on our day-to-day work we will be in touch with insights, talks and a lot of important information that can be forgot. Being minded about that, it is a good practice to write down theses ideas in other to get back to then later.
+
+The main benefits of a daybook is:
+- It is more reliable than memory.
+- It gives you a place to store ideas that are not immediately relevant to the task at hand.
+- It acts as a kind of rubber duck. When you stop to write something down, your brain may switch gears, almost as if talking to someone. You may start to make a note and then suddenly realize that what you had just done, the topic of the note, is just plain wrong.
+- Every now and then you can look back at what you were doing sometime ago.
+
+## Pragmatic Paranoia
+
+### You can not write perfect software
+
+Perfect software does not exist. No one in the brief history of computing has ever written a piece of perfect software.
+
+Pragmatic programmers try to drive defensively. We look out for trouble before it happens, anticipate the unexpected, and never put ourselves into a position from which we can not extricate ourselves.
+
+Pragmatic programmers take a step further when writing software. We don't trust ourselves, either. Knowing that no one writes perfect code, including ourselves, we build in defenses against our own mistakes.
+
+### Design by Contract
+
+*"Nothing astonishes men so much as common sense and plain dealing. - Ralph Waldo Emerson"*
+
+Dealing with computer systems is hard. Dealing with people is even harder. One of the best solutions for ensuring plain dealing is the contract.
+
+A contract defines your rights and responsibilities, as well as those of the other party.
+
+Designing by contract is a simple yet powerful technique that focuses on documenting (and agreeing to) the rights and responsibilities of software modules to ensure program correctness. A correct program is the one that does no more and no less than it claims to do. Documenting and verifying that claim is the heart of **Design by Contract**.
+
+Every function and method in a software system does something. Before it starts that something, the function or method may have some expectation about the state of the world:
+
+- **Preconditions:** What must be true in order for the routine to be called; the routine requirements. A routine should never get called when its preconditions would be violated. It is the caller's responsibility to pass good data.
+
+- **Postconditions:** What the routine is guaranteed to do; the state of the world when the routine is done. The fact that the routine has a postcondition implies that it will conclude: infinite loops are not allowed.
+
+- **Class invariants:** A class ensures that this conditions is always true from the perspective of a caller. During internal processing of a routine, the invariant may not hold, but by the time the routine exists and control returns to the caller, the invariant must be true.
+
+The contract between a routine and any potential caller can thus be read as if all the routine's preconditions are met by the caller, the routine shall guarantee that all postconditions and invariants will be true when it completes.
