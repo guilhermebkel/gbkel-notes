@@ -269,8 +269,6 @@ The main benefits of a daybook is:
 
 ## Pragmatic Paranoia
 
-### You can not write perfect software
-
 Perfect software does not exist. No one in the brief history of computing has ever written a piece of perfect software.
 
 Pragmatic programmers try to drive defensively. We look out for trouble before it happens, anticipate the unexpected, and never put ourselves into a position from which we can not extricate ourselves.
@@ -295,4 +293,111 @@ Every function and method in a software system does something. Before it starts 
 
 - **Class invariants:** A class ensures that this conditions is always true from the perspective of a caller. During internal processing of a routine, the invariant may not hold, but by the time the routine exists and control returns to the caller, the invariant must be true.
 
+- **Semantic invariants:** In case there is a requirement that qualifies, it needs to become a well-known part of whatever documentation that are being produced to the software. *Ex: Error in favor of the consumer*.
+
 The contract between a routine and any potential caller can thus be read as if all the routine's preconditions are met by the caller, the routine shall guarantee that all postconditions and invariants will be true when it completes.
+
+### Dead programs tell no lies
+
+All errors give us information. Pragmatic programmers believe that if there is an error, something very, very bad has happened.
+
+One way of detecting problems earlier is by crashing the application when an error happens instead of handling it.
+
+When your code discovers that something that was supposed to be impossible just happened, your program is no longer viable. Anything it does from this point forward becomes suspect, so terminate it as soon as possible. A dead program normally does a lot less damage than a crippled one.
+
+### Assertive Programming
+
+*"There is a luxury in self-reproach. When we blame ourselves we feet no one else has a right to blame us. - Oscar Wilde"*
+
+There is a mantra that every programmer must memorize early in his or her career that comes from the idea of *"This can never happen..."*.
+
+Examples:
+- "This application will never be used abroad, so why internationalize it?"
+- "Count can not be negative"
+- "Logging can not fail"
+
+We need to avoid this kind of self-deception when coding. Whenever you find yourself thinking "but or course that could never happen", add code to check it. The easiest way to do this is with assertions.
+
+### How to Balance Resources
+
+*"To light a candle is to cast a shadow... - Ursula K. Le Guin"*
+
+We all manage resources whenever whe code: memory, transactions, threads, network connections, files, timers, etc. Most of the time, resource usage follows a predictable pattern: you allocate the resource, use it, and the deallocate it.
+
+Some tips for routines that need more than one resource at a time:
+
+- Deallocate resources in the opposite order to that in which you allocate them. That way you won't orphan resources if one resource contains references to another.
+
+- When deallocating the same set of resources in different places in your code, always allocate them in the same order. This will reduce the possibility of deadlock.
+
+> The function or object that allocates a resource should be responsible for deallocating it.
+
+### Don't Outrun Your Headlights
+
+*"It's tought to make predictions, especially about the future. - Lawrence "Yogi" Berra"*.
+
+In software development, we can't see too far ahead into the future, and the further off-axis you look, the darker it gets. Being minded about that, *pragmatic programmers take small steps - always*.
+
+Some feedback examples:
+
+- Result in a REPL provide feedback on your understanding of APIs and algorithms.
+
+- Unit tests provide feedback on your last code change.
+
+- User demo and conversation provide feedback on features and usability.
+
+> Always take small, deliberate steps, checking for feedback and adjusting before proceeding. Consider that the rate of feedback is your speed limit. You never take on a tep or a task that's too big.
+>
+> Instead of wasting effort designing for an uncertain future, you can always fall back on designing your code to be replaceable. Make it easy to throw out your code and replace it with something better suited. Making code replaceable will also help with cohesion, coupling, decoupling, and DRY, leading to a better design overall.
+
+## Bend, or Break
+
+Life doesn't stand still. Neither can the code that we write. In order to keep up with today's near-frantic pace of change, we need to make every effort to write code that's *as loose - as flexible - as possible*. Otherwise we may find our code quickly becoming outdated, or too brittle to fix, and may ultimately be left behind in the mad dash toward the future.
+
+A good way to stay flexible is to write less code. Changing code leaves you open to the possibility of introducing new bugs.
+
+### Decoupling
+
+*"When we try to pick out anything by itself, we find it hitched yo everything else in the Universe. - John Muir"*.
+
+Coupling is the enemy of change, because it links together things that must change in parallel. This makes change more difficult: either you spend time tracking down all the parts that need changing, or you spend time wondering why things broke when you changed "just one thing" and not the other things to which it was coupled.
+
+When you're designing bridges, you want them to hold their shape; you need them to be rigid. But when you're designing software that you'll want to change, you want exactly the opposite: you want it to be flexible. And to be flexible, individual components should be coupled to as few other components as possible.
+
+Some symptoms of coupling:
+
+- Wacky dependencies between unrelated modules or libraries.
+
+- "Simple" changes to one module that propagate through unrelated modules in the system or break stuff elsewhere in the system.
+
+- Developers who are afraid to change code because they are not sure what might be affected.
+
+- Meetings where everyone has to attend because no one is sure who will be affected by a change.
+
+Some tips to avoid coupling:
+
+- "Tell, Don't ask". This principle says that you should not make decisions based on the internal state of an object and then update that object.
+
+- "The law of Demeter". A method defined in a class should only call: Other instance methods; its parameters; methods in objects that it creates, both on the stack and in the heap; global variables.
+
+- "Don't Chain Method Calls". Only use chaining with things that are expected not to change most of the time.
+
+- "Avoid global variables". Each piece of global data acts as if every method in your application suddenly gained an additional parameter: after all, that global data is available inside every method.
+
+### Juggling the Real World
+
+*"Things don't just happen; they are made to happen. - John F. Kennedy"*.
+
+Today we expect that computers have to integrate into our world, not the other way around. And our world is messy: things are constantly happening, stuff gets moved around, we change our minds, ... And the applications we write somehow have to work out what to do.
+
+**Events**
+
+An event represents the availability of information. It might come from the outside world: a user clicking a button, or a stock quote update. It might be internal: the result of a calculation is ready, a search finishes. It can even be something as trivial as fetching the next element in a list. Whatever the source, if we write applications that respond to events, and adjust what they do based on those events, those applications will work better in the real world. Their users will find them to be more interactive, and the applications themselves will make better use of resources.
+
+There are some strategies that help achieving the event idea:
+
+- **Finite State Machines:** A state machine is basically just a specification of a set of states, one of which is the current state. For each state, we list the events that are significant to that state. For each of those events, we define the new current state of the system.
+
+- **The Observer Pattern:** In the observer pattern we have a source of events, called the observable and a list of clients, the observers, who are interested in those events.
+
+- **Publish/Subscribe:** ...
