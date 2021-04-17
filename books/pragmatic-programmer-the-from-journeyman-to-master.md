@@ -400,4 +400,68 @@ There are some strategies that help achieving the event idea:
 
 - **The Observer Pattern:** In the observer pattern we have a source of events, called the observable and a list of clients, the observers, who are interested in those events.
 
-- **Publish/Subscribe:** ...
+- **Publish/Subscribe:** In the pubsub model, we have publishers and subscribers. These are connected via channels. The channels are implemented in a separate body of code: sometimes a library, sometimes a process, and sometimes a distributed infrastructure.
+
+- **Reactive Programming, Streams, and Events:** Streams let us treat events as if they were a collection of data. It's as if we had a list of events, which got longe when new events arrive. We can treat streams just like any other collection: we can manipulate, combine, filter, an do all the other data-ish things we know so well.
+
+### Transforming Programming
+
+*"If you can't describe what you are doing as a process, you don't know what you're doing - W. Edwards Deming"*
+
+We need to get back to thinking of programs as being something that transforms inputs into outputs.
+
+Sometimes the easiest way to find the transformations is to start with the requirement and determine its inputs and outputs. Now you've defined the function representing the overall program. You can then find steps that lead you from input to output.
+
+### Inheritance Tax
+
+*"You wanted a banana but what you got was a gorilla holding the banana and the entire jungle. - Joe Armstrong"*
+
+Avoid using inheritance in Oriented-Object Programming in case you fit in the following use cases:
+
+1. You don't like typing and want to save your fingers by using inheritance to add common functionality from a base class into child classes.
+
+The bad side of using inheritance is that you are coupling the code and if you don't have a good reason to do that, you will have unexpected issues in the future. If you don't need inheritance for a good reason, try to use Interfaces and Protocols instead.
+
+### Configuration
+
+*"Let all your things have their places; let each part of your business have its time. - Benjamin Franklin"*
+
+When code relies on values that may change after the application has gone live, keep those values external to the app.
+
+Below you can see a list of common things that you will probably want to put in configuration data:
+
+- Credentials for external services (data-base, third party APIs, and so on).
+- Logging levels and destinations.
+- Port, IP address, machine, and cluster names the app uses.
+- Environment-specific validation parameters.
+- Externally set parameters, such as tax rates.
+- Site-specific formatting details.
+- License keys.
+
+Configurations can be in static data (a JSON that you write the configuration) or even in dynamic ones (the data you consume from database or event from environment variables).
+
+## Concurrency
+
+**Concurrency** is when the execution of two or more pieces of code act as if they run at the same time. **Parallelism** is when they do run at the same time.
+
+**Concurrency** is a software mechanism, and **Parallelism** is a hardware concern.
+
+### Concurrency
+
+To have concurrency, you need to run code in an environment that can switch execution between different parts of your code when it is running. This is often implemented using things such as fibers, threads, and processes.
+
+When we're designing for concurrency, we're hoping to find activities that take time, but not time in our code. Querying a database, accessing an external service, waiting for user input: all these things would normally stall our program until they complete.
+
+### Parallelism
+
+To have parallelism, you need hardware that can do two things at once. This might be multiple cores in a CPU, multiple CPUs in a computer, or multiple computers connected together.
+
+When we're designing for parallelism, the ideal things to split are pieces of work that are relatively independent - where each can be proceed without waiting for anything from the others. A common pattern is to take a large piece of work, split it into independent chunks, process each in parallel, then combine the results.
+
+> Try to avoid state sharing in the cases you are dealing with concurrency since you can change an expected variable and so to have unexpected issues.
+>
+> In case you need to access the same resource (per example in a e-commerce when two customers are buying the same thing but there is only one of it available), try to use the approach of semaphore (stop the transactions on a resource after it started being processed by someone).
+
+## While You Are Coding
+
+...
