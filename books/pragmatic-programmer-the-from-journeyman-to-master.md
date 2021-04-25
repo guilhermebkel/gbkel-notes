@@ -464,4 +464,167 @@ When we're designing for parallelism, the ideal things to split are pieces of wo
 
 ## While You Are Coding
 
+Conventional wisdom says that once a project is in the coding phase, the work is mostly mechanical, transcribing the design into executable statements. We think that this attitude is the single biggest reason that software projects fail, and many systems end up ugly, inefficient, poorly structured, unmaintainable, or just plain wrong.
+
+Coding is not mechanical. There are decisions to be made every minute - decisions that require careful thought and judgment if the resulting program is to enjoy a long, accurate, and productive life.
+
+Not all decisions are even conscious (sometimes we need to listen to our instincts while ensuring we are not carrying everything out on autopilot).
+
+Testing is not about finding bugs, it's about getting feedback on your code: aspects of design, the API, coupling, and so on. That means that the major benefits of testing happen when you think about and write the tests, not just when you run them.
+
+It's critical that you write code that is readable and easy to reason about. It's a harsh world out there, filled with bad actors who are actively trying to break into your system and cause harm.
+
+Finally, one of the hardest things in software development is naming things. You need to stay aware of any semantic drift while you are coding.
+
+### Listen to Your Lizard Brain
+
+*"Only human beings can look directly at something, have all the information they need to make an accurate prediction, perhaps even momentarily make the accurate prediction, and then say that it isn't so. - Gavin de Becker"*
+
+Instincts are simply a response to patterns packed into our nonconscious brain. Some are innate, others are learned through repetition. As you gain experience as a programmer, your brain is laying down layers of tacit knowledge: things that work, things that don't work, the probable causes of a type of error, all the things you notice throughout your days.
+
+Whatever their source, instincts share one thing: they have no works. Instincts make you feel, not think.
+
+**A tip for dealing with your instincts:**
+
+First, stop what you're doing. Give yourself a little time and space to let your brain organize itself. Stop thinking about the code, and do something that is fairly mindless for a while, away from a keyboard. Take a walk, have lunch, chat with someone. Maybe sleep on it. Ley the ideas percolate up through the layers of your brain on their own: you can't force it.
+
+If that's not working, try externalizing the issue. Make doodles about the code you're writing, or explain it to a coworker (preferably one who isn't a programmer), or to your rubber duck. Expose different parts of your brain to the issue, and see if any of them have a better handle on the thing that's troubling you. We've lost track of the number of conversations we've had where one of us was explaining a problem to the other and suddenly went "Oh! Of course!" and broke off to fix it.
+
+> Try to understand when you feel an instinct and try to get into that in order to understand why do you felt that.
+>
+> Sometimes, your code is trying to tell you something. It's saying that this is harder than it should be. Maybe the structure or design is wrong, maybe you're solving the wrong problem, or maybe you're just creating an ant farm's worth of bugs. Whatever the reason, your lizard brain is sensing feedback from the code, and it's desperately trying to get you to listen.
+
+### Programming by Coincidence
+
+As developers, we also work in minefields. There are hundreds of traps waiting to catch us each day. We should be wary of drawing false conclusions. We should avoid programming by coincidence - relying on luck and accidental successes - in favor of programming deliberately.
+
+**Some tips to program deliberately:**
+
+- Always be aware of what you are doing.
+
+- Can you explain the code, in detail, to a more junior programmer? If not, perhaps you are relying on coincidences.
+
+- Don't code in the dark. Build an applications you don't fully grasp, or use a technology you don't understand, and you'll likely be bitten by coincidences. If you're not sure why it works, you won't know why it fails.
+
+- Proceed from a plan, whether that plan is in your head, on the back of a cocktail napkin, or on a whiteboard.
+
+- Rely only on reliable things. Don't depend on assumptions. If you can't tell if something is reliable, assume the worst.
+
+- Document your assumptions.
+
+- Don't just test your code, but test your assumptions as well. Don't guess; actually try it. Write an assertion to test your assumptions.
+
+- Prioritize your effort. Spend time on the important aspects; more than likely, these are the hard parts. If you don't have fundamentals or infrastructure correct, brilliant bells and whistles will be irrelevant.
+
+- Don't be a slave to history. Don't let existing code dictate future code. All code can be replaced if it is no longer appropriate.
+
+> Don't assume it, prove it.
+
+### Algorithm Speed
+
+Most of the time we will need to deal with algorithm optimization and one of the ways of doing that is to recognize its speed.
+
+For example, suppose you've got a routine that takes one second to process 100 records. How long will it take to process 1000?
+
+- **O(1):** Still take 1 second.
+- **O(lg n):** It will take about 3 seconds.
+- **O(n):** A linear increase to 10 seconds.
+- **O(n lg n):** Will take some 33 seconds.
+- **O(n²):** It will take 100 seconds.
+- **O(2^n):** It should finish in about 10^263 years.
+
+**Some common Big O detections through code:**
+
+- **Simple loops:** O(n) - n is the maximum repetitions.
+
+- **Nested loops:** O(m * n) - n and m are the maximum repetitions of the loops.
+
+- **Binary chop:** O(lg n)
+
+- **Divide and conquer:** O(n lg n)
+
+### Refactoring
+
+*"Change and decay in all around I see - H. F. Lyte"*
+
+As a program evolves, it will become necessary to rethink earlier decisions and rework portions of the code. This process is perfectly natural. Code needs to evolve; it's not a static thing.
+
+Refactoring is defined by Martin Fowler as a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior.
+
+**The critical parts of this definitions are that:**
+
+1. The activity is disciplined, not a free-for-all.
+
+2. External behavior does not change, this is not the time to add features.
+
+You refactor when you've learned something; when you understand something better than you did last year, yesterday, or even just ten minutes ago.
+
+Perhaps you've come across a stumbling block because the code doesn't quite fit anymore, or you notice two things that should really be merged, or anything else at all striker you as being "wrong", don't hesitate to change it. There's no time like the present. Any number of things may cause code to qualify for refactoring:
+
+- Duplications.
+
+- Nonorthogonal design.
+
+- Outdated knowledge.
+
+- Usage.
+
+- Performance.
+
+- The Tests pass.
+
+**How to refactor without doing more harm than good:**
+
+- Don't try to refactor and add functionality at the same time.
+
+- Make sure you have good tests before you begin refactoring. Run the tests as often as possible. That way tou will know quickly if your changes have broken anything.
+
+- Take short, deliberate steps: mode a field from one class to another, split a method, rename a variable. Refactoring often involves making many localized changes that result in a larger scale change. If you keep your steps small, and test after each step, you will avoid prolonged debugging.
+
+### Test to Code
+
+We believe that the major benefits of testing happen when you think about and write tests, not when you run them.
+
+One of the ways to test, is by using TDD - Test-Driven Development, that has the following step-by-step:
+
+1. Decide on a small piece of functionality you want to add.
+
+2. Write a test that will pass once that functionality is implemented.
+
+3. Run all tests. Verify that the only failure is the one you just wrote.
+
+4. Write the smallest amount of code needed to get the test to pass, and verify that the tests now run cleanly.
+
+5. Refactor your code: see if there is a way to improve on what you just wrote (the test of the function). Make sure the tests still pass when you're done.
+
+A software unit test is code that exercises a module. Typically, the unit test will establish some kind of artificial environment, then invoke routines in the module being tested. It the  checks the results that are returned, either against known values or against the results from previous runs of the same test.
+
+### Stay Safe Out There
+
+*"Good fences make food neighbors - Robert Frost"*
+
+Pragmatic Programmers have a healthy amount of paranoia. We know we have faults and limitations, and that external attackers will seize on any opening we leave to compromise our systems. Being minded about that, we can take some principles to avoid security issues:
+
+- **Minimize Attack Surface Area:** Code complexity makes the attack surface larger, with more opportunities for unanticipated side effects. Never trust data from an external entity, always sanitize it before passing it on to a database, view rendering or other processing.
+
+- **Principle of Least Privilege:** Use the least amount of privilege for the shortest time you can get away with.
+
+- **Secure Defaults:** The default settings on your app, or for your users on your site, should be the most secure values.
+
+- **Encrypt Sensitive Data:** Don't leave personally identifiable information, financial data, passwords, or other credentials in plain text, whether in a database or some other external file.
+
+- **Maintain Security Updates:** Keep up security updates on date.
+
+### Naming Things
+
+*"The beginning of wisdom is to call things by their proper name. - Confucius"*
+
+Your brain treats written words as something to be respected. We need to make sure the names we use live up to this.
+
+So, when naming things, you're constantly looking for ways to clarifying what you mean, and that act of clarification will lead you to a better understanding of your code as you write it.
+
+Try to name things in a way your team understands and keep consistency while doing that (all the applications on your job need to talk in a way the developers there understand).
+
+## Before the Project
+
 ...
