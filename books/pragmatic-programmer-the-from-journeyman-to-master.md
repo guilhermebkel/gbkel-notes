@@ -627,4 +627,119 @@ Try to name things in a way your team understands and keep consistency while doi
 
 ## Before the Project
 
-...
+When dealing with projects, there are some important tips to deal with it with your team.
+
+### The Requirements Pit
+
+*"Perfection is achieved, not when there is nothing left to add but when there is nothing left to take away... - Antoine de St. Excupery"*
+
+The mistake new developers often make is to take the client's need and directly implement a solution for it. We consider that to be a mistake since a statement of need is filled out with a lot of other needs.
+
+> Try to describe all business rules and all possibles behaviors when dealing with a solution modelling. That way you will be able to get all the possible problems and make the software better.
+>
+> Become a client of that context, so try to use the software and understand how it works. It will give you an extra understanding of the possible solution.
+>
+> Try to document requirements, that way you will be able to organize all the ideas and to understand the pending tasks.
+>
+> Avoid making too specific requirements, make more abstracts requirements instead.
+>
+> Maintain a project glossary, that way all the team will be able to talk in the same project language.
+
+### Solving Impossible Puzzles
+
+Every now and again, you will find yourself embroiled in the middle of a project when a really tough puzzle comes up: some piece of engineering that you just can't get a handle on, or perhaps some bit of code that is turning out to be much harder to write than you thought.
+
+The key to solving puzzles is both to recognize the constraints placed on you and to recognize the degrees of freedom you do have, for in those you'll find your solution. This is why some puzzles are so effective; you may dismiss potential solutions too readily.
+
+> When faced with an intractable problem, enumerate all the possible avenues you have before you. Don't dismiss anything, no matter how unusable or stupid it sounds. Now go through the list and explain why a certain path cannot be taken.
+>
+> After being stuck a lot of time in a problem, this is an ideal time to do something else for a while. Work on something different. Go walk the dog. Sleep on it.
+
+### Working Together
+
+*"I've never met a human being who would want to read 17.000 pages of documentation, and if there was, I'd kill him to get him out of the gene pool. - Joseph Costello"*
+
+When we talk about 'working together' we mean not just asking questions, having discussions, and taking notes, but asking questions and having discussions while you're actually coding.
+
+**Kind of group programming:**
+
+- **Pair Programming:** In pair programming, one developer operates the keyboard, and the other does not. Both work on the problem together, and can switch typing duties as needed.
+
+- **Mob Programming:** It's an extension of pair programming that involves more than just two developers. Mobs can easily include people not usually considered part of the development team, including users, project sponsors, and testers.
+
+**Some tips about getting started with group programming:**
+
+- Build the code, not your ego. It's not about who's brightest; we all have our moments, good and bad.
+
+- Start small. Mob with only 4-5 people, or start with just a few pairs, in short sessions.
+
+- Criticize the code, not the person. "Let's look at this block" sounds much better than "you're wrong".
+
+- Listen and try to understand others' viewpoints. Different isn't wrong.
+
+- Conduct frequent retrospectives to try and improve for the next time.
+
+### The Essence of Agility
+
+*"You keep using that word, I do no think it means what you think it means. - Inigo Montoya"*
+
+Agile is an adjective: it's how you do something. You can be an agile developer. You can be on a team that adopts agile practices, a team that responds to change and setbacks with agility. Agility is your style, not you.
+
+**Some consideration about the Agile Manifest:**
+
+- **Individuals and interactions** over processes and tools.
+
+- **Working software** over comprehensive documentation.
+
+- **Customer collaboration** over contract negotiation.
+
+- **Responding to change** over following a plan.
+
+**A common recipe to be agile:**
+
+1. Work out where you are.
+
+2. Make the smallest meaningful step towards where you want to be.
+
+3. Evaluate where you end up, and fix anything you broke.
+
+## Pragmatic Projects
+
+As your project gets under way, we need to move away from issues of individual philosophy and coding to talk about larger, project-sized issues. We aren't going to go into specifics of project management, but we will talk about a handful of critical areas that can make or break any project.
+
+### Pragmatic Teams
+
+There are advantages to being a pragmatic individual, but these advantages are multiplied manyfold if the individual is working on a pragmatic team.
+
+**Some important points to the team to get the idea:**
+
+- **No broken windows:** Quality is a team issue. Teams as a whole should not tolerate broken windows - those small imperfections that no one fixes. The team must take responsibility for the quality of the product, supporting developers who understand the no broken windows philosophy.
+
+- **Boiled frogs:** Encourage everyone to actively monitor the environment for changes. Stay awake and aware for increased scope, decreased time scales, additional features, new environments - anything that wasn't in the original understanding. Keep metrics on new requirements. The team needn't reject changes out of hand - you simply need to be aware that they're happening. Otherwise, it'll be you in the hot water.
+
+- **Schedule Your Knowledge Portfolio:** If your team is serious about improvement and innovation, you need to schedule it. Some examples: **Old Systems Maintenance, Process Reflection and Refinement, New tech experiments, Learning and skill improvements**.
+
+- **Communicate Team Presence:** The team as an entity needs to communicate clearly with the rest of the world. Great project teams have a distinct personality.
+
+- **Don't Repeat Yourselves:** There are some difficulties of eliminating duplicated work between members of a team. Good communications is key to avoiding theses problems. You should be able to ask a question of team members and get a more-or-less instant reply.
+
+- **Team Tracer Bullets:** A project has to accomplish many different tasks in different areas of the project, touching a lot of different technologies. Understanding requirements, designing architecture, coding for frontend and server, testing, all have to happen. That way, we recommend developing individuals features, however small and limited initially, that go end-to-end through the entire system (what means that all the needs above are done by the same developer).
+
+- **Automation:** A great way to ensure both consistency and accuracy is to automate everything the team does. **Ex: IDE text format, CI/CD, Automated Tests**.
+
+### Delight Your Users
+
+*"When you enchant people, your goal is not to make money from them or to get them to do what you want, but to fill them with great delight. - Guy Kawasaki"*
+
+Our goal as developers is to delight users. That's thy we're here. Not to mine them for their data, or count their eyeballs or empty their wallets.
+
+Your users are not particularly motivated by code. Instead, they have a business problem that needs solving within the context of their objectives and budget. Their belief is that by working with your team they'll be able to do this.
+
+### Pride and Prejudice
+
+*"You have delighted us long enough. - Jane Austen"*
+
+Pragmatic programmers don't shirk from responsibility. Instead, we rejoice in accepting challenges and in making our expertise well known. If we are responsible for a design, or a piece of code, we do a job we can be proud of.
+
+You shouldn't jealously defend your code against other developers; by the same token, you should treat other people's code with respect.
+
