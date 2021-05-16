@@ -2,7 +2,7 @@
 
 ## Summary
 
-This book gives some tips about how/when to refactor software and the anything that revolves around it.
+This book gives some tips about how/when to refactor software and anything that revolves around it.
 
 ## Introduction
 
