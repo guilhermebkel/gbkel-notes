@@ -12,6 +12,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## 📓 Books
 
+- [Refactoring: Improving the Design of Existing Code](./books/refactoring-improving-the-design-of-existing-code.md)
+
 - [Pragmatic Programmer, The: From Journeyman to Master](./books/pragmatic-programmer-the-from-journeyman-to-master.md)
 
 - [Sistemas Digitais - Projetos de Otimização e HDLs](./books/sistemas-digitais-projetos-de-otimizacao-e-hdls.md)
