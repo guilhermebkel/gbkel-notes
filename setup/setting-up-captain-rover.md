@@ -1,6 +1,6 @@
 # Setting up Captain Rover
 
-1. Create a instance on a cloud service.
+1. Create an instance on a cloud service.
 
 2. Enable access to the following ports to that instance (on AWS you do that on the security groups): **80,443,3000,996,7946,4789,2377**.
 
