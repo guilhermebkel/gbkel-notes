@@ -30,3 +30,6 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Mindset: The new psychology of success](./books/mindset-the-new-psychology-of-success.md)
 
+## ⚙️ Setup
+
+- [Setting up Captain Rover](./setup/setting-up-captain-rover.md)
