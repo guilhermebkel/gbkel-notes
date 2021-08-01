@@ -100,4 +100,82 @@ There are a few names which are meaningful in and of themselves - most are not. 
 
 Shorter names are generally better than longer ones, so long as they are clear. Add no more context to a name than is necessary *(Per example: it is a bad idea to in an application called Gas Station Deluxe to prefix every class with GSD)*.
 
-<!--- Loc (Current: 845, End: 8278) --->
+## Functions
+
+### Small!
+
+The first rule of functions is that they should be small. The second rule of functions is that they should be smaller than that.
+
+### Blocks and Indenting
+
+The indent level of a function should not be greater than one or two. This, of course, makes the functions easier to read and understand.
+
+### Do One Thing
+
+Functions should do one thing. They should do it well. They should do it only. A way to know that a function is doing more than "one thing" is if you can extract another function from it with a name that is not merely a restatement of its implementation.
+
+### One Level of Abstraction per Function
+
+In order to make sure your functions are doing "one thing", we need to make sure that the statements within our function are all at the same level of abstraction. Mixing levels of abstraction within a function is always confusing.
+
+We want the code to read like a top-down narrative. We want every function to be followed by those at the next level of abstraction so that we can read the program, descending one level of abstraction at a time as we read down the list of functions.
+
+To say this differently, we want to be able to read the program as though it were a set of TO paragraphs, each of which is describing the current level of abstraction and referencing subsequent TO paragraphs at the next level down.
+
+### Switch Statements
+
+Unfortunately we can't always avoid switch statements, but we can make sure that each switch statement is buried in a low-level class and is never repeated. We usually do this with polymorphism.
+
+### Use Descriptive Names
+
+Don't be afraid to make a name long. A long descriptive name is better than a short enigmatic name. Choosing descriptive names will clarify the design of the module in your mind and help you to improve it.
+
+### Function Arguments
+
+The ideal number of arguments for a function is zero. Next comes one, followed closely by two. Three arguments should be avoided where possible *(Per example: call consolidateUser(user) instead of consolidateUser(id, name, email))*.
+
+Arguments are hard, they take a lot of conceptual power *(Per example: includeSetupPage() is easier to understand than includeSetupPageInto(newPageContent))*.
+
+### Flag Arguments
+
+Flag arguments are ugly. Passing a boolean into a function is a truly terrible practice. It immediately complicates the signature of the method, loudly proclaiming that this function does more than one thing. It does one thing if the flag is true and another if the flag is false.
+
+### Dyadic Functions
+
+A function with two arguments is harder to understand than a monadic function *(Per example: writeField(name) is easier to understand than writeField(outputStream, name))*.
+
+Dyads aren't evil. and you will certainly have to write them. However, you should be aware that they come at a cost and should take advantage of what mechanims may be available to you to convert them into monads.
+
+### Triads
+
+Functions that take three arguments are significantly harder to understand than dyads. The issues of ordering, pausing, and ignoring are more than doubled. Think very carefully before creating a triad.
+
+### Argument Objects
+
+When a function seems to need more than two or three arguments, it is likely that some of those arguments ought to be wrapped into a class of their own. Reducing the number of arguments by creating objects out of them may seem like cheating, but it's not. When groups of variables are passed together, the way x and y are in the example above, they are likely part of a concept that deserves a name of its own.
+
+### Verbs and Keywords
+
+Choosing good names for a function can go a long way toward explaining the intent of the function and the order and intent of the arguments. In the case of a monad, the function and argument should form a very nice verb/noun pair.
+
+### Have No Side Effects
+
+Side effects are lies. Your function promises to do one thing, but it also does other hidden things. Sometimes it will make unexpected changes to the variables of its own class. Sometimes it will make them to the parameters passed into the function or to system globals. In either case they are devious and damaging mistruths that often result in strange temporal coupling and other dependencies.
+
+### Output Arguments
+
+Arguments are most naturally interpreted as inputs to a function *(Per example: appendFooter(s) append s as the footer to something or does it append footer to s?)*.
+
+### Command Query Separation
+
+Functions should either do something or answer something, but not both. Either your function should change the state of an object, or it should return some information about that object. Doing both often leads to confusion.
+
+### Prefer Exceptions to Returning Error Codes
+
+Returning error codes from command functions is a subtle violation of command query separation. It promotes command being used as expressions in the predicates of if statements. What basically means that for every new method you create, you have to treat its error as well, since if you forget to do it, it will cause some bugs to the system.
+
+### Don't Repeat Yourself
+
+Code duplication may be the root of all evil in software. Many principles and practices have been created for the purpose of controlling or eliminating it.
+
+<!--- Loc (Current: 1514, End: 8278) --->
