@@ -288,4 +288,78 @@ In general we want function call dependencies to point in the downward direction
 
 Every programmer has his own favorite formatting rules, but if he works in a team, then the team rules. A team of developers should agree upon a single formatting style, ant then every member of that team should use that style.
 
-<!--- Loc (Current: 2176, End: 8800) --->
+## Objects and Data Structures
+
+### Data Abstraction
+
+Hiding data implementation is not just a matter of putting a layer of functions between the variables. Hiding implementation is about abstractions. A class exposes abstract interfaces that allow its users to manipulate the essence of the data, without having to know its implementation.
+
+We do not want to expose the details of our data. Rather we want to express our data in abstract terms.
+
+### Data/Object Anti-Symmetry
+
+Objects hide their data behind abstractions and expose functions that operate on that data. Data structure expose their data and have no meaningful functions.
+
+Procedural code (code using data structures) makes it easy to add new functions without changing the existing data structures, OO code, on the other hand, makes it easy to add new classes without changing existing functions. Also, procedural code makes it hard to add new data structures because all the functions must change. OO code makes it hard to add new functions because all the classes must change.
+
+### The Law of Demeter
+
+A module should not know about the innards of the objects it manipulates. This means that an object should not expose its internal structure through accessors because to do so is to expose, rather than to hide, its internal structure.
+
+### Data Transfer Objects
+
+DTOs are very useful structures, especially when communicating with databases or parsing messages from sockets, and so on. They often become the first in a series of translation stages that convert raw data in a database into objects in the application code.
+
+### Active Record
+
+Active Records are a special form of DTOs. They are data structures with public variables, but they typically have navigational methods like save and find. Typically theses Active Records are direct translations from database tables, or other data sources.
+
+## Error Handling
+
+Error handling is important, but if it obscures logic, it's wrong.
+
+### Use Exceptions Rather Than Return Codes
+
+The problem in return codes is that the caller must check for errors immediately after the call. Unfortunately, it's easy to forget. For this reason it is better to throw an exception when you encounter an error.
+
+### Write Your Try-Catch-Finally Statement First
+
+One of the most interesting things about exceptions is that they define a scope within your program. In a way, try blocks are like transactions. Your catch has to leave your program in a consistent state, no matter what happens in the try. For this reason it is good practice to start with a try-catch-finally statement when you are writing code that could throw exceptions.
+
+### Provide Context with Exceptions
+
+Each exception that you throw should provide enough context to determine the source and location of an error. Create informative error messages and pass them along with your exceptions. Mention the operation that failed and the type of failure. If you are logging in your application, pass along enough information to be able to log the error in your catch.
+
+### Don't Return Null
+
+Any discussion about error handling should include mention of the things we do that invite errors. The first on the list is returning null. When we return null, we are essentially creating work for ourselves and foisting problems upon our callers. All it takes is one missing null check to send and application spinning out of control.
+
+### Don't Pass Null
+
+Returning null from methods is bad, but passing null into methods is worse. Unless you are working with an API which expects you to pass null, you should avoid passing null in your code whenever possible.
+
+## Boundaries
+
+We seldom control all the software in our systems. Sometimes we buy third-party packages or use open source. Other times we depend on teams in our own company to produce components or subsystems for us. Somehow we must cleanly integrate this foreign code with our own.
+
+### Using Third-Party Code
+
+There is a natural tension between the provider of an interface and the user of an interface. Providers of third-party packages and frameworks strive for broad applicability so they can work in many environments and appeal to a wide audience. Users, on the other hand, want an interface that is focused on their particular needs. This tension can cause problems at the boundaries of our systems.
+
+### Exploring and Learning Boundaries
+
+Third-party code helps us get more functionality delivered in less time. Learning the third-party code is hard. Integrating the third-party code is hard too. Doing both at the same time is doubly hard. Instead of experimenting and trying out the new stuff in our production code, we could write some tests to explore our understanding of the third-party code.
+
+### Using Code That Does Not Yet Exist
+
+There is another kind of boundary, one that separates the known from the unknown. There are often places in the code where our knowledge seems to drop off the edge. Sometimes what is on the other side of the boundary is unknowable. Sometimes we choose to look no farther than the boundary.
+
+### Clean Boundaries
+
+Interesting things happen at boundaries. Change is one of those things. Good software designs accommodate change without huge investments and rework. When we use code that is out of our control, special care must be taken to protect our investment and make sure future change is not oo costly.
+
+Code at the boundaries needs clear separation and tests that define expectations. We should avoid letting too much of our code know about the third-party particulars. It's better to depend on something you control than on something you don't control, lest it end up controlling you.
+
+We manage third-party boundaries by having very few places in the code that refer to them. We may wrap them with an Adapter to convert from our perfect interface to the provided interface. Either way our code speaks to us better, promotes internally consistent usage across the boundary, and has fewer maintenance points when the third-party code changes.
+
+<!--- Loc (Current: 2630, End: 9235) --->
