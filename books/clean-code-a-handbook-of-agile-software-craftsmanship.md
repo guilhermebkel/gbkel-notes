@@ -362,4 +362,92 @@ Code at the boundaries needs clear separation and tests that define expectations
 
 We manage third-party boundaries by having very few places in the code that refer to them. We may wrap them with an Adapter to convert from our perfect interface to the provided interface. Either way our code speaks to us better, promotes internally consistent usage across the boundary, and has fewer maintenance points when the third-party code changes.
 
-<!--- Loc (Current: 2630, End: 9235) --->
+## Unit Tests
+
+### The Three Laws of TDD
+
+**1º** You may not write production code until you have written a failing unit test.
+
+**2º** You may not write more unit test than is sufficient to fail, and not compiling is failing.
+
+**3º** You may not write more production code than is sufficient to pass the currently failing test.
+
+These three laws lock you into a cycle that is perhaps thirty seconds along. The tests and the production code are written together, with the tests just a few seconds ahead of the production code.
+
+### Keeping Tests Clean
+
+Having dirty tests is equivalent to, if not worse than, having no tests. The problem is that tests must change as the production code evolves. The dirtier the tests, the harder they are to change. The more tangled the test code, the more likely it is that you will spend more time cramming new tests into the suite than it takes to write the new production code. As you modify the production code, old tests start to fail, and the mess in the test code makes it hard to get those tests to pass again.
+
+### Tests Enable the -ilities
+
+If you don't keep your tests clean, you will lose them. And without them, you lose the very thing that keeps your production code flexible.
+
+No matter how flexible your architecture is, no matter how nicely partitioned your design, without tests you will be reluctant to make changes because of the fear that you will introduce undetected bugs. With tests that fear virtually disappears. The higher your test coverage, the less you fear.
+
+So having an automated suite of unit tests that cover the production code is the key to keeping your design and architecture as clean as possible.
+
+### Clean Tests
+
+What makes a clean test? Readability, readability and readability.
+
+Readability is perhaps even more important in unit tests than it is in production code.
+
+What makes tests readable? Clarity, simplicity and density of expression.
+
+### Single Concept per Test
+
+It is good to minimize the number of asserts in a test, perhaps, a better rule is that we want to test a single concept in each test function. We don't want long test functions that go testing one miscellaneous thing after another.
+
+### F.I.R.S.T.
+
+Clean tests follow five other rules that form the above acronym:
+
+**Fast** Tests should be fast. They should run quickly. When tests run slow, you won't want to run them frequently. If you don't run them frequently, you won't find problems early enough to fix them easily. You won't feel as free to clean up the code. Eventually the code will begin to rot.
+
+**Independent** Tests should not depend on each other. One test should not set up the conditions for the next test. You should be able to run each test independently and run the tests in any order you like. When tests depend on each other, then the first one to fail causes a cascade of downstream failures, making diagnosis difficult and hiding downstream defects.
+
+**Repeatable** Tests should be repeatable in any environment. You should be able to run the tests in the production environment, in the QA environment, and your laptop while riding home on the train without a network. If your tests aren't repeatable in any environment, then you'll always have an excuse for why they fail. You'll also find yourself unable to run the tests when the environment isn't available.
+
+**Self-Validating** The tests should have a boolean output. Either they pass or fail. You should not have to read through a log file to tell whether the tests pass. You should not have to manually compare two different text files to see whether the tests pass. If the tests aren't self-validating, then failure can become subjective and running tests can require a long manual evaluation.
+
+**Timely** The tests need to be written in a timely fashion. Unit tests should be written just before the production code that makes them pass. If you write tests after the production code, then you may find the production code to be hard to test. You may decide that some production code is too hard to test. You may bot design the production code to be testable.
+
+## Classes
+
+### Class Organization
+
+A class should begin with a list of variables. Public static constants, if any, should come first. Then private static variables, followed by private instance variables.
+
+Public functions should follow the list of variables. We like to put the private utilities called by a public function right after the public function itself.
+
+### Encapsulation
+
+We like to keep our variables and utility functions private, but we're not fanatic about it. Sometimes we need to make a variable or utility function protected so that it can be accessed by a test. For us, tests rule. If a test in the same package needs to call a function or access a variable, we'll make it protected or package scope.
+
+### Classes Should be Small!
+
+The first rule of classes is that they should be small. The second rule of classes is that they should be smaller than that.
+
+The name of a class should describe what responsibilities it fulfills. In fact, naming is probably the first way of helping determine class size. If we can not derive a concise name for a class, then it's likely too large. The more ambiguous the class name, the more likely it has too many responsibilities.
+
+### The Single Responsibility Principle
+
+The SRP states that a class or module should have one, and only one, reason to change. This principle gives us both a definition of responsibility, and a guidelines for class size. Class should have one responsibility - one reason to change.
+
+### Cohesion
+
+Classes should have a small number of instance variables. Each of the methods of a class should manipulate one or more of those variables. In general the more variables a method manipulates the more cohesive that method is to its class. A class in which each variable is used by each method is maximally cohesive.
+
+### Organizing for Change
+
+For most systems, change is continual. Every change subjects us to the risk that the remainder of the system no longer works as intended. In a clean system we organize our classes so as to reduce the risk of change.
+
+Following the OCP, classes should be open for extension but closed for modification.
+
+We want to structure our systems so that we muck with as little as possible when we update them with new or changed features. In an ideal system, we incorporate new features by extending the system, not by making modifications to existing code.
+
+### Isolating from Change
+
+Needs will change, therefore code will change. There are concrete classes, which contain implementation details and abstract classes, which represent concepts only. A client class depending upon concrete details is at risk when those details change. We can introduce interfaces and abstract classes to help isolate the impact of those details.
+
+<!--- Loc (Current: 3170, End: 9698) --->

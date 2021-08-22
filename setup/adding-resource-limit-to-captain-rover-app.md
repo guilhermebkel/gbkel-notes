@@ -2,12 +2,14 @@
 
 1. Just go into the App on the **App Configs**.
 
-2. Add the following yml config on the **Service Update Override**:
+2. Add the following script config on the **Pre-Deploy Script**:
 
-```yml
-TaskTemplate:
-  Resources:
-    Limits:
-      MemoryBytes:  300000000
-      NanoCPUs: 2000000000
+```js
+var preDeployFunction = function (captainAppObj, dockerUpdateObject) {
+    return Promise.resolve()
+        .then(function(){
+            dockerUpdateObject.TaskTemplate.Resources = {Limits: {MemoryBytes: 300000000}};
+            return dockerUpdateObject;
+        });
+};
 ```
