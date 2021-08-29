@@ -35,3 +35,5 @@ I usually take notes from everything I'm learning in order to make sure I unders
 ## ⚙️ Setup
 
 - [Setting up Captain Rover](./setup/setting-up-captain-rover.md)
+
+- [Adding Resource Limit to Captain Rover App](./setup/adding-resource-limit-to-captain-rover-app.md)
