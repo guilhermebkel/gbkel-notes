@@ -450,4 +450,296 @@ We want to structure our systems so that we muck with as little as possible when
 
 Needs will change, therefore code will change. There are concrete classes, which contain implementation details and abstract classes, which represent concepts only. A client class depending upon concrete details is at risk when those details change. We can introduce interfaces and abstract classes to help isolate the impact of those details.
 
-<!--- Loc (Current: 3170, End: 9698) --->
+## Systems
+
+Software systems should separate the startup process, when the application objects are constructed and the dependencies are "wired" together, from the runtime logic that takes over after startup.
+
+### Separate Constructing a System from Using It
+
+The startup process is a concern that any application must address. We should modularize this process separately from the normal runtime logic and we should make sure that we have a global, consistent strategy for resolving our major dependencies.
+
+#### Separation of Main
+
+One way to separate construction from use is simply to move all aspects of constructions to main, or modules called by main, and to design the rest of the system assuming that all objects have been constructed and wired up appropriately.
+
+The flow control is easy to follow. The main function build the objects necessary for the system, then passes them to the application, which simply uses them.
+
+Notice the direction of the dependency arrows crossing the barrier between main and the application. They all go one direction, pointing away from main. This means that the application has no knowledge of the main or of the construction process. It simply expects that everything has been build properly.
+
+#### Factory
+
+We can use a factory to give the application control of when to build a object, but keep the details of that construction separate from the application code.
+
+#### Dependency Injection
+
+A powerful mechanism for separating construction from use is Dependency Injection, the application of Inversion Control to dependency management.
+
+Inversion of Control moves secondary responsibilities from an object to other objects that are dedicated to the purpose, thereby supporting the Single Responsibility Principle. In the context of dependency management, an object should not take responsibility for instantiating dependencies itself. Instead, it should pass this responsibility to another "authoritative" mechanism, thereby inverting the control. Because setup is a global concern, this authoritative mechanism will usually be either the "main" routine or a special-purpose container.
+
+### Scaling Up
+
+It is a myth that we can get systems "right at the first time". Instead, we should implement only today's stories, then refactor and expand the system to implement new stories tomorrow. This is the essence of iterative and incremental agility. Test-driven development, refactoring, and the clean code they produce make this work at the code level.
+
+Software systems are unique compared to physical systems. Their architecture can grow incrementally, if we maintain the proper separation of concerns.
+
+An optimal system architecture consists of modularized domains of concern, each of which is implemented with Plain Old Objects. The different domains are integrated together with minimally invasive Aspects or Aspect-like tools. This architecture can be test-driven, just like the code.
+
+### Optimize Decision Making
+
+Modularity and separation of concerns make decentralized management and decision making possible. In a sufficiently large system, whether it is a city of a software project, no one person can make all the decisions.
+
+We all know it is best to give responsibilities to the most qualified persons. We often forget that it is also best to postpone decisions until the last possible moment. This isn't lazy or irresponsible; it lets us make informed choices with the best possible information.
+
+A premature decision is a decision made with suboptimal knowledge. We will have that much less customer feedback, mental reflection on the project, and experience with our implementation choices if we decide too soon.
+
+The agility provided by POO system with modularized concerns allows us to make optimal, just-in-time decisions, based on the most recent knowledge. The complexity of these decisions is also reduced.
+
+### Use Standards Wisely, When They Add Demonstrable Value
+
+Building construction is a marvel to watch because of the pace at which new buildings are built and because of the extraordinary designs that are possible with today's technology. Construction is a mature industry with highly optimized parts, methods, and standard that have evolved under pressure for centuries.
+
+Standards make it easier to reuse ideas and components, recruit people with relevant experience, encapsulate good ideas, and wire components together. However, the process of creating standards can sometimes take too long for industry to wait, and some standards lose touch with the real needs of the adopters they are intended to serve.
+
+### System Need Domain-Specific Languages
+
+Building construction, like most domain, has developed a rich language with a vocabulary, idioms, and patterns that convey essential information clearly and concisely.
+
+A good DSL minimizes the "communication gap" between a domain concept and the code that implements it, just as agile practices optimize the communication within a team and with the project's stakeholders. If you are implementing domain logic in the same language that a domain expert uses, there is less risk that you will incorrectly translate the domain into the implementation.
+
+DSLs, when used effectively, raise the abstraction level above code idioms and design patterns. They allow the developer to reveal the intent of the code at appropriate level of abstraction.
+
+Domain-Specific-Languages allow all levels of abstraction and all domains in the application to be expressed as POOs (Plain Old Objects), from high-level policy to low-level details.
+
+## Emergence
+
+### Getting Clean via Emergent Design
+
+According to Kent, a design is "simple" if it follows these rules (the rules are given in order of importance):
+
+#### Runs all the tests
+A system that is comprehensively tested and passes all of its tests all of the time is a testable system. Systems that aren't testable aren't verifiable. Arguably, a system that cannot be verified should never be deployed. Tight coupling makes it difficult to write tests.
+
+So, similarly, the more tests we write, the more we use principles like DIP and tools like dependency injection, interfaces, and abstraction to minimize coupling. Our designs improves even more.
+
+Once we have tests, we are empowered to keep our code and classes clean. We do this by incrementally refactoring the code. The fact that we have tests eliminates the fear that cleaning up the code will break it.
+
+During this refactoring step, we can apply anything from the entire body of knowledge about good software design. We can increase cohesion, decrease coupling, separate concerns, modularize system concerns, shrink our functions and classes, choose better names, and so on.
+
+This is also where we apply the final three rules of simple design: Eliminate duplication, ensure expressiveness, and minimize the number of classes and methods.
+
+#### Contains no duplication
+
+Duplication is the primary enemy of a well-designed system. It represents additional work, additional risk, and additional unnecessary complexity. Duplication manifests itself in many forms. Lines of code that look exactly alike are, of course, duplication.
+
+#### Expresses the intent of the programmer
+
+Most of us have had the experience of working on convoluted code. Many of us have produced some convoluted code ourselves.
+
+It's easy to write code that we understand, because at the time we write it we're deep in an understanding of the problem we're trying to solve. Other maintainers of the code aren't going to have so deep an understanding.
+
+The majority of the cost of a software project is in long-term maintenance. In order to minimize the potential for defects as we introduce change, it's critical for us to ble able to understand what a system does.
+
+As systems become more complex, they take more and more time for a developer to understand, and there is an ever greater opportunity for a misunderstanding. Therefore, code should clearly express the intent of its author. The clearer the author can make the code, the less time others will have to spend understanding it. This will reduce defects and shrink the cost of maintenance.
+
+You can express yourself by choosing good names. We want to be able to hear a class or function name and not be surprised when we discover its responsibilities.
+
+You can also express yourself by keeping your functions and classes small. Small classes and functions are usually easy to name, easy to write, and easy to understand.
+
+You can also express yourself by using standard nomenclature. Design patterns, for example, are largely about communication and expressiveness.
+
+But the most important way to be expressive is to try. All too often we get our code working and then move on to the next problem without giving sufficient thought to making that code easy for the next person to read. Remember, the most likely next person to read the code will be you.
+
+So take a little pride in your workmanship. Spend a little time with each of your functions and classes. Choose better names, split large functions into smaller functions, and generally just take care of what you've created. Care is a precious resource.
+
+#### Minimizes the number of classes and methods
+
+In an effort to make our classes and methods small, we might create too many tiny classes and methods. So this rule suggests that we also keep our function and class counts low.
+
+Remember that this rule is the lowest priority of the four rules of Simple Design. So, although it's important to keep class and function count low, it's more important to have tests, eliminate duplication, and express yourself.
+
+## Concurrency
+
+Writing clean concurrent programs is hard - very hard. It is much easier to write code that executes in a single thread. It is also easy to write multithreaded code that looks fine on the surface but is broken at a deeper level. Such code works fine until the system is placed under stress.
+
+### Why Concurrency?
+
+Concurrency is a decoupling strategy. It helps us decouple what gets done from when it gets done. In single-threaded applications what and when are so strongly coupled that the state of the entire application can often be determined by looking at the stack backtrace.
+
+Decoupling what from when can dramatically improve both the throughtput and structures of an application. From a structural point of view the application looks like many little collaborating computers rather than one big main loop. This can make the system easier to understand and offers some powerful ways to separate concerns.
+
+#### Myths and Misconceptions
+
+Consider these common myths and misconceptions:
+
+- **Concurrency always improves performance:** Concurrency can sometimes improve performance, but only when there is a lot of wait time that can be shared between multiple threads or multiple processors. Neither situation is trivial.
+
+- **Design does not change when writing concurrent programs:** In fact, the design of a concurrent algorithm can be remarkably different from the design of a single-threaded system. The decoupling of what from when usually has a huge effect on the structure or the system.
+
+- **Understanding concurrency issues is not important when working with a container such as a Web or EJB container:** In fact, you'd better know just what your container is doing and how to guard against the issues of concurrent update and deadlock described later in this chapter.
+
+Here are a few more balanced sound bites regarding writing concurrent software:
+
+- **Concurrency incurs some overhead, both in performance as well as writing additional code**
+
+- **Correct concurrency is complex, even for simple programs**
+
+- **Concurrency bugs aren't usually repeatable, so they are often ignored as one-offs instead of the true defects they are**
+
+- **Concurrency often requires a fundamental change in design strategy**
+
+### Concurrency Defense Principles
+
+What follows is a series of principles and techniques for defending your systems from the problems of concurrent code.
+
+#### Single Responsibility Principle
+
+The SRP states that a given method/class/component should have a single reason to change. Concurrency design in it's own right and therefore deserves to be separated from the rest of the code. Unfortunately, it is all too common for concurrency implementation details to be embedded directly into other production code. Here are a few things to consider:
+
+- **Concurrency-related code has its own life cycle of development**, change, and tuning
+
+- **Concurrency-related code has its own challenges**, which are different from and often more difficult than nonconcurreny-related code
+
+- The number of ways in which miswritten concurrency-based code can fails makes it challenging enough without the added burden of surrounding application code
+
+**Recommendation:** Keep your concurrency-related code separate from other code.
+
+#### Corollary: Limit the Scope of Data
+
+As we saw, two threads modifying the same field of a shared object can interfere with each other, causing unexpected behavior. One solution is to use the synchronized keyword to protect a critical section in the code that uses the shared object.
+
+The more places shared data can get updated, the more likely:
+
+- You will forget to protect one or more of those places - effectively breaking all code that modifies that shared data.
+
+- There will be duplication of effort required to make sure everything is effectively guarded.
+
+- It will be difficult to determine the source of failures, which are already hard enough to find.
+
+**Recommendation:** Take data encapsulation to heart; severely limit the access of any data that may be shared.
+
+#### Corollary: Use Copies of Data
+
+A good way to avoid shared data is to avoid sharing the data in the first place. In some situations it is possible to copy objects and treat them as read-only. In other cases, it might be possible to copy objects, collect results from multiple threads in these copies and then merge the results in a single thread.
+
+If there is an easy way to avoid sharing objects, the resulting code will be far less likely to cause problems. You might be concerned about the cost of all the extra object creation. It is worth experimenting to find out if this is in fact a problem. However, if using copies of objects allows the code to avoid synchronizing, the savings in avoiding the intrinsic lock will likely make up for the additional creation and garbage collection overhead.
+
+#### Corollary: Threads Should Be as Independent as Possible
+
+Consider writing your threaded code such that each thread exists in its own world, sharing no data with any other thread. Each thread processes one client request, with all of its required data coming from an unshared source and stored as local variables. This makes each of those threads behave as if it were the only thread in the world and there were no synchronization requirements.
+
+**Recommendation:** Attempt to partition data into independent subsets than can be operated on by independent threads, possibly in different processors.
+
+#### Know Your Execution Models
+
+There are several different ways to partition behavior in a concurrent application. To discuss them we need to understand some basic definitions:
+
+- **Bound Resources:** Resources of a fixed size or number used in a concurrent environment. Examples include database and fixed-size read/write buffers.
+
+- **Mutual Exclusion:** Only one thread can access shared data or a shared resource at a time.
+
+- **Starvation:** One thread or a group of threads is prohibited from proceeding for an excessively long time or forever. For example, always letting fast-running threads through first could starve out longer running threads if there is no end to the fast-running threads.
+
+- **Deadlock:** Two or more threads waiting for each other to finish. Each thread has a resource that the other thread requires and neither can finish until it gets the other resource.
+
+- **Livelock:** Threads in lockstep, each trying to do work but finding another "in the way". DUe to resonance, threads continue trying to make progress but are unable to for an excessively long time - or forever.
+
+#### Producer-Consumer
+
+One or more producer threads create some work and place it in a buffer of queue. One or more consumer threads acquire that work from the queue and complete it. The queue between the producers and consumers is a bound resource. This means producers must wait for free space in the queue before writing and consumers must wait until there is something the queue to consume.
+
+Coordination between the producers and consumers via the queue involves producers and consumers signaling each other. The producers write to the queue and signal that the queue is no longer empty. Consumers read from the queue and signal that the queue is no longer full. Both potentially wait to be notified when the can continue.
+
+#### Readers-Writers
+
+When you have a shared resource that primarily serves as source of information for readers, but which is occasionally updated by writers, throughput is an issue.
+
+Emphasizing throughput can cause starvation and the accumulation of stale information. Allowing updated can impact throughput. Coordinating readers so they do not read something a writer is updating and vice versa is a tough balancing act. Writers tend to block many readers for a long period of time, thus causing throughput issues.
+
+The challenge is to balance the needs of both readers and writers to satisfy correct operation, provide reasonable throughput and avoiding starvation. A simple strategy makes writers wait until there are no readers before allowing the writer to perform an update. If there are continuous readers, however, the writers will be starved. On the other hand, if there are frequent writers and they are given priority, throughput will suffer. Finding that balance and voiding concurrent update issues is what the problem addresses.
+
+**Recommendation:** Learn these basic algorithms and understand their solutions.
+
+#### Beware Dependencies Between Synchronized Methods
+
+Dependencies between synchronized methods cause subtle bugs in concurrent code. If there is more than one synchronized method on the same shared class, then your system may be written incorrectly.
+
+**Recommendation:** Avoid using more than one method on a shared object.
+
+There will be times when you must use more than one method on a shared object. When this is the case, there are three ways to make the code correct:
+
+- **Client-Based Locking:** Have the client lock the server before calling the first method and make sure the lock's extent includes code calling the last method.
+
+- **Server-Based Locking:** Within the server create a method that locks the server, calls all the methods, and then unlocks. Have the client call the new method.
+
+- **Adapted Server:** create an intermediary that performs the locking. This is an example of server-based locking, where the original server cannot be changed.
+
+#### Keep Synchronized Sections Small
+
+The synchronized keyword introduces a lock. All sections of code guarded by the same lock are guaranteed to have only one thread executing through them at any given time. Locks are expensive because they create delays and add overhead. So we don't want to litter our code with synchronized statements. On the other hand, critical sections must be guarded. So we want to design our code with as few critical sections as possible.
+
+**Recommendation:** keep your synchronized sections as small as possible.
+
+#### Writing Correct Shut-Down Code Is Hard
+
+Writing systems that is meant to stay live and run forever is different from writing something that works for awhile and then shuts down gracefully.
+
+Graceful shutdown can be hard to get correct. Common problems involve deadlock, with threads waiting for a signal to continue that never comes.
+
+If you must write concurrent code that involves shutting down gracefully, expect to spend much of your time getting the shutdown to happen correctly.
+
+**Recommendation:** Think about shut-down early and get it working early. It's going to take longer than you expect. Review existing algorithms because this is probably harder than you think.
+
+#### Testing Threaded Code
+
+Providing that code is correct is impractical. Testing does not guarantee correctness. However, good testing can minimize risk. This is all tru in a single-threaded solution. As soon as there are two or more threads using the same code and working with shared data, things get substantially more complex.
+
+**Recommendation:** Write tests that have the potential to expose problems and then run them frequently, with different programatic configurations and system configurations and load. If tests ever fail, track down the failure. Don't ignore a failure just because the test pass on a subsequent run.
+
+That is a whole lot to take into consideration. Here are a few more fine-grained recommendations:
+
+- Treat spurious failures as candidate threading issues
+- Get your nonthreaded code working first
+- Make your threaded code pluggable
+- Make your threaded code tunable
+- Run with more threads than processors
+- Run on different platforms
+- Instrument your code to try and force failures
+
+#### Treat Spurious Failures as Candidate Threading Issues
+
+Threaded code causes things to fail that "simply cannot fail". Most developers do not have an intuitive feel for how threading interacts with other code. Bugs in threaded code might exhibit their symptoms once in a thousand, or a million, executions.
+
+Attempts to repeat the systems can be frustratingly. This often leads developers to write off the failure as a cosmic ray, a hardware glitch, or some other king of "one-off". It is best to assume that one-offs do not exist. The longer these "one-offs" are ignored, the more code is built on top of a potentially faulty approach.
+
+**Recommendation:** Do not ignore system failures as one-offs.
+
+#### Get Your Nonthreaded Code Working First
+
+This may seem obvious, but it doesn't hurt to reinforce it. Make sure code works outside of its use in threads. Generally, this means creating POOs that are called by your threads. The POOs are not thread aware, and can therefore be tested outside of the threaded environment. The more of your system you can place in such POOs the better.
+
+**Recommendation:** Do not try to chase down nonthreading bugs and threading bugs at the same time. Make sure your code works outside of threads.
+
+#### Make Your Threaded Code Pluggable
+
+Write the concurrency-supporting code such that it can be run in several configurations:
+
+- One thread, several threads, varied as it executes
+- Threaded code interacts with something that can be both real or a test double
+- Execute with test doubles that run quickly, slowly, variable
+- Configure tests so they can run for a number of interactions
+
+**Recommendation:** Make your thread-based code especially pluggable so that you can run it in various configurations.
+
+#### Make Your Threaded Code Tunable
+
+Getting the right balance of threads typically requires trial an error. Early on, find ways to time the performance of your system under different configurations. Allow the number of threads to be easily tuned. Consider allowing it to change while the system is running. Consider allowing self-tunning based on throughput and system utilization.
+
+#### Run with More Threads Than Processors
+
+Things happen when the system switches between tasks. To encourage task swapping, run with more threads than processors or cores. The more frequently your tasks swap, the more likely you'll encounter code that is missing a critical section or causes deadlock.
+
+#### Run on Different Platforms
+
+Different operating systems have different threading policies, each of which impacts the code's execution.
+
+**Recommendation:** Run your threaded code on all target platforms early and often.

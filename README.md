@@ -12,6 +12,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## 📓 Books
 
+- [Clean Coder: A Code of Conduct for Professional Programmers](./books/clean-coder-a-code-of-conduct-for-professional-programmers.md)
+
 - [Clean Code: A Handbook of Agile Software Craftsmanship](./books/clean-code-a-handbook-of-agile-software-craftsmanship.md)
 
 - [Refactoring: Improving the Design of Existing Code](./books/refactoring-improving-the-design-of-existing-code.md)
