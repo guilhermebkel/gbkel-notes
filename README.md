@@ -32,8 +32,11 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Mindset: The new psychology of success](./books/mindset-the-new-psychology-of-success.md)
 
-## ⚙️ Setup
+## ⚙️ Tutorials
 
-- [Setting up Captain Rover](./setup/setting-up-captain-rover.md)
+- [Setting up Captain Rover](./tutorials/setting-up-captain-rover.md)
 
-- [Adding Resource Limit to Captain Rover App](./setup/adding-resource-limit-to-captain-rover-app.md)
+- [Adding Resource Limit to Captain Rover App](./tutorials/adding-resource-limit-to-captain-rover-app.md)
+
+
+- [Squashing a commit](./tutorials/squashing-a-commit.md)
