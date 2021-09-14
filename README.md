@@ -43,4 +43,3 @@ I usually take notes from everything I'm learning in order to make sure I unders
 ## 🏫 Courses
 
 - [Fin Docs](./courses/fin-docs.md)
-- [Adding Resource Limit to Captain Rover App](./tutorials/adding-resource-limit-to-captain-rover-app.md)
