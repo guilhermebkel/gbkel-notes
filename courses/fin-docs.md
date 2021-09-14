@@ -6,16 +6,20 @@ A inflação é regida pelo índice do IPCA (Índice Nacional de Preços ao Cons
 
 O ideal é sempre buscar investimentos que estejam com rendimento acima da inflação, visto que dessa forma você consegue aumentar o seu poder de compra ao longo do tempo.
 
+O aumento de inflação tende a aumentar a taxa de juros (SELIC por exemplo) e isso torna a renda fixa mais rentável.
+
+A queda da inflação tende a diminuir a taxa de juros (SELIC por exemplo) e isso torna a renda fixa menos rentável.
+
 ## Renda Fixa
 
 Renda fixa é basicamente uma relação entre credor e devedor (por ex, emprestar dinheiro para o governo).
 
 ### Tipos
-- **Prefixado:** tem uma taxa de juros predefinida. É
+- **Prefixado:** Tem uma taxa de juros predefinida. É
 possível saber o valor a ser resgatado no ato da
 compra do ativo.
 
-- **Pós-Fixado:** acompanha um determinado indicador
+- **Pós-Fixado:** Acompanha um determinado indicador
 do mercado, como CDI, IPCA ou SELIC. Não é possível
 saber o valor exato a ser resgatado, uma vez que o
 principal será remunerado de acordo com uma
@@ -23,40 +27,59 @@ dessas taxas
 
 ### Riscos
 
-- **Risco de liquidez:** se refere à velocidade com que
+- **Risco de liquidez:** Se refere à velocidade com que
 um ativo pode ser transformado em dinheiro.
 
-- **Risco de crédito:** considera a possibilidade de calote
+- **Risco de crédito:** Considera a possibilidade de calote
 por parte do emissor do produto.
 
-- **Risco de mercado:** trata a variação do preço de um
+- **Risco de mercado:** Trata a variação do preço de um
 ativo decorrente de mudanças estruturais e seus
 impactos na rentabilidade.
 
 ### Produtos
 
-- **CDB:** título bancário. Seu dinheiro será emprestado
+- **CDB:** Título bancário. Seu dinheiro será emprestado
 para o banco em troca de uma taxa de juros.
 
-- **LCI:** letra de crédito imobiliário. Produto que
+- **LCI:** Letra de crédito imobiliário. Produto que
 direciona os recursos ao mercado imobiliário. São
-isentas de imposto de renda.
+isentas de imposto de renda. Tem menor liquidez.
 
-- **LCA:** letra de crédito agrícola. Deriva da LCI e
+- **LCA:** Letra de crédito agrícola. Deriva da LCI e
 direciona recursos para o mercado agrícola. Também
 são isentas de imposto de renda.
 
-- **Tesouro Direto:** programa de venda de títulos do
+- **Tesouro Direto:** Programa de venda de títulos do
 Governo Federal. Nele, você empresta dinheiro para
 o Governo financiar a dívida pública.
 
-- **Tesouro SELIC:** título que acompanha a variação da
+- **Tesouro SELIC:** Título que acompanha a variação da
 taxa SELIC. É pós-fixado.
 
-- **Tesouro Prefixado:** tem taxa predeterminada. Para
+- **Tesouro Prefixado:** Tem taxa predeterminada. Para
 receber o valor acordado, o título deve ser carregado
 até o vencimento.
 
-- **Tesouro IPCA:** acompanha o índice de inflação e paga
+- **Tesouro IPCA:** Acompanha o índice de inflação e paga
 uma taxa prefixada. Também deve ser carregado até
 o vencimento.
+
+### Garantias
+
+Em alguns títulos de Renda Fixa, temos direito ao FGC (Fundo Garantidor de Crédito) que garante até R$250.000,00 do investimento caso ocorra algum problema com esse título.
+
+**Títulos com FGC:** CDB, LCI, LCA.
+
+### Imposto de Renda
+
+Geralmente tem o desconto de Imposto de Renda em cima dos lucros da renda fixa. A porcentagem descontada é:
+
+- 22,5% caso você resgatar dentro de 180 dias.
+- 20% caso você resgatar dentro de 360 dias.
+- 17,5% caso você resgatar dentro de 720 dias.
+- 15% caso você resgatar após 720 dias.
+
+Sendo assim, como a taxa de imposto de renda vai diminuindo conforme você mantém o título na sua carteira, o ideal é sempre fazer vendas pensando no longo prazo para ter o melhor retorno possível.
+
+**Títulos com Imposto de Renda:** CDB, Tesouro Direto, Tesouro SELIC, Tesouro Prefixado, Tesouro IPCA.
