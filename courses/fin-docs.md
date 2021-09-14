@@ -1,5 +1,11 @@
 # Fin Docs
 
+## Inflação
+
+A inflação é regida pelo índice do IPCA (Índice Nacional de Preços ao Consumidor Amplo) que é calculado pelo IBGE com base no valor de produtos comuns aos consumidores do país.
+
+O ideal é sempre buscar investimentos que estejam com rendimento acima da inflação, visto que dessa forma você consegue aumentar o seu poder de compra ao longo do tempo.
+
 ## Renda Fixa
 
 Renda fixa é basicamente uma relação entre credor e devedor (por ex, emprestar dinheiro para o governo).
