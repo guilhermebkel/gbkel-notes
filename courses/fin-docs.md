@@ -83,3 +83,23 @@ Geralmente tem o desconto de Imposto de Renda em cima dos lucros da renda fixa. 
 Sendo assim, como a taxa de imposto de renda vai diminuindo conforme você mantém o título na sua carteira, o ideal é sempre fazer vendas pensando no longo prazo para ter o melhor retorno possível.
 
 **Títulos com Imposto de Renda:** CDB, Tesouro Direto, Tesouro SELIC, Tesouro Prefixado, Tesouro IPCA.
+
+## Ações
+
+Geralmente as empresas emitem ações - papéis que fornecem participação/sociedade dentro do negócio - com o intuito de financiar seu funcionamento.
+
+O dinheiro comprado em ações só vai diretamente para o caixa da empresa durante seu IPO ou novas emissões (mercado primário), depois disso, ocorre apenas a negociação de ações entre pessoas (mercado secundário).
+
+### Termos
+
+- **Tag Along:** Protege a participação do investidor em casos de troca de gerência/controle
+
+- **Free Float:** Protege o investidor contra manipulação de preço. É uma porcentagem que indica a diluição da quantidade de ações entre os sócios (quanto maior, melhor, visto que não existirá uma concentração em alguém que possa manipular o preço).
+
+### Tipos
+
+- **Ações Ordinárias:** Possuem sufixo 3. Dão direito a voto dentro da empresa. São as mesmas ações do sócio controlador/majoritário. Fornecem Tag Along e Free Float.
+
+- **Ações Preferenciais:** Possuem sufixo 4, 5, 6. Tem preferência na distribuição de dividendos.
+
+- **UNITs:** Possuem sufixo 11. Pacote de ações que combina ações ordinárias e preferenciais.
