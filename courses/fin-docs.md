@@ -103,3 +103,44 @@ O dinheiro comprado em ações só vai diretamente para o caixa da empresa duran
 - **Ações Preferenciais:** Possuem sufixo 4, 5, 6. Tem preferência na distribuição de dividendos.
 
 - **UNITs:** Possuem sufixo 11. Pacote de ações que combina ações ordinárias e preferenciais.
+
+## Carteira de Investimentos
+
+É uma boa prática ter uma coleção de ativos que façam sentindo em conjunto, sejam pouco correlacionados (categorias diferentes) e que sejam diversificados tanto por classes quanto por ativos.
+
+### Caixa
+
+É sempre importante ter uma parte da sua carteira em caixa para: 
+
+- Permitir uma realocação de ativos aos poucos em novas classes com base no conhecimento que você adquire.
+- Aproveitar oportunidades que apareçam ao longo do tempo.
+- Proteger a carteira como um todo.
+- Controlar a volatilidade da carteira.
+
+Para fazer o caixa, sempre procuramos a classe de ativos mais segura e com melhor liquidez (por exemplo ativos indexados à taxa SELIC).
+
+### Setores
+
+Geralmente é uma boa prática diversificar os ativos da carteira em setores diferentes.
+
+#### Ações
+
+Alguns setores de ações considerados perenes/seguros:
+
+- Bebidas
+- Banco
+- Energia
+- Alimentação
+- Seguros
+- Saúde
+- Varejo
+- Máquinas e Equipamentos
+
+#### Fundos Imobiliários
+
+Alguns setores de fundos imobiliários:
+
+- Logística
+- Lajes Corporativas
+- Shoppings
+- Papéis
