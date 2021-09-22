@@ -131,9 +131,8 @@ A economia é naturalmente cíclica. Há momentos de expansão econômica intens
 
 Geralmente a forma de estudo mais comum de economia gira em torno da oferta e demanda:
 
-> + oferta / - demanda = preço mais baixo
->
-> - oferta / + demada = preço mais baixo
+- (+) oferta / (-) demanda = preço mais baixo
+- (-) oferta / (+) demada = preço mais baixo
 
 #### Elasticidade
 
