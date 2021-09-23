@@ -179,3 +179,19 @@ O mercado de ações acompanha as tendências econômicas correntes. Quando o ot
 #### Bearish Market (Ciclo de baixa)
 
 Quando o desespero impera e as empresas começam a encolher tanto em porte quanto em resultado, o mercado começa a precificar a recessão. As famílias perdem renda, a inflação é arriscada e os juros base sobem. Nesse caso, a analogia do urso representa a forma de ataque para baixo. Mercado em queda.
+
+## Análise Fundamentalista
+
+A visão fundamentalista parte do fato que todo negócio conta com fundamentos determinantes para seu funcionamento e saúde operacional, estratégica e financeira.
+
+Ela dissemina as técnicas necessárias para que os investidores possam avaliar negócios em todas as suas verticais, considerando o contexto econômico vigente. Dessa forma, ao final do processo, é possível classificar a viabilidade do investimento.
+
+A análise fundamentalista pode seguir um roteiro. Existem alguns marcos que condicionam o entendimento do negócio, sua operação e estado de saúde:
+
+- Geração de caixa e lucro líquido
+- Estratégia
+- Força de inovação
+- Liquidez e estrutura de capital
+- Potencial de geração de valor
+- Valuation
+- Cenário econômico
