@@ -195,3 +195,17 @@ A análise fundamentalista pode seguir um roteiro. Existem alguns marcos que con
 - Potencial de geração de valor
 - Valuation
 - Cenário econômico
+
+## Setores
+
+Geralmente podemos classificar os setores em elásticos (mais voláteis) e inelásticos (menos voláteis).
+
+Os setores elásticos podem ser interrompidos completamente durante crises (por exemplo o de aviação e turismo durante o Covid-19).
+
+Já os setores inelásticos, apesar de serem impactados pelas crises, são mais estáveis e conseguem se recuperar de forma bem mais fácil e rápida (por exemplo, não paramos de consumir energia elétrica, alimentos, bebidas e serviços bancários durante ao Covid-19).
+
+Durante a construção do nosso portfólio pessoal, a prioridade deve ser a segurança. Mesmo em um mercado de alta, não é recomendado investir em setores completamente elásticos, visto que eles sempre carregam uma change muita alta de sofrerem algum problema - sem contar que necessitam de uma expertise muito mais alta para avaliação.
+
+Após a criação de um portfólio seguro, podemos adotar uma posição de "ataque" em setores não tão elásticos, que geralmente carregam um potencial de recuperação/crescimento elevado (como o de educação e varejo).
+
+Sendo assim, é muito interessante ter um portfólio que contém ativos inelásticos para prezar pela segurança e, ao mesmo tempo, possuir um caixa com ótima liquidez para fazer ataques em setores não tão elásticos em eventos extraordinários (como o Covid-19).
