@@ -40,6 +40,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Squashing a commit](./tutorials/squashing-a-commit.md)
 
+- [Fixing git conflicts without merging](./tutorials/fixing-git-conflicts-without-merging.md)
+
 ## 🏫 Courses
 
 - [Fin Docs](./courses/fin-docs.md)
