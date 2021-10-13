@@ -209,3 +209,22 @@ Durante a construção do nosso portfólio pessoal, a prioridade deve ser a segu
 Após a criação de um portfólio seguro, podemos adotar uma posição de "ataque" em setores não tão elásticos, que geralmente carregam um potencial de recuperação/crescimento elevado (como o de educação e varejo).
 
 Sendo assim, é muito interessante ter um portfólio que contém ativos inelásticos para prezar pela segurança e, ao mesmo tempo, possuir um caixa com ótima liquidez para fazer ataques em setores não tão elásticos em eventos extraordinários (como o Covid-19).
+
+## Posicionamento antes/após crises
+
+### Análise Econômica
+
+A economia é naturalmente cíclica. Cenário de alta configuram PIB crescente, desemprego em queda e humor positivo nos mercados.
+
+Cenário de baixa configura PIB em queda, desemprego em alta e humor negativo nos mercados.
+
+A multidão também é cíclica. Ela segue as obviedades, Na alta, ela compra na euforia. Na baixa, ela vende no desespero.
+
+### Ajustes na Carteira
+
+- **Alinhamento de Risco:** você deve se certificar que os seus ativos estão dentro da sua tolerância à volatilidade. Não mantenha em renda variável uma parcela maior do que está disposto a ver oscilar de 40 a 50%. Reflita sobre isso, dedique tempo e estipule com exatidão qual parcela do seu patrimônio poderá ser destinada para ativos de longo prazo
+
+
+- **Dimensionamento de caixa:** o bull market pede alocação em caixa. 2019 foi um ano fatídico para isso. A tendência primária das pessoas é abrir mão da alocação de baixa rentabilidade para então alocar em ativos de risco. Contudo, é nos momentos de euforia que a sua reserva de liquidez deve ser armada para otimizar seus ganhos quando a maré baixar. Estipule um percentual estratégico para o seu caixa *(25% é um bom número, mas estabeleça o seu)*.
+
+- **Diversificação entre classes:** não despreze o CDI. Também não despreze os fundos imobiliários e, muito menos a alocação internacional. Ao diversificar em múltiplas classes de ativos você otimiza a sua rentabilidade e reduz o risco geral do portfólio.
