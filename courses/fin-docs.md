@@ -210,7 +210,7 @@ Após a criação de um portfólio seguro, podemos adotar uma posição de "ataq
 
 Sendo assim, é muito interessante ter um portfólio que contém ativos inelásticos para prezar pela segurança e, ao mesmo tempo, possuir um caixa com ótima liquidez para fazer ataques em setores não tão elásticos em eventos extraordinários (como o Covid-19).
 
-## Posicionamento antes/após crises
+## Posicionamento em crises
 
 ### Análise Econômica
 
@@ -222,9 +222,70 @@ A multidão também é cíclica. Ela segue as obviedades, Na alta, ela compra na
 
 ### Ajustes na Carteira
 
-- **Alinhamento de Risco:** você deve se certificar que os seus ativos estão dentro da sua tolerância à volatilidade. Não mantenha em renda variável uma parcela maior do que está disposto a ver oscilar de 40 a 50%. Reflita sobre isso, dedique tempo e estipule com exatidão qual parcela do seu patrimônio poderá ser destinada para ativos de longo prazo
+- **Alinhamento de Risco:** você deve se certificar que os seus ativos estão dentro da sua tolerância à volatilidade. Não mantenha em renda variável uma parcela maior do que está disposto a ver oscilar de 40 a 50% *(Estipule com exatidão qual parcela do seu patrimônio poderá ser destinada para ativos de longo prazo)*.
 
 
 - **Dimensionamento de caixa:** o bull market pede alocação em caixa. 2019 foi um ano fatídico para isso. A tendência primária das pessoas é abrir mão da alocação de baixa rentabilidade para então alocar em ativos de risco. Contudo, é nos momentos de euforia que a sua reserva de liquidez deve ser armada para otimizar seus ganhos quando a maré baixar. Estipule um percentual estratégico para o seu caixa *(25% é um bom número, mas estabeleça o seu)*.
 
 - **Diversificação entre classes:** não despreze o CDI. Também não despreze os fundos imobiliários e, muito menos a alocação internacional. Ao diversificar em múltiplas classes de ativos você otimiza a sua rentabilidade e reduz o risco geral do portfólio.
+
+## Análise Fundamentalista em crises
+
+### Análise Qualitativa
+
+A análise qualitativa envolve o processo de investigação da empresa. Você deve se preocupar em fazer as perguntas certas:
+
+*Como a empresa ganha dinheiro? Como é a operação? Quem controla? Quem são os concorrentes? Quais os gatilhos de inovação? E o histórico? Por que foi fundada? ...*
+
+Perguntas, perguntas e mais perguntas. É um trabalho puramente investigativo e não costuma ser rápido.
+
+A partir desse levantamento inicial, você terá condições de elaborar hipóteses, quase sempre motivadas pela curiosidade com o "...e se?".
+
+- E se as Lojas Renner se mantiverem fechadas por 5 meses?
+- E se a inadimplência do setor de energia saltar 30%?
+
+### Análise Quantitativa
+
+A análise quantitativa envolve os números, a lógica e a racionalidade para criar sustentação às observações qualitativas.
+
+Em cenários de stress, a análise quantitativa deve ser valorizada em alguns pontos específicos:
+
+#### Fluxo de Caixa
+
+O valor de um negócio está em sua capacidade de gerar caixa. Sempre. O fluxo de caixa é, literalmente, o sistema cardiovascular de uma empresa. Ele condiciona a sobrevivência.
+
+Em derrocadas econômicas, é de extrema importância avaliar a estabilidade do fluxo de caixa operacional - aquele que registra todas as entradas e saídas financeiras de ligação direta com a operação da empresa. Fluxos estáveis são mais seguros.
+
+Avalie essa estabilidade e questione quanto o fluxo de caixa da empresa em análise será impactado pela crise vigente. Evite empresas incapazes de gerar caixa. Essas correm risco de vida em tempos bons - nos ruins, a falência é praticamente certa.
+
+#### Rentabilidade
+
+A rentabilidade justifica a razão de existência de qualquer negócio. É também o principal driver de monitoramento de criação de valor, tanto operacional quanto financeiro. Empresas rentáveis criam valor para todas as partes interessadas, enquanto as deficitárias, destroem.
+
+- **Margens:** da perspectiva operacional, é preciso monitorar a flutuação das margens bruta, operacional e líquida. Empresas com margens apertadas tendem a passar por dificuldades em tempos difíceis. Sem margem, a empresa trabalha sem fôlego. A margem bruta te sinalizará o grau de competitividade em custos; a operacional sinalizará a eficiência de utilização dos recursos produtivos e a líquida aponta o capital passível de reinvestimento, reserva ou distribuição aos acionistas.
+
+Evite empresas com margens inconstantes e, principalmente, as deficitárias - aquelas que gastam muito mais do que são capazes de faturar.
+
+#### Liquidez
+
+Toda empresa tem bens e direitos (ativos) e obrigações com terceiros (passivos). A liquidez informa a força de pagamento da empresa - ou seja, sua capacidade de honrar seus compromissos.
+
+Empresas com problemas de fluxo de caixa tendem a ter problemas de liquidez. Dessa forma, se tornam altamente arriscadas em cenários de baixa intensiva, ou de recessão prolongada.
+
+No caos econômico - valorize empresas com índices saudáveis de liquidez. Essas, além de menos arriscadas, conseguem passar por tempos difíceis sem comprometer a própria saúde financeira.
+
+Existem quatro indices de liquidez:
+
+- **Corrente:** informa a liquidez dentro do prazo de um ano.
+
+- **Seca:** liquidez dentro de um ano, desconsiderando os estoques.
+
+- **Imediata:** liquidez dentro de um ano, considerando somente o saldo em caixa e as aplicações de curto prazo.
+
+- **Geral:** considera todos os ativos e passivos da empresa, ou quanto ela honraria hoje se liquidasse todos os seus ativos.
+
+### Formação de tese
+
+Por tese, entenda a obtenção de uma lógica e uma segurança intelectual capaz de te manter tranquilo independente das flutuações do mercado
+
+A sua tese será responsável por estabelecer o motivo pelo qual você se mantém em uma empresa por muitos anos. Ela atribui significado e racionalidade para os seus movimentos enquanto investidor.
