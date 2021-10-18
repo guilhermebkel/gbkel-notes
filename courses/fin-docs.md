@@ -289,3 +289,57 @@ Existem quatro indices de liquidez:
 Por tese, entenda a obtenção de uma lógica e uma segurança intelectual capaz de te manter tranquilo independente das flutuações do mercado
 
 A sua tese será responsável por estabelecer o motivo pelo qual você se mantém em uma empresa por muitos anos. Ela atribui significado e racionalidade para os seus movimentos enquanto investidor.
+
+## Governança Corporativa
+
+A governança é um sistema que reúne normas, práticas e convenções para monitoramento, direção e incentivo de todas as partes envolvidas no negócio.
+
+O IBGC (Instituto Brasileiro de Governança Corporativa), aponta quatro diferentes pilares que, juntos, formam as melhores práticas de governança corporativa. São eles:
+
+- **Transparência:** a organização deve estar disposta a disponibilizar todas as informações que sejam do interesse dos stakeholders - e não somente as impostas por lei. A transparência assegura o acesso às informações financeiras, operacionais e principais guidances da companhia. Transparência gera eficiência e sinaliza honestidade - uma vez que evita a parcialidade de informações.
+
+- **Equidade:** sugere que todos os acionistas sejam tratados de forma igualitária - sem distinções. A equidade assegura o tratamento isonômico, considerando os direitos e deveres de todas as partes interessadas ao negócio.
+
+- **Prestação de Contas:** transmitir informações concisas e em linhas com as necessidades dos acionistas. As melhores organizações informam os minoritários com o mesmo respeito que mantêm pelos majoritários. Enquanto acionista, você deve ser informado do andamento, dos objetivos e das expectativas da gestão para o cenário presente e futuro.
+
+- **Responsabilidade Corporativa:** a empresa deve zelar por todos os seus atos e decisões. Deve também trabalhar para reduzir todas as externalidades negativas e maximizar as positivas. Esse pilar assegura uma empresa consciente e responsável pelos resultados que gera na sociedade.
+
+### Análise de Governança
+
+O processo de análise, um tanto investigativo, envolve o entendimento da estrutura acionária, os mecanismos de proteção adotados (tag along), a política de comunicação ao mercado e, principalmente, a avaliação do perfil dos controladores da empresa.
+
+#### Controladores
+
+Acesse o site de relação com investidores da empresa em análise. Nele, você encontrará seções específicas com a relação dos acionistas, controladores e conselho de administração.
+
+Avalie o perfil dos controladores. Investigue seus resultados, histórico e experiência profissional. Essa etapa evita que você se associe à pessoas de caráter duvidoso, ou com histórico perigoso.
+
+#### Tag Along
+
+Para alocações de longo prazo, é primordial haver uma proteção ao pequeno acionista em caso de mudanças de controle da companhia. Esse é o papel do tag along.
+
+Se em um dado momento a companhia da qual você é acionista vender suas ações para um novo controlador, você, pequeno acionista, terá o direito de receber o mesmo valor do acionista majoritário - sempre que o tag along for de 100%.
+
+#### Free Float
+
+Mede qual o volume de ações é mantido em livre circulação no mercado, sempre em relação ao total de ações emitidas.
+
+O free float é considerado saudável quando mantido acima de 25%. Dessa forma, o acionista majoritário tem menor facilidade para fazer mudanças bruscas na estrutura acionária.
+
+Além disso, o free float saudável reduz a suscetibilidade de manipulações de preços. Evite ativos com free float abaixo de 25%.
+
+#### Segmento de Listagem
+
+A B3 mantém níveis distintos de listagem com o intuito de diferenciar e reconhecer as melhores práticas de governança entre as empresas. O mais alto, atualmente é o Novo Mercado.
+
+Idealmente, você deve alocar em empresas que estejam enquadradas no Novo Mercado, ou nos Níveis 1 e 2.
+
+As principais diferenças entre eles estão na emissão de ações: no Novo Mercado, as empresas somente podem emitir ordinárias, enquanto nos níveis 1 e 2 as preferenciais e UNIT's são aceitas. Além disso, no Novo Mercado há obrigatoriedade de concessão de 100% de tag along, enquanto nos níveis inferiores a obrigatoriedade é de 80%.
+
+É preciso avaliar cada caso individualmente. O melhor dos mundos é que a empresa esteja enquadrada no segmento mais alto: o Novo Mercado. Contudo, há empresas de idêntico nível de qualidade enquadradas nos níveis 1 ou 2. Alguns dos grandes bancos, por exemplo. Em alguns casos, é somente uma questão de tempo até que a empresa migre para o nível de listagem mais alto.
+
+#### Política de Comunicação ao Mercado
+
+Em linha com os grandes pilares de governança corporativa, as melhores empresas são eficazes quando o assunto é divulgação de informações. Você pode recebê-las por e-mail, ou acessando a seção correspondente do RI da empresa.
+
+As comunidades apresentam assuntos de relevâncias distintas que você, acionista, deve ficar ciente sempre que lançados.
