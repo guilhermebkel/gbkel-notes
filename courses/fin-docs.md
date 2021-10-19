@@ -229,8 +229,6 @@ A multidão também é cíclica. Ela segue as obviedades, Na alta, ela compra na
 
 - **Diversificação entre classes:** não despreze o CDI. Também não despreze os fundos imobiliários e, muito menos a alocação internacional. Ao diversificar em múltiplas classes de ativos você otimiza a sua rentabilidade e reduz o risco geral do portfólio.
 
-## Análise Fundamentalista em crises
-
 ### Análise Qualitativa
 
 A análise qualitativa envolve o processo de investigação da empresa. Você deve se preocupar em fazer as perguntas certas:
@@ -343,3 +341,53 @@ As principais diferenças entre eles estão na emissão de ações: no Novo Merc
 Em linha com os grandes pilares de governança corporativa, as melhores empresas são eficazes quando o assunto é divulgação de informações. Você pode recebê-las por e-mail, ou acessando a seção correspondente do RI da empresa.
 
 As comunidades apresentam assuntos de relevâncias distintas que você, acionista, deve ficar ciente sempre que lançados.
+
+## Fundos Imobiliários
+
+Ao comprar a cota de um fundo imobiliário, você automaticamente se associa a um condomínio. Nesse condomínio, há um gestor responsável por tomar as decisões com o seu capital: tanto de compra quanto de venda de ativos.
+
+O fundo imobiliário permite que você coloque imóveis em sua carteira com uma série de benefícios adicionais ao que um imóvel físico isoladamente seria capaz de prover.
+
+### Tipos de Fundos Imobiliários
+
+Os fundos se dividem, principalmente, em duas grandes categorias: de tijolos e de papéis.
+
+#### Fundos de tijolo
+
+Reúnem imóveis físicos, com lastro direto. Alguns que se enquadram são:
+
+- **Mais seguros:** Logística, lajes corporativas, shopping centers, hospitais, hotéis.
+
+- **Menos seguros:** Agências bancárias, universidades, lojas, supermercados.
+
+A maior parte deles sustenta o desenvolvimento econômico naturalmente - já que praticamente todas as estruturas de negócios contam com ativos imobiliários.
+
+#### Fundos de papéis
+
+Encarteiram títulos de dívida imobiliária, principalmente CRI's (certificados de recebíveis imobiliários) e LCI's (letras de crédito imobiliários). Ao comprar cota de um fundo de papel, você se torna credor dos compradores desses títulos - normalmente grandes companhias com bom histórico de crédito.
+
+Não existe melhor ou pior tipo de fundo. As categorias são complementares. É raríssimo uma carteira conter somente fundos de tijolos, ou somente de papéis.
+
+### Rendimentos
+
+Ao comprar a cota de um fundo imobiliário, você rentabiliza o capital por meio da valorização ao longo do tempo e também por meio do recebimento de aluguéis mensais. Fundos são obrigados a distribuir aos cotistas 95% do caixa gerado.
+
+### Tributação
+
+A tributação também é bastante simples: 20% sobre o lucro da venda das cotas. Para os aluguéis, há isenção.
+
+### Fundos Imobiliários vs Imóveis Físicos
+
+Características positivas da alocação em fundos imobiliários:
+
+- **Liquidez:** fundos imobiliários negociam grandes volumes financeiros todos os dias. Contrariamente ao imóvel físico, há a possibilidade de se movimentar rapidamente por conta de uma externalidade grave ou imprevisível.
+
+- **Controle:** a liquidez elevada coloca variáveis importantes ao seu controle. Isso melhora a precisão das estratégias de longo prazo, sem que você precise se preocupar com fatores de movimentação financeira.
+
+- **Burocracia:** cartório, corretor, imobiliária, inquilinos, prefeitura e diversas outras entidades fazem parte do dia a dia de quem investe em imóveis físicos diretamente. Por meio dos fundos imobiliários, essa burocracia deixa de exisitr. Toda a operação e a estratégia se torna mais eficiente, naturalmente.
+
+- **Diversificação:** uma cota de um fundo imobiliário corresponde a uma parte de uma carteira com múltiplos imóveis diferentes - em muitos casos, mais de 20. Para atingir uma diversificação no mesmo grau de eficiência do fundo, o investidor precisaria de algumas centenas de milhões de reais nas mãos. Com os fundos você se mantém diversificado e protegido, mesmo com pouco volume financeiro.
+
+- **Gestão e Performance:** as decisões dentro de um fundo imobiliário de qualidade são tomadas por uma equipe experiente e qualificada. Gestores desse segmento que carregam décadas de experiência decidem a compra, venda e locação dos ativos do fundo. Quem ganha é o cotista.
+
+- **Aluguéis:** enquanto nos imóveis físicos o investidor deve recolher imposto de renda sobre os aluguéis, nos fundos imobiliários esse fluxo é isento. Isso acelera a capitalização de longo prazo.
