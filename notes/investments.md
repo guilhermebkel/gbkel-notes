@@ -394,9 +394,7 @@ Características positivas da alocação em fundos imobiliários:
 
 ## Análise de Fundos Imobiliários
 
-Comece reunindo as principais plataformas fornecedoras de informações específicas. Funds Explorer e FII's são dois excelentes exemplos. Você precisará delas para obtenção de dados qualitativos e quantitativos.
-
-Acesse também o site do administrador do fundo. O que nos leva ao próximo passo.
+Comece reunindo as principais plataformas fornecedoras de informações específicas. Funds Explorer e FII's são dois excelentes exemplos. Você precisará delas para obtenção de dados qualitativos e quantitativos. Acesse também o site do administrador do fundo.
 
 ### Gestão
 
