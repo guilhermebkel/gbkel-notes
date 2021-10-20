@@ -1,4 +1,4 @@
-# Fin Docs
+# Investimentos
 
 ## Inflação
 
@@ -391,3 +391,88 @@ Características positivas da alocação em fundos imobiliários:
 - **Gestão e Performance:** as decisões dentro de um fundo imobiliário de qualidade são tomadas por uma equipe experiente e qualificada. Gestores desse segmento que carregam décadas de experiência decidem a compra, venda e locação dos ativos do fundo. Quem ganha é o cotista.
 
 - **Aluguéis:** enquanto nos imóveis físicos o investidor deve recolher imposto de renda sobre os aluguéis, nos fundos imobiliários esse fluxo é isento. Isso acelera a capitalização de longo prazo.
+
+## Análise de Fundos Imobiliários
+
+Comece reunindo as principais plataformas fornecedoras de informações específicas. Funds Explorer e FII's são dois excelentes exemplos. Você precisará delas para obtenção de dados qualitativos e quantitativos.
+
+Acesse também o site do administrador do fundo. O que nos leva ao próximo passo.
+
+### Gestão
+
+A qualidade da gestão de um fundo imobiliário fundamenta todo o restante do trabalho. Se duvidosa, o fundo será frágil, perigoso e cedo ou tarde, destruirá valor para o cotista. Por outro lado, uma gestão impecável torna o fundo um veículo de geração de valor consistente ao longo de muitos anos.
+
+Essa análise se assemelha ao que é feito na governança corporativa de ações. Analisar gestão é analisar pessoas, competências, estratégia e visão de longo prazo.
+
+Todo fundo imobiliário apresenta dados de contato de sua gestão, para que o cotista e interessados possam tirar dúvidas, enviar sugestões e fazer questionamentos formais. Tanto o e-mail, quanto telefone são públicos e podem ser acionados mediante necessidade.
+
+### Carteira
+
+A carteira de imóveis do fundo é um reflexo direto do trabalho intelectual da gestão. Tanto em termos de alocação de capital quanto de estratégia de longo prazo.
+
+Analisar a carteira demanda tempo e pesquisas minuciosas para entendimento dos imóveis, localização, arredores, padrão construtivo, etc.
+
+#### Quantidade de Imóveis
+
+O número de ativos dentro do fundo tem impacto direto na diluição de risco e na otimização da rentabilidade. Fundos diversificados são mais seguros, ao passo que os monotativos, muito mais arriscados.
+
+Fundos de logística e de shoppings bem diversificados contam com cerca de 8 a 12 imóveis. Fundos de lajes corporativas, por sua vez, de 15 a 20 imóveis, em função do maior giro de inquilinos.
+
+#### Diversificação Geográfica
+
+idealmente, o fundo precisa de exposição ao mercado de mais de um estado do país. Isso intensifica a diluição de riscose evita que problemas e imprevistos eventuais impactem a estrutura do fundo de forma significativa.
+
+#### Localização
+
+Avalie de perto a localização de cada um dos imóveis da carteira do fundo. Observe a cidade, bairro e arredores em que o imóvel foi construído. Isso te dará uma melhor percepção da estratégia do fundo.
+
+#### Qualidade e Padrão Construtivo
+
+Todos os ativos precisam estar alinhados com a demanda do mercado. Imóveis velhas têm maior risco de vacância e de retardamento da curva de valorização geral do fundo. Já os imóveis modernos e de arquitetura contextual, têm menor probabilidade de ficarem vagos e de perder tração de valorização.
+
+### Vacância
+
+A vacância é uma métrica essencial para análise de fundos imobiliários. É muito utilizada para dimensionar o risco de mercado e de perda de renda por parte do fundo. Existem dois tipos de vacância:
+
+#### Vacância Física
+
+Relaciona o número de m² desocupados em relação ao total do fundo. Se o fundo tem 100m² de área bruta locável (ABL), e 20m² desocupados (sem inquilino), a vacância física do fundo é de 20%.
+
+Fundos logísticos costumam apresentar vacância menor que os fundos de lajes corporativas e de shoppings. O primeiro tem taxa de giro de inquilinos muito menor, em função do tamanho dos imóveis.
+
+#### Vacância Financeira
+
+Relaciona quanto dinheiro deixa de entrar em relação ao potencial de receita total do fundo. Não se iguala à vacância física por conta da diferença de valor de aluguel entre os imóveis. Uma cobertura custa mais que um imóvel térreo, por exemplo. Portanto, a cobertura vaga gera maior perda de receita que o térreo vago.
+
+### Drivers de Rentabilidade
+
+Enquanto investidor e cotista de bons fundos, você deve acompanhar algumas métricas para garantir que o fundo esteja bem direcionado.
+
+Antes de mais nada, entenda que a alocação em fundos imobiliários visa o longuíssimo prazo. Isso faz com que os resultados das decisões atuais sejam visualizados somente muitos anos a frente. É um caminho longo - o que é absolutamente natural.
+
+A rentabilidade de um fundo imobiliário pode ser projetada
+principalmente através de dois indicadores:
+
+#### Cap Rate
+
+Relaciona o percentual de receitas que o imóvel é capaz de gerar em relação ao seu valor de mercado ou custo de aquisição. É um bom direcionador de potencial de geração de receita para imóveis recém adquiridos.
+
+#### Dividend Yield
+
+A construção do seu fluxo de renda se dará principalmente pelos aluguéis distribuídos pelos fundos. É um indicador importante para te dar parâmetro do tempo para alcance dos seus objetivos financeiros. O yield reflete o grau de distribuição de aluguéis, frente ao preço corrente do ativo no mercado.
+
+Fundos com yields mais baixos não devem ser excluídos da análise. Pelo contrário. Isso é bastante comum aos fundos de elevada qualidade, com perspectivas longas de crescimento. Naturalmente, o mercado precifica esses ativos com menor margem de segurança.
+
+### Informações Complementares
+
+A única forma de você se manter antenado com o que se passa com o fundo do qual você é, ou pretende ser cotista, é por meio de leitura rotineira dos documentos publicados por sua gestão.
+
+Todos esses documentos são disponibilizados nas plataformas de fundos imobiliários. Você encontrará fatos relevantes, informes mensais, avisos extraordinários, relatórios de gestão, entre outros documentos com finalidade informativa. Se você já investe no fundo, eles te manterão atualizado. Se ainda não investe, serão parâmetro para a tomada de decisão por meio do entendimento da qualidade das informações apresentadas.
+
+#### P/VP
+
+O preço sobre valor patrimonial é um importante indicador complementar, mas também bastante traiçoeiro. Sua interpretação incorreta pode levar o investidor à formação de teses incoerentes. Essa métrica relaciona o preço corrente com o valor patrimonial dos ativos.
+
+O valor contábil dos imóveis é avaliado e reportado uma vez ao ano. Contudo, os eventos econômicos alteram a dinâmica de preço dos imóveis a todo o tempo. Consequentemente, o valor patrimonial também é afetado - o que pode causar distorções nesse indicador.
+
+P/VP é um direcionador de preço justo. Nada mais que isso. Utilize-o como suporte para o restante da sua análise.

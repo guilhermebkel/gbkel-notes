@@ -42,6 +42,6 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Fixing git conflicts without merging](./tutorials/fixing-git-conflicts-without-merging.md)
 
-## 🏫 Courses
+## 🏫 Notes
 
-- [Fin Docs](./courses/fin-docs.md)
+- [Investimentos](./notes/investments.md)
