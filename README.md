@@ -44,3 +44,6 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Fixing git conflicts without merging](./tutorials/fixing-git-conflicts-without-merging.md)
 
+## 📜 Notes
+
+- [Microeconomia Básica - Intuição e Rigor](./notes/microeconomia-basica-intuicao-e-rigor.md)
