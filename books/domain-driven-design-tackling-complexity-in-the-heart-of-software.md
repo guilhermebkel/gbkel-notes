@@ -54,4 +54,70 @@ The constant refinement of the domain model forces the developers to learn the i
 
 ### Continuous Learning
 
-<!--- Current Page 15 / Last Page 40 -->
+When we set out to write sofwtare, we never know enough. Knowledge on the project is fragmented, scattered among many people and documents, and it's mixed with other information so that we don't even know which bits of knowledge we really need.
+
+Domains that seem less technically daunting can be deceiving: we don't realize how much we don't know. This ignorance leads us to make false assumptions.
+
+Meanwhile, all projects leak knowledge. People who have learned something move on. Reorganization scatters the team, and the knowledge is fragmented again.
+
+Highly productive teams grow their knowledge consciously, practicing continuous learning. For developers, this means improving technical knowledge, along with general domain-modeling skills. But it also includes serious learning about the specific domain they are working in.
+
+### Knowledge-Rich Design
+
+Business activities and rules are as central to a domain as are the entities involved; any domain will have various categories of concepts. Knowledge crunching yields models that reflect this kind of sight. In parallel with model changes, developers refactor the implementation to express the model, giving the application use of that knowledge.
+
+It is with this move beyond entities and values that knowledge crunching can get intense, because there may be actual inconsistency among business rules. Domain experts are usually not aware of how complex their mental processes are as, in the course of their work, they navigate all these rules, reconcile contradictions, and fill in gaps with common sense.
+
+A domain model and corresponding design can be used to secure and share knowledge. The more explicit design has these advantages:
+
+1. In order to bring the design to this stage, the programmers and everyone else involved will have come to understand the nature of overbooking as a distinct and important business rule, not just an obscure calculation.
+
+2. Programmers can show business experts technical artifacts, even code, that should be intelligible to domain experts (with guidance) thereby closing the feedback loop.
+
+### Deep Models
+
+Useful models seldom lie on the surface. As we come to understand the domain and the needs of the application, we usually discard superficial model elements that seemed important in the beginning, or we shift their perspective. Subtle abstractions emerge that would not have ocurred to us at the outset but that pierce to the heart of the matter.
+
+Knowledge crunching is an exploration, and you can't know where you will end up.
+
+## Communication and the Use of Language
+
+A domain model can be the core of a common language for a software project. The model is a set of concepts built up in the heads of people on the project, with terms and relationships that reflect domain insight. These terms and interrelationships provide the semantics of a language that is tailored to the domain while being precise enough for technical development. This is a crucial cord that weaves the model into development activity and binds it with the code.
+
+This model-based communication is not limited to diagrams. To make most effective use of a model, it needs to pervade every medium of communication. It increases the utility of written text documents, as well as the informal diagrams and casual conversation reemphasized in Agile process. It improves communication through the code itself and through the tests for that code.
+
+The use of language on a project is subtle but all-important.
+
+### Ubiquitous Language
+
+Domain experts have limited understanding of the technical jargon of software development, but they use the jargon of their field - probably in various flavors. Developers, on the other hand, may understand and discuss the system in descriptive, functional terms, devoid of the meaning carried by the experts language. Or developers may create abstractions that support their design but are not understood by the domain experts. Developers working on different parts of the problem work out their own design concepts and ways of scribing the domain.
+
+On a project without a common language, developers have to translate for domain experts. Domain experts translate between developers and still other domain experts. Developers even translate for each other. Translation muddles model concepts, which leads to destructive refactoring of code. The indirectness of communication conceals the formation of schisms - different team members use terms differently but don't realize it. This leads to unreliable software that doesn't fit together. The effort of translation prevents the interplay of knowledge and ideas that lead to deep model insights.
+
+A project faces serious problems when its language is fractured. Domains experts use their jargon while technical team members have their own language tuned for discussing the domain in terms of design.
+
+The terminology of day-to-day discussions is disconnected from the terminology embedded in the code. And even the same person uses different language in speech and in writing, so that the most incisive expressions of the domain often emerge in a transient form that is never captured in the code or even in writing.
+
+Translation blunts communication and makes knowledge crunching anemic. Yet none of these dialects can be a common language because none server all needs.
+
+A project needs a common language that is more robust than the lowest common denominator. With a conscious effort by the team, the domain model can provide the backbone for that common language, while connecting team communication to the software implementation. That language can be ubiquitous in the team's work.
+
+The vocabulary of that ubiquitous language includes the names of classes and prominent operations.
+
+The model-based language should be used amont developers to describe not only artifacts in the system, but tasks and functionality.
+
+By using a ubiquitous language, we are able to know if the model lacks something or not, or even if there is anything that needs to change inside it.
+
+So, being minded about it, try to:
+
+- Use the model as the backbone of a language. Commit the team to exercising that language relentlessly in all communication between within the team and in the code. Use the same language in diagrams, writing, and especially speech.
+
+- Iron out difficulties by experimenting with alternative expressions, which reflect alternative models. Then refactor the code, renaming classes, methods, and modules to conform to the ned model. Resolve confusion over terms in conversation, in just the way we come to agree on the meaning of ordinary words.
+
+- Recognize that a change in the ubiquitous language is a change to the model.
+
+- Domain experts should object to terms or structures that are awkward or inadequate to convey domain understanding; developers should watch for ambiguity or inconsistency that will trip up design.
+
+### Modeling Out Loud
+
+<!--- Current Page 30 / Last Page 71 -->
