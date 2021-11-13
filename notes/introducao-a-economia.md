@@ -1,4 +1,4 @@
-# Microeconomia Básica - Intuição e Rigor
+# Introdução à Economia
 
 ## Caracterização do Setor Produtivo
 
@@ -32,33 +32,25 @@ Cada um deles pode ter algumas subdivisões mais específicas. As que envolvem o
 
 **4. Capital financeiro:** Forma com que todo seu passivo é financiado no mercado financeiro em forma de contratos lastreados em seu fluxo de caixa ou não. Por ex: ações ou debêntures.
 
-#### Função de Produção
-...
+> #### Função de Produção
 
-#### Isoquantas
-...
+> #### Isoquantas
 
-#### Plantas Regulares
-...
+> #### Plantas Regulares
 
-#### Produto Marginal
-...
+> #### Produto Marginal
 
-#### Taxa Marginal de Substituição Técnica
-...
+> #### Taxa Marginal de Substituição Técnica
 
-#### Características das Tecnologias de Transformação
-...
+> #### Características das Tecnologias de Transformação
 
 ### Maximização de Lucro
 
 Diante disso, uma empresa consegue escolher entre suas alocações de insumos e produtos levando em conta as diversas restrições tecnológicas em sua planta de produção.
 
-#### Propriedades da alocação ótima
-...
+> #### Propriedades da alocação ótima
 
-#### Alocações Ineficientes
-...
+> #### Alocações Ineficientes
 
 ## Teoria do Consumidor
 
@@ -117,37 +109,55 @@ Podemos assumir que os consumidores se guiam por um senso comum quando estão de
 Dizemos que uma preferência é racional quando satisfaz as duas propriedades acima.
 
 #### Curvas de Indiferença
-...
+
+Geralmente teremos um conjunto de cestas que serão melhores que uma certa cesta fixada. Isso é chamado de conjunto francamente preferido ou conjunto superior. Sua importância vem do fato de que se o consumidor está escolhendo uma cesta x, o conjunto superior traz todas as cestas que ele pode escolher caso não haja mudança nos preços e na renda. A fronteira entre elas é chamada de curva de indiferença e, significa que qualquer alocação acima da curva está gerando o mesmo benefício de consumo.
+
+Algumas características que surgem da curva de indiferença:
+
+**1. Monotonicidade fraca:** Se acrescentarmos uma quantidade positiva em todos os bens de uma cesta entãoe sta cesta será estritamente preferível.
+
+**2. Monotonicidade forte:** Se acrescentarmos uma quantidade positiva pelo menos um dos bens de uma cesta estão esta cesta será estritamente preferível.
+
+**3. Convexidade:** Preferência por combinações em proporções fixa entre todos os bens de uma cesta.
 
 #### Taxa Marginal de Substituição
-...
+
+Algo no contexto das preferências que pode ajudar no entendimento da escolha individual é a forma com que o consumidor substitui os bens entre si. Assim como essa questão é inerente à empresa, o mesmo ocorre com o consumidor.
+
+A taxa marginal de substituição também pode ser chamada de propensão margina a pagar. Significa o quanto estaríamos propensos a pagar em unidades do bem 2 por uma unidade adicional do bem 1. Isso constitui apenas um aspecto da preferência do consumidor e não está diretamente relacionado com os preços do mercado.
+
+Diantes dessas possíveis substituições, algumas situações são:
+
+- **Bens Substitutos Perfeitos:** Podemos ter uma relação de preferências em que o consumidor sempre está disposto a substituir um bem pelo outro na mesma proporção.
+
+- **Bens Complementares Perfeitos:** Dois bens são considerados complementares perfeitos se o consumidor atinge o benefício do consumo apenas se esses bens forem alocados em uma proporção fixa.
+
+- **Bens Substitutos Imperfeitos:** Neste caso, dizemos que a substituição é imperfeita, ou seja, a taxa com que um bem é substituído pelo outro varia conforme o consumo muda. Em geral essa variação respeita o conceito de saciedade, ou seja, o consumidor tem mais propensão a substituir bens que ele possui em maior quantidade em termos relativos.
 
 ### Função Utilidade
-...
+
+Pela teoria da empresa com dois insumos, notamos que as isoquantas na verdade são curvas de nível de uma certa função de produção com gráfico tridimensional. No caso de dois bens de consumo, como as curvas de indiferença e as isoquantas têm características parecidas, então a intuição gráfica nos diz que podemos construir uma função cujas curvas de nível são as curvas de indiferença.
+
+Sendo assim, temos uma função que aumenta com o aumento dos níveis de indiferença e, então, uma função índice que representa um benefício de uma cesta de consumo, e que é consistente com as propriedades das preferências do consumidor.
+
+A função de utilidade é uma forma de atribuir valores às cestas de consumo que são consistentes com a preferência do consumidor, ou seja, cestas com valores maiores são preferíveis àquelas com valores menores.
 
 #### Principais Funções de Utilidade
-...
 
-#### TMS e Utilidade Marginal
-...
+Podemos definir por padrão funções de utilidade para os tipos de preferência que foram mostrados logo acima.
 
-### Escolha Ótima e Alocações Ineficientes
-...
+> #### TMS e Utilidade Marginal
 
-#### Condições de Primeira Ordem
-...
+> ### Escolha Ótima e Alocações Ineficientes
 
-#### Alocações Ineficientes
-...
+> #### Condições de Primeira Ordem
 
-### Escolha Intertemporal
-...
+> #### Alocações Ineficientes
 
-### Escolha sob Risco
-...
+> ### Escolha Intertemporal
 
-#### Incerteza
-...
+> ### Escolha sob Risco
 
-#### Resultado
-...
+> #### Incerteza
+
+> #### Resultado

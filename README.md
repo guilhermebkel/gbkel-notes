@@ -46,4 +46,4 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## 📜 Notes
 
-- [Microeconomia Básica - Intuição e Rigor](./notes/microeconomia-basica-intuicao-e-rigor.md)
+- [Introdução à Economia](./notes/introducao-a-economia.md)
