@@ -4,19 +4,19 @@
 
 ### Conceitos Básicos
 
-Podemos chamar de empresa um grande contrato de pessoas no qual alguns são responsáveis por executar tarefas e outros por garantirem que as tarefas são executadas - geralmente os gestores. Agora, podemos entender  como a empresa transforma insumo em produto.
+Podemos chamar de firma um grande contrato de pessoas no qual alguns são responsáveis por executar tarefas e outros por garantirem que as tarefas são executadas - geralmente os gestores. Agora, podemos entender  como a firma transforma insumo em produto.
 
 Sendo assim, podemos seguir alguns passos para entender como ela funciona:
 
 **1. Tecnologia de Produção:** Uma forma prática de descrever como insumos (mão de obra, capital, matérias-primas, etc) podem ser transformados em saídas (carros, televisões, serviços, etc).
 
-**2. Restrições de custo:**  As empresas devem levar em consideração os preços da mão de obra, do captail e dos insumos. Assim como um consumidor é restrito por um orçamento limitado, a empresa se preocupa com seu custo de produção.
+**2. Restrições de custo:**  As firmas devem levar em consideração os preços da mão de obra, do captail e dos insumos. Assim como um consumidor é restrito por um orçamento limitado, a firma se preocupa com seu custo de produção.
 
-**3. Opções de insumo:** Dada a sua tecnologia de produção e os preços do trabalho, capital e outros insumos, a empresa deve escolher quanto de cada insumo usar em sua produção. Assim como um consumidor leva em consideração os preços de diferentes produtos ao decidir quanto de cada bem comprar, a empresa deve levar em conta os preços do diferentes insumos ao decidir quanto de cada insumo deve usar.
+**3. Opções de insumo:** Dada a sua tecnologia de produção e os preços do trabalho, capital e outros insumos, a firma deve escolher quanto de cada insumo usar em sua produção. Assim como um consumidor leva em consideração os preços de diferentes produtos ao decidir quanto de cada bem comprar, a firma deve levar em conta os preços do diferentes insumos ao decidir quanto de cada insumo deve usar.
 
 ### Planta de Produção
 
-Podemos entender melhor como funcionam as operações elementares de uma empresa em sua produção - percebendo também o que as restrições tecnológicas podem afetar no negócio.
+Podemos entender melhor como funcionam as operações elementares de uma firma em sua produção - percebendo também o que as restrições tecnológicas podem afetar no negócio.
 
 #### Insumos
 
@@ -28,7 +28,7 @@ Cada um deles pode ter algumas subdivisões mais específicas. As que envolvem o
 
 **2. Capital tecnológico:** Desenvolvimento de softwares e patentes que melhoram a eficiência da produção.
 
-**3. Capital humano:** Nível de conhecimento técnico e de gestão dos indivíduos que trabalham na empresa.
+**3. Capital humano:** Nível de conhecimento técnico e de gestão dos indivíduos que trabalham na firma.
 
 **4. Capital financeiro:** Forma com que todo seu passivo é financiado no mercado financeiro em forma de contratos lastreados em seu fluxo de caixa ou não. Por ex: ações ou debêntures.
 
@@ -46,7 +46,7 @@ Cada um deles pode ter algumas subdivisões mais específicas. As que envolvem o
 
 ### Maximização de Lucro
 
-Diante disso, uma empresa consegue escolher entre suas alocações de insumos e produtos levando em conta as diversas restrições tecnológicas em sua planta de produção.
+Diante disso, uma firma consegue escolher entre suas alocações de insumos e produtos levando em conta as diversas restrições tecnológicas em sua planta de produção.
 
 > #### Propriedades da alocação ótima
 
@@ -54,7 +54,7 @@ Diante disso, uma empresa consegue escolher entre suas alocações de insumos e 
 
 ## Teoria do Consumidor
 
-A teoria do consumidor estuda como os consumidores vão escolher a quantidade de bens de consumo de forma a maximizar o benefício que eles podem ganhar com base nas diversas quantidades que podem ser adquiridas - é um tanto parecida com a forma que a empresa visa a substituir um bem pelo outro com o fito de obter benefícios.
+A teoria do consumidor estuda como os consumidores vão escolher a quantidade de bens de consumo de forma a maximizar o benefício que eles podem ganhar com base nas diversas quantidades que podem ser adquiridas - é um tanto parecida com a forma que a firma visa a substituir um bem pelo outro com o fito de obter benefícios.
 
 ### Restrição Orçamentária
 
@@ -122,7 +122,7 @@ Algumas características que surgem da curva de indiferença:
 
 #### Taxa Marginal de Substituição
 
-Algo no contexto das preferências que pode ajudar no entendimento da escolha individual é a forma com que o consumidor substitui os bens entre si. Assim como essa questão é inerente à empresa, o mesmo ocorre com o consumidor.
+Algo no contexto das preferências que pode ajudar no entendimento da escolha individual é a forma com que o consumidor substitui os bens entre si. Assim como essa questão é inerente à firma, o mesmo ocorre com o consumidor.
 
 A taxa marginal de substituição também pode ser chamada de propensão margina a pagar. Significa o quanto estaríamos propensos a pagar em unidades do bem 2 por uma unidade adicional do bem 1. Isso constitui apenas um aspecto da preferência do consumidor e não está diretamente relacionado com os preços do mercado.
 
@@ -136,7 +136,7 @@ Diantes dessas possíveis substituições, algumas situações são:
 
 ### Função Utilidade
 
-Pela teoria da empresa com dois insumos, notamos que as isoquantas na verdade são curvas de nível de uma certa função de produção com gráfico tridimensional. No caso de dois bens de consumo, como as curvas de indiferença e as isoquantas têm características parecidas, então a intuição gráfica nos diz que podemos construir uma função cujas curvas de nível são as curvas de indiferença.
+Pela teoria da firma com dois insumos, notamos que as isoquantas na verdade são curvas de nível de uma certa função de produção com gráfico tridimensional. No caso de dois bens de consumo, como as curvas de indiferença e as isoquantas têm características parecidas, então a intuição gráfica nos diz que podemos construir uma função cujas curvas de nível são as curvas de indiferença.
 
 Sendo assim, temos uma função que aumenta com o aumento dos níveis de indiferença e, então, uma função índice que representa um benefício de uma cesta de consumo, e que é consistente com as propriedades das preferências do consumidor.
 
@@ -161,3 +161,97 @@ Podemos definir por padrão funções de utilidade para os tipos de preferência
 > #### Incerteza
 
 > #### Resultado
+
+## Equilíbrio de Mercado
+
+Aqui vamos fazer uso da teoria do consumidor e da firma para entender como as fricções de mercado entre a oferta e a demanda podem levar a um equilíbrio, além de algumas propriedades de eficiência e bem estar desse esquilíbrio.
+
+O objetivo é entender as iterações entre os agentes econòmicos em um mercado competitivo, ou de concorrência perfeita. Em geral, esse é um mercado que possui muitos compradores e vendedores do mesmo bem ou serviço. Isso garante que a ação de um indivíduo não tem efeito sobre o preço ou sobre as ações dos outros indivíduos.
+
+O modelo de oferta e demanda gira em torno dos seguintes princípios básicos: curva de demanda, curva de oferta, deslocamento dessas curvas, preço de equilíbrio.
+
+### Curva de Demanda
+
+A curva de demanda individual é dada pela função inversa da demanda do consumidor.
+
+A demanda pode sofrer choques externos positivos e negativos. Em geral, um choque externo faz com que haja alteração da demanda qualquer que seja o preço. Isto significa que houve um deslocamento paralelo do gráfico. Portanto, dizer que a demanda reduziu significa falar que a curva de demanda se deslocou para a esquerda e vice-versa.
+
+Sendo assim, os seguintes fatores contribuem para o deslocamento da curva de demanda:
+
+- Mudança nos preços dos bens relacionados.
+
+- A queda do preço de um bem substituto a um bem produz um deslocamento da curva de demanda desse bem para a esquerda, ou seja, diminuição de demanda.
+
+- Mudança de renda.
+
+- Mudança nas expectativas. As expectativas sobre os lucros futuros de uma empresa podem mudar a demanda por uma ação dessa empresa.
+
+### Curva de Oferta
+
+A curva de oferta individual é dada pela função inversa da oferta da firma.
+
+A oferta pode sofrer choques externos positivos e negativos. Em geral, um choque externo faz com que haja uma alteração da oferta qualquer que seja o preço. Isto significa que houve um deslocamento paralelo do gráfico. Portanto, dizer que a oferta se reduziu significa falar que a curva de oferta se deslocou para a esquerda e vice-versa.
+
+Sendo assim, os seguintes fatores contribuem para o deslocamento da curva de oferta:
+
+- Mudança nos preços dos insumos relacionados.
+
+- Mudança de estrutura de custos.
+
+- Mudanças tecnológicas.
+
+- Mudança nas expectativas. As expectativas sobre os lucros futuros de uma empresa podem mudar a oferta por uma ação dessa empresa.
+
+### Excedente do Consumidor e do Produtor
+
+Para entender como as iterações entreos agentes econômicos podem levar a uma melhora de bem estar social, primeiramente, precisamos construir uma medida que seja coerente. Uma das formas seria a quantidade monetária que os agentes "economizam" ao observar um preço de mercado. Essa economia seria dada como a diferença entre o preço de equilíbrio e o preço que o agente econômico acharia desejável.
+
+### Equilíbrio
+
+A teoria do consumidor e da firma são importantes para o estudo de como um mercado pode precificar um bem de forma que todas as oportunidades de explorar alguma transação mutuamente benéfica estejam exauridas.
+
+Nesse caso, nenhum agente econômico possui incentivo a se desviar de suas escolhas, ou seja, todos os vendedores encontram seus respectivos compradores. Essa situação é denominada equilíbrio de mercado.
+
+### Equilíbrio e Imposto
+
+Quando adicionamos um imposto em um mercado de concorrência perfeita - considerando que o imposto incide sobre o vendedor e esse imposto é calculado sobre a quantidade - temos que a curva de oferta se deslocará para a esquerda (ou para cima) na magnitude exatamente igual ao imposto. Logo, para um preço qualquer de negociação no mercado, a oferta se reduz com um imposto.
+
+#### Equilíbrio, Imposto e Elasticidades
+
+A forma com que o imposto se divide entre o produtor ou o comprador está diretamente relacionada com a elasticidade da oferta e da demanda.
+
+Sendo assim, no caso em que a oferta possui elasticidade maior que a da demanda, a perda do peso morto é menor, ou seja, a distorção do imposto fica menor.
+
+De outra parte, quando a elasticidade da oferta é alta em relação à da demanda, uma pequena redução no preço recebido pelas firmas faz com que a oferta agregada se reduza em larga escala, e o mesmo não acontece com a demanda quando os preços aumentam, gerando uma escassez do bem no mercado. Portanto, os consumidores com maior disponibilidade para pagar pelo bem preferem reduzir seu excedente e pagar mais pelo imposto. O oposto acontece quando a elasticidade da oferta é baixa em relação à da demanda.
+
+Para o caso da inflação, podemos entendê-la como um imposto, também chamado de imposto inflacionário. Ele não é cobrado diretamente por uma autoridade central, mas é alocado pelas fricções de mercado através do aumento heterogêneo nos preços. Nesse caso, os mercados com elasticidade da demanda mais baixa receberão maior parte do imposto. Isso ocorre devido ao fato de que as forças de mercado levam à minimização das distorções causadas pelo imposto. Isso mostra como a inflação é um imposto que sobrecarrega os consumidores de baixa renda, já que os mesmos consomem uma fração alta da renda em bens necessários. Com efeito, os bens necessários estão em mercados com elasticidade da demanda mais baixa em relação à elasticidade da oferta.
+
+#### Equilíbrio, Quotas e Tetos
+
+Geralmente quando o governo quer favorecer certos setores da economia estabelecendo um nível fixo de preços em um certo mercado, ele pode realizar um controle de preços.
+
+Por exemplo: o governo estabelece um limite inferior para o preço do algodão para favorecer os agricultores; um limite máximo de preços para remédios, também conhecido como tabelamento; controle do preço do aluguel.
+
+A interferência do governo em mercados competitivos pode facilitar o surgimento de mercados paralelos.
+
+- **Teto nos preços:** Limite superior para o pagamento de um ou serviço. Quando o teto dos preços está acima do nível de equilíbrio, então nada acontece.
+	- **Exemplo:** Existe um teto de 800 no aluguel de um apartamento, onde um indivíduo 1 está disposto a pagar 1500 de aluguel e um indivíduo 2 paga 800 e está disposto a pagar no máximo 850. Caso fosse possível, o indivíduo 1 proporia ao indivíduo 2 o pagamento de um aluguel de 200. Nesse caso os dois melhorariam.
+	- **Problemas com controle de preços:**
+		1. **Ineficiência:** No caso do exemplo acima, muitas pessoas querem alugar um apartamento mas não conseguem.
+		2. **Desperdício de recursos:** Quando as pessoas estão procurando imóvel para alugar, poderiam estar gastando seu tempo com atividades mais produtivas - custo de oportunidade.
+		3. **Baixa qualidade:** No caso dos aluguéis, os locadores não têm incentivos para oferecer melhores condições de moradia.
+		4. **Atividades ilegais:** Um inquilino (indivíduo 2) pode fazer um contrato ilegal alugando o apartamento por um preço maior para o outro indivíduo (indivíduo 1).
+
+- **Piso para os preços:** Controle em que um nível mínimo de pagamento deve ser realizado por um bem ou serviço. Ex.:  No mercado de trabalho pode-se estabelecer um valor mínimo para o salário do trabalhador contratado conforme os parâmetros da lei.
+	- **Exemplo:** o governo estabelece um preço mínimo de uma mercadoria agrícola para incentivar a população do campo e diminuir o êxodo rural.
+	- **Problemas no piso dos preços:**
+		1. **Ineficiência:** Ex.: Uma pessoa disposta a trabalhar por menos que o salário mínimo deixa de produzir.
+		2. **Desperdício de recursos:** O excedente de oferta às vezes é destruído para evitar mercados paralelos.
+		3. **Qualidade elevada por ineficiência:**Ex.: Luxo nos aviões.
+		4. **Atividades ilegais**
+
+### Livre Entrada e Saída de Firmas
+
+Agora, podemos entender como as firmas se colocam no mercado entrando e saindo até que se atinja um certo nível de lucro. Quando esse movimento é completamente livre, as firmas acabam por dividir o mercado e se estabilizam produzindo uma certa quantidade pouco variável.
+
+O lucro econômico representa o faturamente subtraído dos custos contábeis e dos custos de oportunidade da firma, os quais representam tudo que a mesma deixa de obter ao se fazer uma escolha. Por exemplo, quando uma firma compra um imóvel, deve se levar em consideração os custos indiretos, por exemplo, o rendimento que essa firma deixa de ganhar se investisse os recursos aplicados no imóvel em outras formas de capital com risco similar. Nesse sentido, em um mercado com livre entrada e saída de firmas, o lucro econômico tenderá a ser nulo ou bem próximo de zero.
