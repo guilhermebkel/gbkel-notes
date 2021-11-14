@@ -247,7 +247,7 @@ A interferência do governo em mercados competitivos pode facilitar o surgimento
 	- **Problemas no piso dos preços:**
 		1. **Ineficiência:** Ex.: Uma pessoa disposta a trabalhar por menos que o salário mínimo deixa de produzir.
 		2. **Desperdício de recursos:** O excedente de oferta às vezes é destruído para evitar mercados paralelos.
-		3. **Qualidade elevada por ineficiência:**Ex.: Luxo nos aviões.
+		3. **Qualidade elevada por ineficiência:** Ex.: Luxo nos aviões.
 		4. **Atividades ilegais**
 
 ### Livre Entrada e Saída de Firmas
