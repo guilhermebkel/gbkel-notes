@@ -120,4 +120,78 @@ So, being minded about it, try to:
 
 ### Modeling Out Loud
 
-<!--- Current Page 30 / Last Page 71 -->
+Unfortunately, when people speak, they usually don't use the language of the domain model.
+
+One of the best ways to refine a model is to explore with speech, trying out loud various constructs from possible model variations.
+
+It is vital that we play around with words and phrases, harnesssing our linguistic abilities to the modelling effort, just as it is vital to engage our visual/spatial reasoning by sketching diagrams.
+
+As we use the Ubiquitous Language of the domain model in discussions - especially the ones in which developers and domain experts hash our scenarios and requirements - we become more fluent in the language and teach each other its nuances.
+
+So, being minded about it, try to:
+
+- Play with the model as you talk about the system. Describe scenarios out loud using the elements and interactions of the model, combining concepts in ways to say what you need to say, and then take those new ideas back down to the diagrams and code.
+
+### One Team, One Language
+
+Technical people often feel the need to "shield" the business experts from the domain model. They say:
+
+> "Too abstract for them."
+>
+> "They don't understand objects."
+>
+>"We have to collect requirements in their therminology."
+
+These are just a few of the reasons for having two languages on the team. Forget them.
+
+Of course there are technical components of the design that may not concern the domain experts, but the core of the model had better interest them. Too abstract? Then how do you know the abstractions are soung? Do you understand the domain as deeply as they do? Sometimes specific requirements are collected from lower-level users, and a subset of the more concrete terminology may be needed for them, but a domain expert is assumed to be capable of thinking somewhat deeply about his or her field.
+
+- If sophisticated domain experts don't understand the model, there is something wrong with the model.
+
+### Documents and Diagrams
+
+Diagrams are a means of communication and explanation, and they facilitate brainstorming. They serve these ends best if they are minimal. Comprehensive diagrams of the entire object model fail to communicate or explain; they overwhelm the reader with detail and they lack meaning.
+
+It leads us toward simplified diagrams of conceptually important parts of the object model that are essential to understanding the design. They simplify, explain, and even incorporate a bit of nonstandard notation when it clarifies their point. They show design specifications in every detail and represent the skeletons of ideas.
+
+The vital detail about design is captured in the code. A well-written implementation should be transparent, revealing the model underlying it. Supplemental diagrams and documents can guide people's attention to the central points. Natural language discussion can fill in the nuances of meaning.
+
+Always remember that the model is not the diagram. The diagram's purpose is to help communicate and explain the model. The code can serve as a repository of the details of the design.
+
+#### Written Design Documents
+
+Once a document takes on a persistent form, it often loses its connection with the flow of the project. It is left behing by the evolution of the code, or by the evoltuion of the language of this project.
+
+**1. Documents Should Complement Code and Speech**
+
+Each agile process has its own philosophy about documents. Extreme Programming advocates using no extra design documents at all and letting the code speak for itself.
+
+This dependence on the code as communication medium motivates developers to keep the code clean and transparent.
+
+But code as a design document does have its limits. It can overwhelm the reader with detail. Although its behavior is ambiguous, that doesn't mean it is obvious. And the meaning behind a behavior can be hard to convey.
+
+**2. Documents Should Work for a Living and Stay Current**
+
+The greatest value of a design document is to explain the concepts of the model, help in navigating the detail of the code, and perhaps give some insight into the model's intended style of use. Depending on the philosophy of the team, the whole design document could be as simple as a set of sketches posted on the walls, or it could be substantial.
+
+Listen to the Ubiquitous Language and how it is changing. If the terms explained in a design document don't start showing up in conversations and code, the document is not fullfilling its purpose. Maybe the document is too big or complicated. Maybe it is not focused on a sufficiently important topic.
+
+Conversely, you may hear the Ubiquitous Language changing naturally while a document is being left behind.
+
+By keeping documents minimal and focusing them on complementing code and conversation, documents can stay connected to the project. Let the Ubiquitous Language and its evolution be your guide to choosing documents that live and get woven into the project's activity.
+
+### Explanatory Models
+
+One model should underlie implementation, design, and team communication. Having separate models for these separate purposes poses a hazard.
+
+Models can also be valuable as education aids to teacha about the domain, but it may aid learning to have other views, used only as educational tools, to communicate general knowledge of the domain.
+
+One particular reason that other models are needed is scope. The technical model that drives the software development process mustbe strictly pared down to the necessary minimum to fulfill its functions. An explanatory model can include aspects of the domain that provide context that clarifies the more narrowly scoped model.
+
+Explanatory models offer the freedom to create much more communicative styles tailored to a particular topic. Visual metaphors used by the domain experts in a field often present clearer explanations, educating developers and harmonizing experts. Explanatory models also present the domain in a way that is simply different, and multiple, diverse explanations help people learn.
+
+There is no need for explanatory models to be object models, and it is generally best if they are not. Even though the explanatory model and themodel that drives design do often correspond, the similarities will seldom be exact. To avoid confusion, everyone must be conscious of the distinction.
+
+## Binding Model and Implementation
+
+<!--- Current Page 45 / Last Page 83 -->
