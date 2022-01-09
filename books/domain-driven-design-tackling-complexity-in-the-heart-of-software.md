@@ -218,6 +218,24 @@ Being minded about that, try to:
 
 - To tie the implementation slavishly to a model usually requires software development tools and languages that support a modeling paradigm, such as object oriented programming.
 
-### Modeling Paradigms and Tool Support
+### Letting the Bones Show: Why Models Matter to Users
 
-<!--- Current Page 50 / Last Page 109 -->
+Model-driven design calls for working with only one model (within any single context). Most of the advice and examples go to the problems of having separate analysis models and design models, but here we have a problem arising from a different pair of models: the user model and the design/implementation model.
+
+When a deisng is based on a model that reflects the basic concerns of the users and domain experts, the bones of the design can be revealed to the user to a greater extent than with other design approaches. Revealing the model gives the user more access to the potential of the software and yields consistent, predictable behavior.
+
+### Hands-On Modeleres
+
+Highly skilles engineers design, less skilled laborates assemble the products. This assumption has messed up a lot of projects for one simple reason - software development is all design. All teams have specialized roles for members, but overseparation of responsibility for analysis, modeling, design, and programming interferes with Model-driven design.
+
+If the people who write the code do not feel responsible for the model, or don't understand how to make the model work for an application, then the model has nothing to do with the software. If developers don't realize that changing code changes the model, then their refactoring will weaken the model rather than strengthen it. Meanwhile, when a modeler is separated from the implementation process, he or she never acquires, or quickly loses, a feel for the constraints of implementation. The basic constraint of Model-driven design - that the model supports an effective implementation and abstracts key domain knowledge - is halfgone, and the resulting models will be impractical. Finally, the knowledge and skills of experienced designers won't be transferred to other developers if the division labor prevents the kind of collaboration that conveys the subtleties of coding a Model-drive design.
+
+The need o Hands-On Modelers does not mean that team members cannot have speciailized roles. The problem arises from separating two tasks that are coupled in a Model-driven design, modeling and implementation.
+
+The effectiveness of an overall design is very sensitive to the quality and consistency of fine-grained deisng and implementation decisions.
+
+Any technical person contributing to the model must spend some time touching the code, whatever primary role he or she plays on the project. Anyone responsible for changing code must learn to express a model through the code. Every developer must be involved in some level of discussion about the model and have contact with domain experts. Those who contribute in different ways must consciously engage those who touch the code in a dynamic exchange of model ideas through the Ubiquitous Language.
+
+## The Building Blocks of a Model-Driven Design
+
+<!--- Current Page 66 / Last Page 136 -->
