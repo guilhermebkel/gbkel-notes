@@ -46,6 +46,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Solving permission problems on Ubuntu](./tutorials/solving-permission-problems-on-ubuntu.md)
 
+- [Debugging NodeJS inside K8s](./tutorials/debugging-nodejs-inside-k8s.md)
+
 ## 📜 Notes
 
 - [Introdução à Economia](./notes/introducao-a-economia.md)
