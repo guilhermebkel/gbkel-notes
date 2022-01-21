@@ -44,6 +44,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Fixing git conflicts without merging](./tutorials/fixing-git-conflicts-without-merging.md)
 
+- [Solving permission problems on Ubuntu](./tutorials/solving-permission-problems-on-ubuntu.md)
+
 ## 📜 Notes
 
 - [Introdução à Economia](./notes/introducao-a-economia.md)
