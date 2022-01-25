@@ -18,6 +18,8 @@ kubectl exec -it my-awesome-api  -- /bin/sh -c "ps aux"
 
 3. Enable devtool in the application
 
+*Obs: You have to use the correct PID in the final of the command '...-USR1 $PID'.*
+
 ```sh
 kubectl exec -it my-awesome-api -- /bin/sh -c "kill -USR1 18"
 ```
