@@ -8,7 +8,9 @@ kubectl get pods | grep my-awesome-api
 
 2. Give a look at the process PIDs inside this pod
 
-*Obs: You have to get the PID from the NodeJS process, it is usually 1.*
+<img src="../assets/tutorials/debugging-nodejs-inside-k8s/terminal-process-list.png"></img>
+
+*Obs: You have to get the PID from the NodeJS process, it is usually the one with a command started as 'node'.*
 
 ```sh
 kubectl exec -it my-awesome-api  -- /bin/sh -c "ps aux"
@@ -17,7 +19,7 @@ kubectl exec -it my-awesome-api  -- /bin/sh -c "ps aux"
 3. Enable devtool in the application
 
 ```sh
-kubectl exec -it my-awesome-api -- /bin/sh -c "kill -USR1 1"
+kubectl exec -it my-awesome-api -- /bin/sh -c "kill -USR1 18"
 ```
 
 4. Forward debug port to your computer

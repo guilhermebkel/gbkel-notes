@@ -30,7 +30,7 @@ Being minded about it, **the digital signal works basically by sending binary va
 
 ### Transformation
 
-<img src="../assets/digital-systems/analog-digital-transformation.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/analog-digital-transformation.png"></img>
 
 ---
 
@@ -40,7 +40,7 @@ Being minded about it, **the digital signal works basically by sending binary va
 
 A digital circuit which its outputs depend exclusively on a value combination of its inputs is called **Combinational Logic Circuit**.
 
-<img src="../assets/digital-systems/combinational-logic-circuit.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/combinational-logic-circuit.png"></img>
 
 ### Switches
 
@@ -54,13 +54,13 @@ In 1946, the first computer for general purpose (ENIAC) used to have 1500 relays
 
 After some years, new switches were created, they were called **Transistors** and they were too smaller than the old **Relays**. Besides, the transistors keep decreasing its size year by year (some have 100nm per example) and today, our personal computers have millions of them and we are able to make millions operations per second.
  
-<img src="../assets/digital-systems/transistors.jpg"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/transistors.jpg"></img>
 
 ### CMOS Transistor
 
 The most popular transistor used on Integrated Circuits are called CMOS and it uses a specific material to make the current transfer (usually something made of silicon, that needs a little current on it to turn into a conductor material and so, start the current transfer between the gates).
 
-<img src="../assets/digital-systems/cmos-transistor.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/cmos-transistor.png"></img>
 
 ### Logic Gates
 
@@ -70,7 +70,7 @@ The main operators used here are: **AND**, **OR** and **NOT**. Because of that w
 
 With help of CMOS Transistors, we are able to group them into logic gates, and so to use boolean logic to operate our circuits.
 
-<img src="../assets/digital-systems/logic-gates-transistors.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/logic-gates-transistors.png"></img>
 
 ### Boolean Algebra
 
@@ -138,7 +138,7 @@ Example: w = (p AND NOT(s) AND k) OR t = ps'k + t
 
 A boolean function is basically a mapping for each of the possible function input combinations for some output (0 or 1).
 
-<img src="../assets/digital-systems/boolean-function.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/boolean-function.png"></img>
 
 We are able to represent the boolean functions with equations, circuits or even truth-tables.
 
@@ -156,11 +156,11 @@ Being minded about the idea we have got above, a simple way to make a logic comb
 
 **Case Study:**
 
-<img src="../assets/digital-systems/logic-combination-project-1.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/logic-combination-project-1.png"></img>
 
-<img src="../assets/digital-systems/logic-combination-project-2.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/logic-combination-project-2.png"></img>
 
-<img src="../assets/digital-systems/logic-combination-project-3.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/logic-combination-project-3.png"></img>
 
 ### Decoders and Multiplexers
 
@@ -168,13 +168,13 @@ Decoders and multiplexers are digital circuit constructive blocks, even if they 
 
 **Decoder:** Decodes a binary number of a *n* bits input adding exactly one of the 2^*n* outputs of it in 1. 
 
-<img src="../assets/digital-systems/decoder.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/decoder.png"></img>
 
 **Multiplexer:** Works as a selector to enable only a single input to pass through an output (determines which input will get to the output).
 
-<img src="../assets/digital-systems/multiplexer-1.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/multiplexer-1.png"></img>
 
-<img src="../assets/digital-systems/multiplexer-2.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/multiplexer-2.png"></img>
 
 ---
 
@@ -192,16 +192,16 @@ When we are talking about bit persistence, we're saying that we are able to stor
 
 This circuit is made of a pair of NOR switches with crossed interconnections. We can use this simple circuit in order to keep a value in state and implement some extra logics (like making something to work for some time [set] and stopping it later [reset]).
 
-<img src="../assets/digital-systems/latch-sr.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/latch-sr.png"></img>
 
 One of the main issues of this circuit is that if **S** and **R** are 1 at the same time, some random action can happen in a loop till it reaches a final random value. Being minded about it, we never plug buttons directly to the Latch SR, instead we use a logic block before in order to force different values between [set] and [reset] actions, what does not happen in practice since the added switches have a delay by default and that delay can cause the two values to be the same sometimes.
 
-<img src="../assets/digital-systems/latch-sr-2.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/latch-sr-2.png"></img>
 
 In order to avoid the issues shown on the image above, we add can add a new item to circuit that will be able to determine if the action should work or not, that way we can make sure we only start some action after the circuit switch values are stable.
 
-<img src="../assets/digital-systems/latch-sr-3.png"></img>
-<img src="../assets/digital-systems/latch-sr-4.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/latch-sr-3.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/latch-sr-4.png"></img>
 
 ## Clocks and synchrone circuits
 
@@ -209,13 +209,13 @@ In order to help enabling actions on memoized circuits only when the switches ha
 
 Generally we use something called as **oscillator** in order to help us using **clock** inside memoized circuits, its value varies from 0 to 1 in some period of time that is determined by its rate.
 
-<img src="../assets/digital-systems/clock.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/clock.png"></img>
 
 ## Flip-flop D
 
 Since Latches usually stores the bit value **after** the clock value changes, it can lead to some bugs. Being minded about that, some circuits were created to solve that problem by storing the bit value **during** the clock value change. That way it gets harder to have two switches matching the same value.
 
-<img src="../assets/digital-systems/flip-flop-d.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/flip-flop-d.png"></img>
 
 ## Latch vs Flip-flop
 
@@ -229,17 +229,17 @@ Being minded about the info above, we can differ latch from flip-flops by the id
 
 Usually we use a **register** to store multiple bits, besides, we can make a **register** by joining multiple flip-flops. Below you can see an example of a 4-bit register.
 
-<img src="../assets/digital-systems/register.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/register.png"></img>
 
 ## Finite State Machines
 
 FSM is a basically a way to represent all states of a circuit. That way we are able to organize our circuit to work by transitioning into different kind of states.
 
-<img src="../assets/digital-systems/state-machine.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/state-machine.png"></img>
 
 There are a ot of ways of implementing a FSM circuit, but we can follow a basic pattern in order to replicate it easily to the most problems we find there. This pattern consists of a state register and a combinational logic, you can see it below:
 
-<img src="../assets/digital-systems/state-machine-2.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/state-machine-2.png"></img>
 
 A state register is a 2-bit register with a binary value that is equal to the current state (since it has 2 bits, it can represent a maximum amount of 4 states).
 
@@ -257,8 +257,8 @@ Being minded about the idea we have got above, a simple way to make a FSM can be
 
 Case Study:
 
-<img src="../assets/digital-systems/fsm-case-study.png"></img>
-<img src="../assets/digital-systems/fsm-case-study-2.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/fsm-case-study.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/fsm-case-study-2.png"></img>
 
 ---
 
@@ -276,7 +276,7 @@ A register of N bits is a sequential component capable of storing N bits.
 
 That's the most simple register we can create, it consists of a group of flip-flops that are charged in each clock cycle.
 
-<img src="../assets/digital-systems/parallel-register.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/parallel-register.png"></img>
 
 Being minded about the idea we have got above, a simple way to make a register project can be:
 
@@ -293,24 +293,24 @@ Being minded about the idea we have got above, a simple way to make a register p
 Thats a circuit component able to sum two numbers (two inputs) and give the proper result (an output).
 
 ### Half Adder
-<img src="../assets/digital-systems/half-adder.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/half-adder.png"></img>
 
 ### Complete Adder
-<img src="../assets/digital-systems/adder-1.png"></img>
-<img src="../assets/digital-systems/adder-2.png"></img>
-<img src="../assets/digital-systems/adder-3.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/adder-1.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/adder-2.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/adder-3.png"></img>
 
 ## Shifters
 
 They are a component useful for changing bits position. It is usually used to multiply numbers and even to transmit data serially.
 
-<img src="../assets/digital-systems/shifter.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/shifter.png"></img>
 
 ## Comparators
 
 They are useful to check if numbers are equal, or even if the first one is greater or smaller than the second one.
 
-<img src="../assets/digital-systems/comparator.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/comparator.png"></img>
 
 ## Counters
 
@@ -318,19 +318,19 @@ They are useful to increment or decrement the value of its register for each clo
 
 ### Ascending Counter
 
-<img src="../assets/digital-systems/ascending-counter.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/ascending-counter.png"></img>
 
 ### Descending Counter
 
-<img src="../assets/digital-systems/descending-counter.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/descending-counter.png"></img>
 
 ### Ascending/Descending Counter
 
-<img src="../assets/digital-systems/ascending-descending-counter.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/ascending-descending-counter.png"></img>
 
 ### Parallel Charge Counter
 
-<img src="../assets/digital-systems/parallel-counter.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/parallel-counter.png"></img>
 
 ### Timer
 
@@ -358,7 +358,7 @@ It is a way to abstract the use of registers in order to do some actions (what w
 
 ## The RTL method
 
-<img src="../assets/digital-systems/rlt-method.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/rlt-method.png"></img>
 
 ## Determining clock frequency
 
@@ -366,7 +366,7 @@ Usually we want our systems to work the faster way possible (basically by increa
 
 The simple way to do that, is to giving a look at the existing delays during some task execution and so, to use the greater delay as the foundation on the clock frequency value. Ex: I have a circuit with 3 actions, the first one has 2ns delay, the second one 3ns and the third one 5ns, it basically means that my clock must have at least a time of 5ns.
 
-<img src="../assets/digital-systems/clock-frequency.png"></img>
+<img src="../assets/books/sistemas-digitais-projetos-de-otimizacao-e-hdls/clock-frequency.png"></img>
 
 ## Memory components
 
