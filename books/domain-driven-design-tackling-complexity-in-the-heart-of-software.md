@@ -248,4 +248,38 @@ In an object-oriented program, UI, database, and other support code often gets w
 
 When the domain-related code is diffused through such a large amount of other code, it becomes extremely difficult to see and to reason about. Superficial changes to the UI can actually change business logic. To change a business rule may require meticulous tracing of UI code, database code, or other program elements. Implementing coherent, model-driven objects becomes impractical. Automated testing is awkward. With all the technologies and logic involved in each activity, a program must be kept very simple or it becomes impossible to understand.
 
-<!--- Current Page 67 / Last Page 188 -->
+There are all sorts of ways a software system might be divided, but through experience and convention, the industry has converged on Layered Architectures, and specially a few fairly standard layers. The value of layers is that each specializes in a particular aspect of a computer program. This specialization allows more cohesive designs of each aspect, and it makes these designs much easier to interpret. Of course, it is vital to choose layers that isolate the most important cohesive design aspects.
+
+Partition a complex program into layers. Develop a design within each layer that is cohesive and that depends only on the layers below. Follow standard architectural patterns to provide loose coupling to the layers above. Concentrate all the code related to the domain model in one layer and isolate it from the user interface, application, and infrastructure code. The domain objects, free of the responsibility of displaying themselves, storing themselves, managing application tasks, and so forth, can be focused on expressing the domain model. This allows a model toe volve to be rich enough and clear enough to capture essential business knowledge and put it to work.
+
+Although there are many variations, most successfull architectures use some version of these four conceptual layers:
+
+- **User Interface (or Presentation Layer)**
+
+Responsible for showing information to the use and interpreting the user's commands. The external actor might sometimes be another computer system rather than a human user.
+
+- **Application Layer**
+
+Defines the jobs the software is supposed to do and directs the expressive domain objects to work out problems. The tasks this layer is responsible for are meaningful to the business or necessary for interaction with the application layers of other systems.
+
+This layer is kept thin. It does not contain business rules or knowledge, but only coordinates tasks and delegates work to collaborations of domain objects in the next layer down. It does not have state reflecting the business situation, but it can have state that reflects the progress of a task for the user or the program.
+
+- **Domain Layer (or Model Layer)**
+
+Responsible for representing concepts of the business, information about the business situation, and business rules. State that reflects the business situation is controlled and used here, even though the technical details of storing it are delegated to the infrastructure. This layer is the heart of busines software.
+
+- **Infrastructure Layer**
+
+Provides generic technical capabilities that support the higher layers: message sending for the application, persistence for the domain, drawing widgets for the UI, and so on. The infrastructure layer may also support the pattern of interactions between the four layers through an architectural framework.
+
+#### Relating the Layers
+
+Layers are meant to be loosely coupled, with design dependencies in only one direction. Upper layers can use or manipulate elements of lower ones straightforwardly by calling their public interfaces, holding references to them, and generally using conventional means of interaction. But when a object of a lower level needs to communicate upward, we need another mechanism, drawing on architectural patterns for relating layers such as callbacks or observers.
+
+The infrastructure layers usually does not initiate action in the domain layer. Being "below" the domain layer, it should have no specific knowledge of the domain it is serving. Indeed, such technical capabilities are most often offered as services. The main benefit is simplifying the application layer, keeping it narroly focused on its job: knowing when to do something, but not burdened with how.
+
+The application and domain layers call on the services provided by the infrastructure layer.
+
+### A Model Expressed in Software
+
+<!--- Current Page 81 / Last Page 195 -->
