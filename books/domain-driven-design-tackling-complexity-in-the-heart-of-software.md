@@ -282,4 +282,38 @@ The application and domain layers call on the services provided by the infrastru
 
 ### A Model Expressed in Software
 
-<!--- Current Page 81 / Last Page 195 -->
+To compromise in implementation without losing the punch of a Model-Driven Design requiresa regraming of the basics. Connecting model andimplementation has to be done at the detail level.
+
+#### Associations
+
+The interaction between modeling and implementation is particularly tricky with the associations between objects.
+
+For every traversable association in the model, there is a mechanism in the software with the same properties.
+
+There are at least three ways of making associations more tractable:
+
+1. Imposing a traversal direction.
+2. Adding a qualifier, effectively reducing multiplicity.
+3. Eliminating nonessential associations.
+
+It is important to constrain relationships as much as possible. A bidirectional association means that both objects can be understood only together. When application requirements do not call for traversal in both directions, adding a traversal direction reduces interdependence and simplifies the design. Understanding the domain may reveal a natural directional bias.
+
+Constraining the traversal direction of a many-to-many association effectively reduces its implementation to one-to-many - a much easier design.
+
+Consistently constraining associations in ways that reflect the bias of the domain not only makes those associations more communicative and simpler to implement, it also gives significance to the remaining bidirectional associations.When the bidirectionality of a relationship is a semantic characteristic of the domain, when it's needed for application functionality, the retention of both traversal directions conveys that.
+
+#### Entities (a.k.a. Reference Objects)
+
+Many objects are not fundamentally defined by their attributes, but rather by a thread of continuity and identity.
+
+Some objects are not defined primarly by their attributes. They represent a thread of identity that runs through time and often across distinct representations. Sometimes such an object must be matched with another object even though attributes differ. An object must be distinguished from other objects even though they might have the same attributes. Mistaken identity can lead to data corruption.
+
+An object defined primarly by its identity is called an Entity. Entities have special modeling and design considerations. They have life cycles that can radically change their form and content, but a thread of continuity must be maintained. Their identities must be defined so that they can be effectvely tracked. Their class definitions, responsibilities, attributes, and associations should revolve around who they are, rather than the particular attributes they carry. Even for Entities that don't transform so radically or have such complicated life cycles, placing them in the semantic category leads to more lucid models and more robust implementations.
+
+On the other hand, not all objects in the model are Entities, with meaningful identities. Identity is a subtle and meaning attribute of Entities, which can't be turned over to the automatic features of the language.
+
+When an object is distinguished by its identity, rather than its attributes, make this primary to its definition in the model. Keep the class definition simple and focused on life cycle continuity and identity. Define a means of distinguishing each object regardless of its form or history. Be alert to requirements that call for matching objects by attributes. Define an operation that is guaranteed to produce by attaching a symbol that is guaranteed unique. This means of identification may come from the outside, or it may be an arbitrary identifier created by and for the system, but it must correspond to the identity distinctions in the model. The model must define what it means to be the same thing.
+
+**Modeling Entities**
+
+<!--- Current Page 93 / Last Page 195 -->
