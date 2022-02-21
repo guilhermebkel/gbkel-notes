@@ -377,4 +377,77 @@ In a relational database, you might want to put a particular Value in the table 
 
 **Designing Associations That Involve Value Objects**
 
-<!--- Current Page 102 / Last Page 195 -->
+While bidirectional associations between Entities may be hard to maintain, bidirectional associations between two Value Objects just make no sense. Without identity, it is meaningless to say that an object points back to the same Value Object that points to it. The most you could say is that it points to an object that is equal to the one pointing to it, but you would have to enforce that invariant somewhere. And although you could do so, and set up pointers going both ways, it is hard to think of examples where such an arrangement would be useful.
+
+Try to completely eliminate bidirectional associations between Value Objects. If in the end such associations seem necessary in your model, rethink the decision to declare the object a Value Object in the first place. Maybe it has an identity that hasn't been explicitly recognized yet.
+
+#### Services
+
+In some cases, the clearest and most pragmatic design includes operations that do not conceptually belong to any object. Rather than force the issue, we can follow the natural contours of the problem space and include Services explicitly in the model.
+
+There are important domain operations that can't find a natural home in an Entity or Value Object. Some of these are intrinsically activities or actions, not things, but since our modeling paradigm is objects, we try to fit them into objects anyway.
+
+Some concepts from the domain aren't natural to model as objects. Forcing the required domain functionality to be the responsibility of an Entity or Value either distorts the definition of a model-based object or adds meaningless artificial objects.
+
+A Service is an operation offered as an interface that stands alone in the model, without encapsulating state, as Entities and Value Objects do. Services are a common pattern in technical frameworks, but they can also apply in the domain layer.
+
+A Service tends to be named for an activity, rather than an entity - a verb rather than a noun. A Service can still have an abstract, intentional definition; it just has a different flavor than the definition of an object. A Service should still have a defined responsibility, and that responsibility and the interface fulfilling it should be defined as part of the domain model. Operation names should come from the Ubiquitous Language or be introduced into it.
+
+Services should be used judiciously and not allowed to strip the Entities and Value Objects of all their behavior, But when an operation is actually an important domain concept, a Service forms a natural part of a Model-Driven Design. Declared in the model as a Service, rather than as a phony object that doesn't actually represent anything, the standalone operation will not mislead anyone.
+
+A good Service has three characteristics:
+
+1. The operation relates to a domain concept that is not a natural part of an Entity or Value Object.
+
+2. The interface is defined in terms of other elements of the domain model.
+
+3. The operation is stateless.
+
+When a significant process of transformation in the domain is not a natural responsibility of an Entity or Value Object, add an operation to the model as a standalone interface declared as a Service. Define the interface in terms of the language of the model and make sure the operation name is part of the Ubiquitous Language. Make the Service stateless.
+
+**Services and the Isolated Domain Layer**
+
+This pattern is focused on those Services that have an important meaning in the domain in ther own right, but of course Services are not used only in the domain layer. It takes care to distinguish Services that belong to the domain layer from those of other layers, and to factor responsibilities to keep that distinction sharp.
+
+It can be harder to distinguish application Services from domain Services. The application layer is responsible for ordering the notification. The domain layer is responsible for determining if a threshold was met - though this task probably does not call for a Service, because it would fit the responsibility of an "account" object.
+
+Many domain or application Services are built on top of the populations of Entities and Values, behaving like scripts that organize the potential of the domain to actually get something done.
+
+**Partitioning Services into Layers**
+
+- **Application** *(Funds Transfer App Service)*
+  - Digests input (such as an XML request).
+  - Sends message to domain service for fulfillment.
+  - Listens for confirmation.
+  - Decides to send notification using infrastructure service.
+
+- **Domain** *(Funds Transfer Domain Service)*
+  - Interacts with necessary Account an Ledger objects, making appropriate debits and credits.
+  - Supplies confirmation of result (transfer allowed or not, and so on.).
+
+- **Infrastructure** *(Send Notification Service)*
+  - Sends e-mails, letters, and other communications as directed by the application.
+
+**Granularity**
+
+Medium-grained, stateless Services can be easier to reuse in large systems because they encapsulate significant functionality behind a simple interface. Also, fine-grained objects can lead to inefficient messaging in a distributed system.
+
+This patterns favors inteface simplicity over client control and versatility. It provides a medium grain of functionality very useful in packaging components of large or distributed systems. And sometimes a Service is the most natural way to express a domain concept.
+
+#### Modules
+
+Modules are an old, established design element. There are technical considerations, but cognitive overload is the primary motivation for modularity. Modules give people two views of the model: They can look at detail within a Module without being overwhelmed by the whole, or they can look at relationships between Modules in views that exclude interior detail.
+
+Everyone uses Modules, but few treat them as full-fledged part of the model. Code gets broken down into all sorts of categories, from aspects of the technical architecture to developers work assignments. Even developers who refactor a lot tend to content themselves with Modules conceived early in the project.
+
+It is a truism that there should be low coupling between Modules and high cohesion within them. Explanations of coupling and cohesion tend to make them sound like technical metrics, to be judged mechanically based on the distributions of associations and interactions. Yet it isn't just code being divided into Modules, but concepts. There is a limit to how many things a person can think about at once (hence low coupling). Incoherent fragments of ideas are as hard to understand as an undifferentiated soup of ideas (hence high cohesion).
+
+Modules are a communications mechanism. The meaning of the objects being partitioned needs to drive the choice of Modules. When you place some classes together in a Module, you are telling the next developer who looks at your design to think about them together. If your model telling a story, the Modules are chapters. The name of Module conveys its meaning. These names enter the Ubiquitous Language. "Now let's talk about the 'customer' module", you might say to a business expert, and the context is set for your conversation.
+
+Choose Modules that tell the story of the system and contain a cohesive set of concepts. This often yields low coupling between Modules, but if it doesn't, look for a way to change the model to disentangle the concepts, or search for an overlooked concept that might be the basis of a Module that would bring the elements together in a meaningful way. Seek low coupling in the sense of concepts that can be understood and reasoned about independently of each other. Refine the model until it partitions according to high-level domain concepts and the corresponding code is decoupled as well.
+
+Give the Modules names that become part of the Ubiquitous Language. Modules and their names should reflect insight into the domain.
+
+#### Modeling Paradigms
+
+<!--- Current Page 116 / Last Page 195 -->
