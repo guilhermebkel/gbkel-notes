@@ -448,6 +448,23 @@ Choose Modules that tell the story of the system and contain a cohesive set of c
 
 Give the Modules names that become part of the Ubiquitous Language. Modules and their names should reflect insight into the domain.
 
-#### Modeling Paradigms
+### The Life Cycle of a Domain Object
 
-<!--- Current Page 116 / Last Page 195 -->
+Every object has a life cycle. An object is born, it likely goes through various states, and it eventually dies - being either archived or deleted. But other objects have longer lives, not all of which are spent in active memory. They have complex interdependencies with other objects. They go through changes of state to which invariants apply.
+
+The challenges fall into two categories:
+
+1. Maintaining integrity throughout the life cycle.
+2. Preventing the model from getting swamped by the complexity of managing the life cycle.
+
+#### Aggregates
+
+Minimalist design of associations helps simplify traversal and limit the explosion of relationships somewhat, but most business domains are so interconnected that we still end up tracing long, deep paths through object references. In a way, this tangle reflects the realities of the world, which seldom obliges us with sharp boundaries. It is a problem in a software design.
+
+The problem is acute in a system with concurrent access to the same objects by multiple clients. With many users consulting and updating different objects in the system, we have to prevent simultaneous changes to interdependent objects. Getting the scope wrong has serious consequences.
+
+It is difficult to guarantee the consistency of changes to objects in a model with complex associations. Invariants need to be maintained that apply to closely related groups of objects, not just discrete objects. Yet cautious locking schemes cause multiple users to interfere pointlessly with each other and make a system unusable.
+
+An Aggregate is a cluster of associated objects that we treat as aunit for the purpose of data changes. Each Aggregate has a root and a boundary. The boundary defines what is inside the Aggregate. The root is a single, specific Entity contained in the Aggregate. The root is the only member of the Aggregate that outside objects are allowed to hold references to, although objects within the boundary may hold references to each other. Entities other than the root have local identity, but that identity needs to be distinguishable only within the Aggregate, because no outside object can ever see it out of the context of the root Entity.
+
+<!--- Current Page 127 / Last Page 195 -->
