@@ -467,4 +467,26 @@ It is difficult to guarantee the consistency of changes to objects in a model wi
 
 An Aggregate is a cluster of associated objects that we treat as aunit for the purpose of data changes. Each Aggregate has a root and a boundary. The boundary defines what is inside the Aggregate. The root is a single, specific Entity contained in the Aggregate. The root is the only member of the Aggregate that outside objects are allowed to hold references to, although objects within the boundary may hold references to each other. Entities other than the root have local identity, but that identity needs to be distinguishable only within the Aggregate, because no outside object can ever see it out of the context of the root Entity.
 
-<!--- Current Page 127 / Last Page 195 -->
+Invariants, which are consistency rules that must be maintained whenever data changes, will involve relationships between members of an Aggregate. Any rule that spans Aggregates will not be expected to be up-to-date at all times. Through event processing, batch processing, or other update mechanisms, other dependencies can be resolved within some specified time. But the invariants applied within an Aggregate will be enforced with the completion of each transaction.
+
+Now, to translate that conceptual Aggregate into the implementation, we need a set of rules to apply to all transactions:
+
+- The root Entity has global identity and is ultimately responsible for checking invariants.
+
+- Root Entities have global identity. Entities inside the boundary have local identity, unique only within Aggregate.
+
+- Nothing outside the Aggregate boundary can hold a reference to anything inside, except to the root Entity. The root Entity can hand references to the internal Entities to other objects, but those objects can use them only transiently, and they may not hold on to the reference. The root may hand a copy of a Value Object to another objects, and it doesn't matter what happens to it, because it's just a Value and no longer will have any association with the Aggregate.
+
+- As a corollary to the previous rule, only Aggregate roots can be obtained directly with database ueries. All other objects must be found by traversal of associations.
+
+- Objects within the Aggregate can hold references to other Aggregate roots.
+
+- A delete operation must remove everything within the Aggregate boundary at once. (With garbage collection, this is easy. Because there are no outside references to anything but the root, delete the root and everything else will be collected).
+
+- When a change to any object within the Aggregate boundary is committed, all invariants of the whole Aggregate must be satisfied.
+
+Cluster the Entities and value Objects into Aggregates and define boundaries around each. Choose one Entity to be the root of each Aggregate, and control all access to the objects inside the boundary through the root. Allow external objects to hold references to the root only. Transient references to internal members can be passed out for use within a single operation only. Because the root controls access, it cannot be blindsided by changes to the internals. This arrangement makes it practical to enforce all invariants for objects in the Aggregate and for the Aggregate as a whole in any state change.
+
+#### Factories
+
+<!--- Current Page 136 / Last Page 195 -->
