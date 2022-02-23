@@ -48,6 +48,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Debugging NodeJS inside K8s](./tutorials/debugging-nodejs-inside-k8s.md)
 
+- [Debugging ElasticSearch Health](./tutorials/debugging-elasticsearch-health.md)
+
 ## 📜 Notes
 
 - [Introdução à Economia](./notes/introducao-a-economia.md)
