@@ -50,6 +50,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Debugging ElasticSearch Health](./tutorials/debugging-elasticsearch-health.md)
 
+- [Fixing time difference between Ubuntu and Windows](./tutorials/fixing-time-difference-between-ubuntu-and-windows.md)
+
 ## 📜 Notes
 
 - [Introdução à Economia](./notes/introducao-a-economia.md)
