@@ -52,6 +52,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Fixing time difference between Ubuntu and Windows](./tutorials/fixing-time-difference-between-ubuntu-and-windows.md)
 
+- [Proxy from Kubernetes Ingress Controller to URL](./tutorials/proxy-from-kubernetes-ingress-controller-to-url.md)
+
 ## 📜 Notes
 
 - [Introdução à Economia](./notes/introducao-a-economia.md)
