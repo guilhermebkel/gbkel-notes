@@ -489,4 +489,64 @@ Cluster the Entities and value Objects into Aggregates and define boundaries aro
 
 #### Factories
 
-<!--- Current Page 136 / Last Page 195 -->
+When creation of an object, or an entire Aggregate, becomes complicated or reveals too much of the internal structure, Factories provide encapsulation.
+
+An object should be distilled until nothing remains that does not relate to its meaning or support its role in interactions.
+
+Creation of an object can be a major operation in itself, but complex assembly operations do not fit the responsibility of the created objects. Combining such responsibilities can produce ungainly designs that are hard to understand. Making the client direct construction muddies the design of the client, breaches encapsulation of the assembled object or Aggregate, and overly couples the client to the implementation of the created object.
+
+Complex object creation is a responsibility of the domain layer, yet that task does not belong to the objects that express the model.
+
+A program element whose responsibility is the creation of other objects is called a Factory.
+
+Just as the interface of an object should encapsulate its implementation, thus allowing a client to use the object's behavior without knowing how it works, a Factory encapsualtes the knowledge needed to create a complex object or Aggregate. It provides an interface that reflects the goals of the client and an abstract view of the created object.
+
+Shift the responsibility for creating instances of complex objects and Aggregates to a separate object, which may itself have no responsibility in the domain model but is still part of the domain design. Provide an inteface that encapsulates all complex assembly and that does not require the client to reference the concrete classes of the objects being instantiated. Create entire Aggregates as a piece, enforcing their invariants.
+
+The two basic requirements for any good Factory are:
+
+1. Each creation method is atomic and enforces all invariants of the created object or Aggregate. A Factory should only be able to produce an object in a consistent state. For an Entity, this means the creation of the entire Aggregate, with all invariants satisfied, but probably with optional elements still to be added. For an immutable Value Object, this means that all attributes are initialized to their correct final state. If the interface makes it possible to request an object that can't be created correctly, then an exception should be raised or some other mechanism should be invoked that will ensure that no improper return value is possible.
+
+2. The Factory should be abstracted to the type desired, rather than the concrete classes created.
+
+**Choosing Factories and Their Sites**
+
+Generally speaking, you create a factory to build something whose details you want to hide, and you place the Factory where you want the control to be. These decisions usually revolve around Aggregates.
+
+For example, if you needed to add elements inside a preexisting Aggregate, you might create a Factory Method on the root of the Aggregate.
+
+**When a Constructor Is All You Need**
+
+There are times when the directness of a constructor makes it the best choice than using Factories. The trade-offs favor a bare, public constructor in the following circumstances:
+
+- The class is the type. It is not part of any interesting hierarchy, and it isn't used polymorphically by implementing an interface.
+
+- The client cares about the implementation, perhaps as a way of choosing a Strategy.
+
+- All of the attributes of the object are available to the client, so that no object creation gets nested inside the constructor exposed to the client.
+
+- The construction is not complicated.
+
+- A public constructor must follow the same rules as a Factory: It must be an atomic operation that satisfies all invariants of the created object.
+
+Avoid calling constructors within constructors of other classes. Constructors should be dead simple. Complex assemblies, especially of Aggregates, call for Factories. The threshold for choosing to use a little Factory Method isn't high.
+
+**Designing the Interface**
+
+When designing the method signature of a Factory, wheter standalone of Factory Method, keep in mind these two points:
+
+- **Each operation must be atomic:** You have to pass in everything needed to create a complete product in a single interaction with the Factory. You also have tod ecide what will happen if creation fails, in the event that some invariant isn't satisfied. You could throw an exception or just return a null. To be consistent, consider adopting coding standard for failures in Factories.
+
+- **The Factory will be coupled to its arguments:** If you are not careful in your selection of input parameters, you can create a rat's nest of dependencies. The degree of coupling will depend on what you do with the argument. If it is simply plugged into the product, you've created a modest dependency. If you are picking parts out of the argument yo use in the construction, the coupling gets tighter.
+
+**Reconstituting Stored Objects**
+
+A Factory used for reconstitution is very similar to one used for creation, with two major differences:
+
+1. **An Entity Factory used for reconstitution does not assign a new tracking ID:** To do so would lose the continuity with the object's previous incarnation. So identifying attributes must be part of the input parameters in a Factory reconstituting a stored object.
+
+2. **A Factory reconstituting an object will handle violation of an invariant differently:** During creation of a new object, a Factory should simply balk when an invariant isn't met, but a more flexible response may be necessary in reconstitution. If an object already exists somewhere in the system (such as in the database), this fact cannot be ignored. Yet we also can't ignore the rule violation. there has to be some strategy for repairing such inconsistencies, which can make reconstitution more challenging than the creation of new objects.
+
+#### Repositories
+
+<!--- Current Page 146 / Last Page 195 -->
