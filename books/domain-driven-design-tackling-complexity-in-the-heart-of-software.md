@@ -549,4 +549,62 @@ A Factory used for reconstitution is very similar to one used for creation, with
 
 #### Repositories
 
-<!--- Current Page 146 / Last Page 195 -->
+Associations allow us to find an object based on its relationship to another. But we must have a starting point for a traversal to an Entity or Value in the middle of its life cycle.
+
+The right combination of search and association makes the design comprehensible.
+
+Unfortunately, developers don't usually get to think much about such design subtleties, because they are swimming in the sea of mechanisms needed to pull off the trick of storing an object and bringing it back - and eventually removing it from storage.
+
+More and more domain rules become embedded in query code or simply lost.
+
+A client needs a practical means of acquiring references to preexisting domain objects. If the infrastructure makes it easy to do so, the developers of the client may add more traversable associations, muddling the model. On the other hand, they may use queries to pull the exact data they need from the database, or to pull a few specific objects rather than navigating from Aggregate roots. Domain logic moves into queries and client code, and the Entities and Value Objects become mere data containers. The sheer technical complexity of applying most database access infrastructure quickly swamps the client code, which leads developers to dump down the domain layer, which makes the model irrelevant.
+
+Any object internal to an Aggregate is prohibited from access except by traversal from the root.
+
+A subset of persistent objects must be globally accessible through a search based on object attributes. Such access is needed for the roots of Aggregates that are not convenient to reach by traversal. They are usually Entities, sometimes Value Objects with complex internal structure, and sometimes enumerated Values. Providing access to other objects muddies important distinctions. Free database queries can actually breach the encapsulation of domain objects and Aggregates. Exposure of technical infrastructure and database access mechanisms complicates the client and obscures the Model-Driven Design.
+
+A Repository represents all objects of a certain type as a conceptual set. It acts like a collection, except with more elaborate querying capability. Objects of the appropriate type are added and removed, and the machinery behind the Repository inserts them or deletes them from the database. This definition gathers a cohesive set of responsibilities for providing access to the roots of Aggregates from early life cycle through the end.
+
+Clients request objects from the Repository using query methods that select objects based on criteria specified by the client, typically the value of certain attributes. The Repository retrieves the requested object, encapsulating the machinery of database queries and metadata mapping. Repositories can implement a cariety of queries that select objects based on whatever criteria the client requires. They can also return summary information, such as a count of how many instances meet some criteria. They can even return summary calculations, such as the total across all matching objects of some numerical attribute.
+
+A Repository lifts a huge burden from the client, which can now talk to a simple, intention-revealing interface, and ask for what it needs in terms of the model. To support all this requires a lot of complex technical infrastructure, but the interface is simple and conceptually connected to the domain model.
+
+For each type of object that needs global access, create an object that can provide the illusion of an in-memory collection of all objects of that type. Set up access through a well-known global interface. Provide methods to add and remove objects, which will encapsulate the actual insertion or removal of data in the data store. Provide methods that select objects based on some criteria and return fully instantiated objects or collections of objects shose attribute values meet the criteria, thereby encapsulating the actual storage and query technology. Provide Repositories only for Aggregate roots that actually need direct access. Keep the client focused on the model, delegating all object storage and access to the Repositories.
+
+Repositories have many advantages, including the following:
+
+- They present clients with a simple model for obtaining persistent objects and managing their life cycle.
+
+- They decouple application and domain design from persistence technology, multiple database strategies, or even multiple data sources.
+
+- They communicate design decisions about object access.
+
+- They allow easy substitution of a dummy implementation, for use in testing (typically using an in-memory collection).
+
+**Querying a Repository**
+
+The easiest Repository to build has hard-coded queries with specific parameters. These queries can be various: retrieving an Entity by its identity; requesting a collection of objects with a particular attribute value of a complex comination of parameters; selecting objects based on value ranges.
+
+One particular apt approach to generalizing Repositories through a framework is to use Specification-based queries. A Specification allows a client to describe what it wants without concern for how it will be obtained. The Specification-based query is elegant and flexible.
+
+**Implementing a Repository**
+
+The ideal is to hide all the inner workings from the client, so that client code will be the same whether the data is stored in a object database, stored in a relational database, or simply held in memory. The Repository will delegate to the appropriate infrastructure services to get the job done. Encapsulating the mechanisms of storage, retrieval, and query is the most basic feature of a Repository implementation.
+
+The Repository concept is adaptable to many situations. The possibilities of implementation are so diverse that I can only list some concerns to keep in mind.
+
+- **Abstract the type:** A Repository "contains" all instances to a specific type, but this does not mean that you need one Repository for each class. The type could be an abstract superclass of a hierarchy. They type could be an interface whose implementers are not even hierarchically related. Or it could be a specific concrete class. Keep in mind that you may well face constraints imposed by the lack of such polymorphism in your database technology.
+
+- **Take advantage of the decoupling from the client:** You have more freedom to change the implementation of a Repository than you would if the client were calling the machanisms directly. You can take advantage of this to optimize for performance, by varying the query technique or by caching objects in memory, freely switching persistance strategies at any time. You can facilitate testing of the client code and the domain objects by providing an easily manipulated, dummy in-memory strategy.
+
+- **Leave transactional control to the client:** Although the Repository will insert into and delete from the database, it will ordinarily not commit anything. It is tempting to commit after saving, for example, but the client presumably has the context to correctly initiate and commit units of work. Transaction management will be simpler if the Repository keeps its hands off.
+
+**The Relationship with Factories**
+
+A Factory handles the beginning of an object's life; a Repository helps manage the middle and the end. When objects are being held in memory, or store in an object database, this is straightforward. But typically there is at least some object storage in relational databases, files, or other, non-object-oriented systems. In such cases, the retrieved data must be reconstituted into object form.
+
+Factories and Repositories have distinct responsibilities. The Factory makes new objects; the Repository finds old objects. The client of a Repository should be given the illusion that the Objects are in memory. The object may have to be reconstituted, but it is the same conceptual object, still in the middle of its life cycle.
+
+**Designing Objects for Relational Databases**
+
+<!--- Current Page 158 / Last Page 195 -->
