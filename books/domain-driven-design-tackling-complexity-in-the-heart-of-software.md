@@ -605,6 +605,48 @@ A Factory handles the beginning of an object's life; a Repository helps manage t
 
 Factories and Repositories have distinct responsibilities. The Factory makes new objects; the Repository finds old objects. The client of a Repository should be given the illusion that the Objects are in memory. The object may have to be reconstituted, but it is the same conceptual object, still in the middle of its life cycle.
 
-**Designing Objects for Relational Databases**
+## Refactoring Toward Deeper Insight
 
-<!--- Current Page 158 / Last Page 195 -->
+Success developing useful models comes down to three points:
+
+1. Sophisticated domain models are achievable and worth the trouble.
+
+2. They are seldom developed except through an iterative process of refactoring, including close involvement of the domain experts with developers interested in learning about the domain.
+
+3. They may call for sophisticated design skills to implement and to use effectively.
+
+#### Levels of Refactoring
+
+Refactoring is the redesign of software in ways that do not change its functionality. Rather than making elaborate up-front design decisions, developers take code through a continuous series of small, discrete design changes, each leaving existing functionality unchanged while making the design more flexible or easier to understand. A suite of automated unit tests allows relatively safe experimentation with the code. The process frees the developers from the need to look far ahead.
+
+The refactorings that have the greatest impact on the viability of the system are those motivated by new insights into the domain or those that clarify the model's expression through the code. This type of refactoring does not in any way replace the refactorings to design patterns or the micro-refactorings, which should proceed continuously. It superimposes another level: refactoring to a deeper model. Executing a refactoring based on domain insight often involves a series of micro-refactorings, but the motivation is not just the state of the code.
+
+#### Deep Models
+
+The traditional way of explaining object analysis involves identifying nouns and verbs in the requirements documents and using them as the initial objects and methods. This explanation is recognized as an oversimplification that can be useful for teaching object modeling to beginners.
+
+A deep model provides a lucid expression of the primary concerns of the domain experts and their most relevant knowledge while it sloughs off the superficial aspects of the domain. A deep model usually has abstract elements, but it may well have concrete elements where those cut to the heart of the problem.
+
+#### Deep Model/Supple Design
+
+In a process of constant refactoring, the design itself needs to support change. Certain characteristics of a design make it easier to change and use.
+
+In addition to facilitating change, a supple design contributes to the refinement of the model itself. A Model-Driven Design stands on two legs. A deep model makes possible an expressive design. At the same time, a design can actually feed insight into the model discovery process when it has the flexibility to let a developer experiment and the clarity to show a developer what is happening.
+
+#### The Discovery Process
+
+To create a design really fitted to the problem at hand, you must first have a model that captures the central relevant concepts of the domain.
+
+Because of the close relationship between model and design, the modeling process comes to a halt when the code is hard to refactor.
+
+You will usually depend on creativity and trial and error to find good ways to model the concepts you discover, but sometimes someone has laid down a pattern you can follow.
+
+### Breakthrough
+
+The returns of refactoring are not linear. Usually there is a marginal return for a small effort, and the small improvements add up. They fight entropy, and they are the frontline protection against a fossilized legacy. But some of the most important insights come abruptly and send a shock through the project.
+
+Slowly but surely, the team assimilates knowledge and crunches it into a model. Deep models can emerge gradually through a sequence of small refactorings, an object at a time: a tweaked association here, a shifted responsibility there.
+
+Often, through, continuous refactoring prepares the way for something less orderly. Each refinement of code and model gives developers a clearer view. This clarity creates the potential for a breakthrough of insights. A rush of change leads to a model that corresponds on a deeper level to the realities and priorities of the users. Versality and explanatory power suddenly increase even as complexity evaporates.
+
+<!--- Current Page 195 / Last Page 195 -->
