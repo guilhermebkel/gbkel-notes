@@ -12,6 +12,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## 📓 Books
 
+- [Site Reliability Engineering](./books/site-reliability-engineering.md)
+
 - [Domain-Driven Design: Tackling Complexity in the Heart of Software](./books/domain-driven-design-tackling-complexity-in-the-heart-of-software.md)
 
 - [Clean Coder: A Code of Conduct for Professional Programmers](./books/clean-coder-a-code-of-conduct-for-professional-programmers.md)
