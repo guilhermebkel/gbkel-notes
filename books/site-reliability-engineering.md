@@ -125,5 +125,178 @@ Resource use is a function of demand (load), capacity, and software efficiency. 
 
 Software systems become slower as load is added to them. A slowdown in a service equates to a loss of capacity. At some point, a slowing system stops serving, which corresponds to infinite slowness. SREs provision to meet a capacity target at a specific response speed, and thus are keenly interested in a service's performance. SREs and product developers will (and should) monitor and modify a service to improve its performance, thus adding capacity and improving efficiency.
 
+### Managing Risk
 
-<!--- Current Page 58 / Last Page 58 -->
+Unreliable systems can quickly errode users' confidence, so we want to reduce the change of system failure. However, experience shows that as we build systems, cost does not increase linearly as reliability increments - an incremental improvement in reliability may cost 100x more than the previous increment.
+
+The costliness has two dimensions:
+
+- **The cost of redundant machine/compute resources:** The cost associated with redudant equipment that, for example, allows us to take systems offline for routine or unforeseen maintenance, or provides space for us to store parity code blocks that provide a minimum data durability guarantee.
+
+- **The opportunity cost:** The cost borne by an organization when it allocates engineering resources to build systems or features that diminish risk instead of features that are directly visible to or usable by end users. These engineers no longer work on new features and products for end users.
+
+In SRE, we manage service reliability largely by managing risk. We conceptualize risk as continuum.  In a sense, we view the availability target as both a minimum and a maximum. The key advantage of this framing is that it unlocks explicit, thoughtful risktaking.
+
+### Measuring Service Risk
+
+By setting a target, we can assess our current performance and track improvements or degradations over time. For service risk, it is not immediately clear ho to reduce all of the potential factors into a single metric. Service failures can havemany potential effects, including user dissatisfaction, harm, or loss of trust; direct or indirect revenue loss; brand or reputational impact; and undesirable press coverage.
+
+Clearly, some of these factors are very hard to measure. To make this problem tractable and consistent across many types of systems we run, we focus on unplanned downtime.
+
+For most services, the most straightforward way of representing risk tolerance is in terms of the acceptable level of unplanned downtime. Unplanned downtime is captured by the desired level of service availability, usually expressed in terms of the number of "nines" we would like to provide: 99.9%, 99.99%, or 99.999% availability. Each additional nine corresponds to an order of magnitude improvement toward 100% availability.
+
+For serving systems, this metric is traditionally calculated based on the proportion of system uptime:
+
+```
+                     uptime
+availability = -------------------
+               (uptime + downtime)
+```
+
+Using this formula over the period of a year, we can calculate the acceptable number of minutes of downtime to reach a given number of nines of availability.
+
+At Google, however, a time-based metric for availability is usually not meaningful because we are looking across globally distributed services. Instead of using metrics around uptime, they define availability in terms of the request success rate:
+
+```
+               successful requests
+availability = -------------------
+                  total requests
+```
+
+Quantifying unplanned downtime as a request success rate also makes this availability metric more amenable for use in systems that do not typically serve end users directly.
+
+### Risk Tolerance of Services
+
+What does it mean to identify the risk rolerance of a service? In a formal environment or in the case of safety-critical systems, the risk tolerance of services is typically built directly into the basic product or service definition. At Google, services' risk tolerance tends to be less clearly defined.
+
+To identify the risk tolerance of a service, SREs must work with the product owners to turn a set of business goals into explicit objectives to which we can engineer. In this case, the business goals we're concerned about have a direct impact on the performance and reliability of the service offered. In practice, this translation is easier said than done. While consumer services often have clear product owners, it is unusual for infrastructure services to have a similar structure of product ownership.
+
+#### Identifying the Risk Tolerance of Consumer Services
+
+When a product team exists, that team is usually the best resource to discuss the reliability requirements for a service. In the absence of a dedicated product team, the engineers building the system often play this role either knowingly or unknowingly.
+
+There are many factors to consider when assessing the risk tolerance of services, such as the following:
+
+- What level of availability is required?
+
+- Do different types of failures have different effects on the service?
+
+- How can we use the service cost to help locate a service on the risk continuum?
+
+- What other service metrics are important to take into account?
+
+**Target level of availability**
+
+The target level of availability for a given Google service usually depends on the function it provides and how the service is positioned in the marketplace. The following list includes issues to consider:
+
+- What level of service will the users expect?
+
+- Does this service tie directly to revenue (either our revenue, or our customers' revenue)?
+
+- Is this a paid service, or is it free?
+
+- If there are competitors in the marketplace, what level of service do those competitors provide?
+
+In this service targeted at consumers, or at enterprises?
+
+**Types of failures**
+
+The expected shape of failures for a given service is another important consideration. How resilient is our business to service downtime?
+
+Which is worser for the service: A constant low rate of failures, or an occasional full-site outage? Both types of failure may result in the same absolute number of errors, but may have vastly different impacts on the business.
+
+**Cost**
+
+Cost is often the key factor in determining the appropriate availability target for a service. In determining the availability target for each service, we ask questions such as:
+
+- If we were to build and operate these systems at one more nine of availability, what would our incremental increase in revenue be?
+
+- Does this additional revenue offset the cost of reaching that level of reliability?
+
+To make this trade-off equation more concrete, consider the following cost/benefit for an example service where ach request has equal value:
+
+- **Proposed improvement in availability target:** 99.9% -> 99.99%
+
+- **Proprosed increase in availability:** 0.09%
+
+- **Service revenue:** $1M
+
+- **Value of improved availability:** $1M * 0.0009 = $900
+
+In this case, if the cost of improving availability by one nine is less than $900, it is worth the investment. If the cost is greater than $900, the costs will exceed the projected increase in revenue.
+
+It may be harder to set these targets when we do not have a simple translation function between reliability and revenue. One useful strategy may be to consider the background error rate of ISPs on the Internet. If failures are being measured from the end-user perspective and it is possible to drive the error rate for the service below the background error rate, those errors will fail within the noise for a given user's Internet connection.
+
+**Other service metrics**
+
+Examining the risk tolerance of services in relation to metrics besides availability is often fruitful. Understanding which metrics are important and which metrics aren't important provides us with degrees of freedom when attempting to take thoughtful risks.
+
+#### Identifying the Risk Tolerance of Infrastructure Services
+
+The requirements for building and running infrastructure components differ from the requirements for consumer products in a number of ways. A fundamental difference is that, by definition, infrastructure components have multiple clients, often with varying needs.
+
+**Target level of availability**
+
+Consider Bigtable, a massive-scale distributed storage system for structured data. Some consumer services serve data directly from Bigtable in the path of a user request.
+
+Such services need low latency and high reliability. Other teams use Bigtable as a repository for data that they use to perform offline analysis on a regular basis. These teams tend to be more concerned about throughput than reliability. Risk tolerance for these two use cases is quite distinct.
+
+One approach to meeting the needs of boths use cases is to engineer all infrastructure services to be ultra-reliable. Given the fact that these infrastructure services also tend to aggregate huge amounts of resources, such an approach is usually far too expensive in practice. To understand the different needs of the different types of users, you can look at the desired state of the request queue for each type of Bigtable user.
+
+**Types of failures**
+
+The low-latency user wants Bigtable's request queues to be empty so that the system can process each oustanding request immediately upon arrival (Indeed, inefficient queuing is often a cause of high tail latency). The user concerned with offline analysis is more interested in system throughput, so that user wants request queues to never be empty. To optimise for throughput, the Bigtable system should never need to idle while waiting for its next request.
+
+As you can see, success and failure are antithetical for these sets of users. Success for the low-latency user is failure for the user concerned with offline analysis.
+
+**Cost**
+
+One way to satisfy these competing constraints in a cost-effective manner is to partition the infrastructure and offer it at multiple independent levels of services.
+
+The key strategy with regards to infrastructure is to deliver services with explicitly delineated levels of service, thus enabling the clients to make the right risk and cost trade-offs when building their systems. With explicitly delineated levels of service, the infrastructure providers can effectively externalize the difference in the cost it takes to provide service at a given level to clients.
+
+#### Motivation for Error Budgets
+
+Meanwhile, SRE performance is evaluated based upon reliability of a service, which implies an incentive to push back against a high rate of change. Information asymmetry between the two teams further amplifies this inherent tension. The product developers have more visibility into the time and effort involved in writing and releasing their code, while the SREs have more visibility into the service's reliability.
+
+These tensions often reflect themselves in different opinions about the level of effort that should be put into engineering practices. The following list presents some typical tensions:
+
+- **Software fault tolerance:** How hardened do we make the software to unexpected events? Too little, and we have a brittle, unusable product. Too much, and we have a product no one wants to use (but that runs very stably).
+
+- **Testing:** Again, not enough testing and you have embarrasing outages, privacy data leaks, or a number of other press-worthy events. Too much testing, and you might lose your market.
+
+- **Push frequency:** Every push is risky. How much should we work on reducing that risk, versus doing other work?
+
+- **Canary duration and size:** It's a best practice to test a new release on some small subset of a typical workload, a practice often called canarying. How long do we wait, and how big it the canary?
+
+**Forming Your Error Budget**
+
+In order to base these decisions on objective data, the two teams jointly define a quarterly error budget based on the service's service level objective, or SLO. The error budget provides a clear, objetive metric that determines how unreliable the service is allowed to be within a single quarter. This metric remover thepolitics from negotiations between the SREs and the product developers when deciding how much risk to allow.
+
+Our practice is then as follows:
+
+- Product Management defines an SLO, which sets an expectation of how much uptime the service should have per quarter.
+
+- The actual uptime is measured by a neutral third party: our monitoring system.
+
+- The difference between these two numbers is the "budget" of how much "unreliability" is remaining for the quarter.
+
+- As long as the uptime measured is above the SLO - in other words, as long as there is error budget remaining - new releases can be pushed.
+
+**Benefits**
+
+The main benefit of an error budget is that it provides a common incentive that allows both product development and SRE to focus on finding the right balance between innovation and reliability.
+
+Many products use this control loop to manage release velocity: as long as the system's SLOs are met, releases can continue. If SLO violations occur frequently enough to expend the error budget, releases are temporarily halted while additional resources are invested in system testing and development to make system more resilient, improve its performance, and so on.
+
+More subtle and effective approaches are available than this sample on/off technique: for instance, slowing down releases or rolling them back when the SLO-violation error budget is close to being used up.
+
+**Key Insights**
+
+- Managing service reliability is largely about managing risk, and managing risk can be costly.
+
+- 100% is probably never the right reliability target: not only is it impossible to achieve, it's typically more reliability than a service's users want or notice. Match the profile of the service to the risk the business is willing to take.
+
+- An error budget aligns incentives and emphasizes joint ownership between SRE and product developement. Error budgets make it easier to decide the rate of releases and to effectively defuse discussions about outages with stakeholders, and allows multiple teams to reach the same conclusion about production risk without rancor.
+
+<!--- Current Page 78 / Last Page 78 -->
