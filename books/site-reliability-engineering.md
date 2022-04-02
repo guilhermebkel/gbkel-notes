@@ -477,4 +477,222 @@ Understanding how well a system is meeting its expectations helps decide whether
 
 Crafting an SLA requires business and legal teams to pick appropriate consequences and penalties for a breach. SRE's role is to help them understand the likelihood and difficulty of meeting the SLOs contained in the SLA. Much of the advice an SLO construction is also applicable for SLAs. It is wise to be conservative in what you advertise to users, as the broader the constituency, the harder it is to change or delete SLAs that prove yo be unwise or difficult to work with.
 
-<!--- Current Page 95 / Last Page 95 -->
+## Eliminating Toil
+
+If a human operator needs to touch your system during normal operations, you have a bug. The definition of normal changes as your systems grow.
+
+In SRE, we want to spend time on long-term engineering project work instead of operational work. Because the term operational work may be misinterpreted, we use a specific word: toil.
+
+### Toil Defined
+
+Toil is not just "work I don't like to do". It's also not simply equivalent to administrative chores or grungy work. Preferences as to what types of work are satisfying and enjoyable vary from person to person, and some people even enjoy manual, repetitive work.
+
+There are also administrative chores that have to get done, but should not be categorized as toil: this is overhead. Overhead is often work not directly tied to running a production service, and includes tasks like team meetings, setting and grading goals, snippets, and HR paperwork.
+
+Grungy work can sometimes have long-term value, and in that case, it's not toil, either. Cleaning up the entire alerting system configuration for your service and removing clutter may be grungy, but it's not toil.
+
+So what is toil? Toil is the king of work tied to running a production service that tends to be manual, repetitive, automatable, tactical, devoid of enduring value, and that scales linearly as a service grows. Not every task deemed toil has all these attributes, but the more closely work matches one or more of the following descriptions, the more likely it is to be toil:
+
+- **Manual:** This includes work such as manually running a script that automates some task. Running a script may be quicker than manually executing each step in the script, but the hands-on time a human spends running that script (not the elapsed time) is still toil time.
+
+- **Repetitive:** If you're performing a task for the first time ever, or even the second time, this work is not toil. Toil is work you do over and over. If you're solving a novel problem or inventing a new solution, this work is not toil.
+
+- **Automatable:** If a machine could accomplish the task just as well as a human, or the need for the task could be designed away, that task is toil. If human judgment is essential for the task, there's a good chance it's not toil.
+
+- **Tactical:** Toil is interrupt-driven and reactive, rather than strategy-driven and proactive. Handling pager alerts is toil. We may never be able to eliminate this type of work completely, but we have to continually work toward minimizing it.
+
+- **No enduring value:** If your service remains in the same state after you have finished a task, the task was probably toil. If the task produced a permanent improvement in your service, it probably wasn't toil, even if some amount of grunt work - such as digging into legacy code and configurations and straightening them out - was involved.
+
+- **O(n) with service growth:** If the work involved in a task scales up linearly with service size, traffic volume, or user count, that task is probably toil. An ideally managed and designed service can grow by at least one order of magnitude with zero additional work, other than some one-time efforts to add resources.
+
+### Why Less Toil Is Better
+
+Feature development typically focuses on improving reliability, performance, or utilization, which often reduces toil as second-order effect.
+
+Toil tends to expand if left unchecked and can quickly fill 100% of everyone's time. The work of reducing toil and scaling up services is the "Engineering" in Site Reliability Engineering. Engineering work is what enables the SRE organization to scale up sublinearly with service size and to manage services more effeciently than either a pure Dev team or a pure Ops team.
+
+### What Qualifies as Engineering?
+
+Engineering work is novel and intrinsically requires human judgment. It produces a permanent improvement in your service, and is guided by a strategy. It is frequently creative and innovative, taking a design-driven approach to solving a problem - the more generalized, the better. Engineering work helps your team or the SRE organization handle a larger service, or more services, with the same level of staffing.
+
+Typical SRE activities fall into the following approximate categories:
+
+- **Software engineering:** Involves writing or modifying code, in addition to any associated design and documentation work. Examples include writing automation scripts, creating tools or frameworks, adding service features for scalability and realiability, or modifying infrastructure code to make it more robust.
+
+- **Systems engineering:** Involves configuring production systems, modifying configurations, or documenting systems in a way that produces lasting improvements from a one-time effort. Examples include monitoring setup and updates, load balancing configuration, server configuration, tunning of OS parameters, and load balances setup. Systems engineering also includes consulting on architecture, design, and productionization for developer teams.
+
+- **Toil:** Work directly tied to running a service that is repetitive, manual, etc.
+
+- **Overhead:** Administrative work not tied directly to running a service. Examples include hiring, HR paperwork, team/company meetings, bug queue hygiene, snippets, peer reviews and self-assessments, and training courses.
+
+### Is Toil Always Bad?
+
+Toil doesn't make everyone unhappy all the time, especially in small amounts. Predictable and repetitive tasks can be quite calming. They produce a sense of accomplishment and quick wins. They can be low-risk and low-stress activities. Some people gravitate toward tasks involving toil and may even enjoy they type of work.
+
+Toil becomes toxic when experienced in large quantities. If you're burdened with too much toil, you should be very concerned and complain loudly. Among the many reasons why too much toil is bad, consider de following:
+
+- **Career stagnation:** Your career progress will slow down or grind to a half it you spend too little time on projects.Google rewards grungy work when it's inevitable and has a big positive impact, but you can't make a career our of grunge.
+
+- **Low morale:** People have different limits for how much toil they can tolerate, but everyone has a limit. Too much toil leads to burnout, boredom, and discontent.
+
+Additionally, spending too much time on toil at the expense of time spent engineering hurst an SRE organization in the following ways:
+
+- **Creates confusion:** We work hard to ensure that everyone who works in or with the SRE organization understands that we are an engineering organization. Individuals or teams within SRE that engage in too much toil undermine the clarity of that communication and confuse people abour our role.
+
+- **Slow progress:** Excessive toil makes a team less productive. A product's feature velocity will slow if the SRE team is too busy with manual work and firefighting to roll out new features promptly.
+
+- **Sets precedent:** If you're too willing to take on toil, your Dev counterparts will have incentives to load you down with even more toil, sometimes whifting operational tasks that should rightfully be performed by Devs to SRE. Other teams may also start expecting SREs to take on such work, which is bad for obvious reasons.
+
+- **Promotes attrition:** Even if you're not personally unhappy with toil, your current or future teammates might like it much less. If you build too much toil into your team's procedures, you motivate the team's best engineers to start looking elsewhere for a more rewarding job.
+
+- **Causes breach of faith:** New hires or tranfers who joined SRE with the promise of project work will feel cheated, which is bad for morale.
+
+## Monitoring Distributed Systems
+
+### Definitions
+
+- **Monitoring:** Collecting, processing, aggregating, and displaying real-time quantitative data about a system, such as query counts and types, error counts and types, processing times, and server lifetimes.
+
+- **White-box monitoring:** Monitoring based on metrics exposed by the internals of the system, including logs, interfaces like the Java Virtual Machine Profiling Interface, or an HTTP handler that emits internal statistics.
+
+- **Black-box monitoring:** Testing externally visible behavior as a user would see it.
+
+- **Dashboard:** An application (usually web-based) that provides a summary view of a service's core metrics. A dashboard may have filters, selectors, and so on, but is prebuilt to expose the metrics most important to its users. The dashboard might also display team information such as ticket queue length, a list of high-prority bugs, the current on-call engineer for a given area of responsibility, or recent pushes.
+
+- **Alert:** A notification intended to be read by a human and that is pushed to a system such as a bug or ticket queue, an email alias, or a pager. Respectively, these alerts are classified as tickets, email alerts, and pages.
+
+- **Root cause:** A defect in a software or human system that, if repaired, instills confidence that this event won't happen again in the same way. A given incident might have multiple root causes: for example, perhaps it was caused by a combination of insufficient process automation, software that crashed on bogus input, and insufficient testing of the script used to generate the configuration. Each of these factors might stand alone as a root cause, and each should be repaired.
+
+- **Node and machine:** Used interchangeably to indicate a single instance of a running kernel in either a physical server, virtual machine, or container. There might be multiple services worth monitoring on a single machine. The services may either be:
+  - Related to each other: for example, a caching server and a web server.
+  - Unrelated services sharing software: for example, a code repository and a master for a configuration system like Puppet or Chef.
+
+- **Push:** Any change to a service's running software or its configuration.
+
+### Why Monitor?
+
+There are many reasons to monitor a system, including:
+
+- **Analysing long-term trends:** How big is my database and how fast is it growing? How quickly is my daily-active user count growing?
+
+- **Comparing over time or experiment groups:** Are queries faster with Acme Bucket of Bytes 2.72 versus Ajax DB 3.14? How much better is my memcache hit rate with an extra node? Is my site slower than it was last week?
+
+- **Alerting:** Something is broken, and somebody needs to fix it right now! Or, something might break soon, so somebody should look soon.
+
+- **Building dashboards:** Dashboards should answer basic questions about your service, and normally include some form of the four golden signals.
+
+- **Conducting ad hoc retrospective analysis (i.e., debugging):** Our latency just shot up; what else happened around the same time?
+
+Monitoring and alerting enables a system to tell us when it's broken, or pehaps to tell us what's about to break. When the system ins't able to automatically fix itself, we want a human to investigate the alert, determine if there's a real problem at hand, mitigate the problem, and determine the root cause of the problem.
+
+Paging a human is a quite expensive use of an employee's time. If an employee is at work, a page interrupts their workflow. If the employee is at home, a page interrupts their personal time, and perhaps even their sleep.
+
+### Setting Reasonable Expectations for Monitoring
+
+In general, Google has trended toward simpler and faster monitoring systems, with better tools for post hov analysis. We avoid "magic" systems that try to learn thresholds or automatically detect causality. Rules that detec unexpected changes in end-user request rates are one counterexample; while these rules are still kept as simple as possible, they give a very quick detection of a very simple, specific, severe anomaly. Other uses of monitoring data such as capacity planning and traffic prediction can tolerate more fragility, and thus, more complexity.
+
+Rules that generate alerts for humans should be simple to understand and represent a clear failure.
+
+### Symptoms Versus Causes
+
+Your monitoring system should address two questions: what's broken, and why?
+
+> **Symptom:** I'm serving HTTP 500s or 404s. / **Cause:** Database servers are refusing connections.
+>
+> **Symptom:** My responses are slow. / **Cause:** CPUs are overloaded by a bogosort, or an Ethernet cable is crimped under a rack, visible as partial packet loss.
+>
+> **Symptom:** Users in Antarctica aren't receiving animated cat GIFs. / **Cause:** Your Content Distribution Network hates scientists and feliness, and thus blacklisted some client IPs.
+>
+> **Symptom:** Private content is world-readable. / **Cause:** A new software push caused ACLs to be forgotten and allowed all requests.
+
+"What" versus "why" is one of the most important distinctions in writing good monitoring with maximum signal and minimum noise.
+
+### Black-Box Versus White-Box
+
+We combine heavy use of white-box monitoring with modest but critical uses of black-box monitoring. The simplest way to think about black-box monitoring versus white-box monitoring is that black-box monitoring is symptom-oriented and represents active - not predicted - problems: "The system ins't working correctly, right now.". White-box monitoring depends on the ability to inspect the innards of the system, such as logs or HTTP endpoints, with instrumentation. White-box monitoring therefore allows detection of imminent problems, failures masked by retries, and so forth.
+
+Note that in a multilayered system, one person's symptom is another person's cause. For example, suppose that a database's performance is slow. Slow database reads are a symptom for the database SRE who detects them. However, for the frontend SRE observing a slow website, the same slow database reads are a cause. Therefore, white-box monitoring is sometimes symptom-oriented, and sometimes cause-oriented, depending on just how informative your white-box is.
+
+When collecting telemetry for debugging, white-box monitoring is essential. If web servers seem slow on database-heavy requests, you need to know both how fast the web server perceives the database to be, and how fast the database believes itself to be. Otherwise, you can't distinguish an actually slow database server from a network problem between your web server and your database.
+
+### The Four Golden Signals
+
+The four golden signals of monitoring are latency, traffic, errors, and saturation. If you can only measure four metrics of your user-facing system, focus on these four.
+
+- **Latency:** The time it takes to service a request. It's important to distinguish between the latency of successfull requests and the latency of failed requests. For example, an HTTP 500 error triggered due to loss of connection to a database or other critical backend might be served very quickly; however, as an HTTP 500 error indicates a failed request, factoring 500s into your overall latency might result in misleading calculations. On the other hand, a slow error is even worse than a fast error! Therefore, it's important to track error latency, as opposed to just filtering out errors.
+
+- **Traffic:** A measure of how much demand is being placed on your system, measured in a high-level system-specific metric. For a web service, this measurement is usually HTTP requests per second, perhaps broken out by the nature of the requests (e.g., static versus dynamic content). For an audio streaming system, this measurement might focus on network I/O rate or concurrent sessions. For a key-value storage system, this measurement might be transactions and retrievals per second.
+
+- **Errors:** The rate of requests that fail, either explicitly (e.g. HTTP 500s), implicitly (for example, an HTTP 200 success response, but coupled with the wrong content), or by policy (for example, "If you committed to one-second response times, any request over one second is an error"). Where protocol response codes are insufficient to express all failure conditions, secondary (internal) protocols may be necessary to track partial failure modes. Monitoring these cases can be drastically different: catching HTTP 500s at your load balancer can do a decent job of catching all completely failed requests, while only end-to-end system tests can detect that you're serving the wrong content.
+
+- **Saturation:** How "full" your service is. A measure of your system fraction, emphasizing the resources that are most constrained (e.g., in a memory-constrained system, show memory; in an I/O-constrained system, show I/O). Note that many systems degrade in performance before they achieve 100% utilization, so having a utilization target is essential. In complex systems, saturation can be supplemented with higher-level load measurement: can your service properly handle double the traffic, handle only 10% more traffic, or handle even less traffic than it currently receives? For very simple services that have no parameters that alter the complexity of the request (e.g., "Give me a nonce" or "I need a globally unique monotonic integer") that rarely change configuration, a static value from a load test might be adequate. As discussed in the previous paragraph, however, most services need to use indirect signals like CPU utilization or network bandwidth that have a known upper bound. Latency increases are often a leading indicator of saturation. Measuring your 99th percentile response time over some small window (e.g., one minute) can give a very early signal of saturation. Finally, saturation is also concerned with predictions of impending saturation, such as "It looks like your database will fill its hard drive in 4 hours."
+
+### Worrying About Your Tail (or, Instrumentation and Performance)
+
+When building a monitoring system from scratch, it's tempting to design a system based upon the mean of some quantity: the mean latency, the mean CPU usage of your nodes, or the mean fullness of your databases. The danger presented by the latter two cases is obvious: CPUs and databases can easily be utilized in a very imbalanced way. The same holds for latency. If you run a web service with an average latency of 100ms at 1000 requests per second, 1% of requests might easily take 5 seconds.
+
+The simplest way to differentiate between a low average and a very slow "tail" of requests is to collect request counts bucketed by latencies (suitable for rendering a histogram), rather than actual latencies: how many requests did I serve that took between 0ms and 10ms, between 10ms and 30ms, between 30ms and 100ms, between 100ms and 300ms, and so on? Distributing the histogram boundaries approximately exponetially is often an easy way to visualize the distribution of your requests.
+
+### Choosing An Appropriate Resolution for Measurements
+
+Different aspects of a system hould be measured with different levels of granularity. For example:
+
+- Observing CPU load over the time span of a minute won't reveal even quite longlived spikes that drive high tail latencies.
+
+- On the other hand, for a web service targeting no more than 9 hours aggregate downtime per year (99.9% annual uptime), probing for a 200 (success) status more than once or twice a minute is probably unnecessarily frequent.
+
+- Similarly, checking hard drive fullness for a service targeting 99.9% availability more than once every 1-2 minutes is probably unnecessary.
+
+Take care in how you structure the granularity of your measurements. Collecting per-second measurements of CPU load might yield interesting data, but such frequent measurements may be very expensive to collect, store, and analyze.
+
+1. Record the current CPU utilization each second.
+
+2. Using buckets of 5% granularity, increment the appropriate CPU utilization bucket each second.
+
+3. Aggregate those values every minute.
+
+### As Simple as Possible, No Simpler
+
+Piling all these requirements on top of each other can add up to a very complex monitoring system - your system might end up with the following levels of complexity.
+
+- Alerts on different latency thresholds, at different percentiles, on all kinds of different metrics.
+
+- Extra code to detec and expose possible causes.
+
+- Associated dashboards for each of these possible causes.
+
+The sources of potential complexity are never-ending. Like all software systems, monitoring can become so complex that it's fragile, complicated to change, and a maintenance burden.
+
+Therefore, design your monitoring system with an eye toward simplicity. In choosing what to monitor, keep the following guidelines in mind:
+
+- The rules that catch real incidents most often should be as simple, predictable, and reliable as possible.
+
+- Data collection, aggregation, and alerting configuration that is rarely exercised (e.g., less than once a quarter for some SRE teams) should be up for removal.
+
+- Signals that are collected, but not exposed in any prebaked dashboard nor used by any alert, are candidates for removal.
+
+### Trying These Principles Together
+
+When creating rules for monitoring and alerting, asking the following questions can help you avoid false positives and pager burnout:
+
+- Does this rule detect an otherwise undetected condition that is urgent, actionable, and actively or imminently user-visible?
+
+- Will I ever be able to ignore this alert, knowing it's benign? When and why will I be able to ignore this alert, and how can I avoid this scenario?
+
+- Does this alert definitely indicate that users are being negatively afftected? Are there detectable cases in which users aren't being negatively impacted, such as drained traffic or test deployments, that should be filtered out?
+
+- Can I take action in response to this alert? Is that action urgent, or could it wait until morning? Could the action be safely automated? Will that action be along-term fix, or just a short-term workaround?
+
+- Are other people getting paged for this issue, therefore rendering at least one of the pages unnecessary?
+
+These questions reflect a fundamental philosophy on pages and pagers:
+
+- Every time the pager goes off, I should be able to react with a sense of urgency. I can only react with a sense of urgency a few times a day before I become fatigued.
+
+- Every page should be actionable.
+
+- Every page response should require intelligence. If a page merely merits a robotic response, it shouldn't be a page.
+
+- Pages should be about a novel problem or an event that hasn't been seen before.
+
+<!--- Current Page 99 / Last Page 124 -->
