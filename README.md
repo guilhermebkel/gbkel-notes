@@ -56,6 +56,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Proxy from Kubernetes Ingress Controller to URL](./tutorials/proxy-from-kubernetes-ingress-controller-to-url.md)
 
+- [Setting up Nginx inside an instance](./tutorials/setting-up-nginx-inside-an-instance.md)
+
 ## 📜 Notes
 
 - [Introdução à Economia](./notes/introducao-a-economia.md)
