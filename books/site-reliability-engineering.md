@@ -18,13 +18,13 @@ Traditional operations teams and their counterparts in product development thus 
 
 The ops team attempts to safeguard the running system against the risk of change by introducing launch and change gates.
 
-### Google's Approach to Srevice Management: Site Reliability Engineering
+### Google's Approach to Service Management: Site Reliability Engineering
 
 Conflict isn't an inevitable part of offering a software service. Google has chosen to run their systems with a different approach: Their Site Reliability Engineering teams focus on hiring software engineers to run their products and to create systems to accomplish the work that would otherwise be performed, often manually, by sysadmins.
 
 SRE is what happens when you ask a software engineer to design an operations team. The result of Google's approach to hiring for SRE is that whey end up with a team of people who will quickly become bored by performing tasks by hand, and have the skill set necessary to write software to replace their previously manual work, even when the solution is complicated.
 
-By design, it is crucical that SRE teams are focused on engineering. Without constant engineering, operations load increases and teams will need more people just to keep pace with the workload. Google places a 50% cap on the aggregate "ops" work for all SREs - tickes, on-call, manual tasks, etc. This cap ensures that the SRE team has enough time in their schedule to make the service stable and operable. This cap is an upper bound; over time, left to their own devices, the SRE team should end up with very little operational load and almost entirely engage in development tasks, because the service basically runs and repairs itself: we want systems that are automatic, not just automated. In practice, scale and new features keep SREs on their toes.
+By design, it is crucial that SRE teams are focused on engineering. Without constant engineering, operations load increases and teams will need more people just to keep pace with the workload. Google places a 50% cap on the aggregate "ops" work for all SREs - tickets, on-call, manual tasks, etc. This cap ensures that the SRE team has enough time in their schedule to make the service stable and operable. This cap is an upper bound; over time, left to their own devices, the SRE team should end up with very little operational load and almost entirely engage in development tasks, because the service basically runs and repairs itself: we want systems that are automatic, not just automated. In practice, scale and new features keep SREs on their toes.
 
 Google's rule of thumb is that an SRE team must spend the remaining 50% of its time actually doing development.
 
@@ -60,7 +60,7 @@ The business or the product must establish the system's availability target. Onc
 
 So how to we want to spend the error budget? The development team wants to launch features and attract new users. Ideally, we would spend all of our error budget taking risks with things we launch in order to launch them quickly. This basic premise describes the whole model of error budgets. As soon as SRE activities are conceptualized in this framework, freeing up the error budget through tactics such as phased wollouts and 1% experiments can optimize for quicker launches.
 
-The use of an error budget resolves the structural conflict of incentives between development and SRE. SRE's goal is no longer "zero outages"; rather, SREs and product developers aim to spend the error budget getting maximum feature velocity. This change makes all the difference. An outage is no longer a "bad" thing - it is an expected part of the process of innovation, and an occurence that both development and SRE teams manage rather than fear.
+The use of an error budget resolves the structural conflict of incentives between development and SRE. SRE's goal is no longer "zero outages"; rather, SREs and product developers aim to spend the error budget getting maximum feature velocity. This change makes all the difference. An outage is no longer a "bad" thing - it is an expected part of the process of innovation, and an occurrence that both development and SRE teams manage rather than fear.
 
 #### Monitoring
 
@@ -77,11 +77,11 @@ There are three kinds of valid monitoring output:
 
 #### Emergency Response
 
-Humans add latency. Even if a given system experiences more actual failures, a system that can avoid emergencise that require human intervention will have higher  availability than a system that requires hands-on intevention. When humans are necessary, we have found that thinking through and recording the best practices ahead of time in a "playbook" produces roughly a 3x improvement in MTTR as compared to the strategy of "winging it".
+Humans add latency. Even if a given system experiences more actual failures, a system that can avoid emergences that require human intervention will have higher  availability than a system that requires hands-on intervention. When humans are necessary, we have found that thinking through and recording the best practices ahead of time in a "playbook" produces roughly a 3x improvement in MTTR as compared to the strategy of "winging it".
 
 The hero jack-of-all-trades on-call engineer does work, but the practiced on-call engineer armed with a playbook works much better.
 
-While no playbook, no matter how comprehensive it may be, is a substitute for smart engineers able to think on the fly, clear and through troubleshooting steps and tips are valuable when responding to a high-stakes or time-sensitive page. Thus, Google SRE relies on on-call playbooks, in addition to exercisse such as the "Wheel of Misfortune", to prepare engineers to react to on-call events.
+While no playbook, no matter how comprehensive it may be, is a substitute for smart engineers able to think on the fly, clear and through troubleshooting steps and tips are valuable when responding to a high-stakes or time-sensitive page. Thus, Google SRE relies on on-call playbooks, in addition to exercise such as the "Wheel of Misfortune", to prepare engineers to react to on-call events.
 
 #### Change Management
 
@@ -97,7 +97,7 @@ By removing humans from the loop, these practices avoid the normal problems of f
 
 #### Demand Forecasting and Capacity Planning
 
-It can be viewed as ensuring that there is sufficient capacity and redundancy to serve projected future deman with the required availability. There's nothing particularly special about these concepts, except that a surprising number of services and teams don't take the steps necessary to ensure that the required capacity is in place by the time it is needed.
+It can be viewed as ensuring that there is sufficient capacity and redundancy to serve projected future demand with the required availability. There's nothing particularly special about these concepts, except that a surprising number of services and teams don't take the steps necessary to ensure that the required capacity is in place by the time it is needed.
 
 Capacity planning should take both organic growth  (which stems from natural product adoption and usage by customers) and inorganic growth (which results from events like feature launches, marketing campaigns, or other business-driven changes) into account.
 
@@ -133,15 +133,15 @@ Unreliable systems can quickly errode users' confidence, so we want to reduce th
 
 The costliness has two dimensions:
 
-- **The cost of redundant machine/compute resources:** The cost associated with redudant equipment that, for example, allows us to take systems offline for routine or unforeseen maintenance, or provides space for us to store parity code blocks that provide a minimum data durability guarantee.
+- **The cost of redundant machine/compute resources:** The cost associated with redundant equipment that, for example, allows us to take systems offline for routine or unforeseen maintenance, or provides space for us to store parity code blocks that provide a minimum data durability guarantee.
 
 - **The opportunity cost:** The cost borne by an organization when it allocates engineering resources to build systems or features that diminish risk instead of features that are directly visible to or usable by end users. These engineers no longer work on new features and products for end users.
 
-In SRE, we manage service reliability largely by managing risk. We conceptualize risk as continuum.  In a sense, we view the availability target as both a minimum and a maximum. The key advantage of this framing is that it unlocks explicit, thoughtful risktaking.
+In SRE, we manage service reliability largely by managing risk. We conceptualize risk as continuum.  In a sense, we view the availability target as both a minimum and a maximum. The key advantage of this framing is that it unlocks explicit, thoughtful risk taking.
 
 ### Measuring Service Risk
 
-By setting a target, we can assess our current performance and track improvements or degradations over time. For service risk, it is not immediately clear ho to reduce all of the potential factors into a single metric. Service failures can havemany potential effects, including user dissatisfaction, harm, or loss of trust; direct or indirect revenue loss; brand or reputational impact; and undesirable press coverage.
+By setting a target, we can assess our current performance and track improvements or degradations over time. For service risk, it is not immediately clear ho to reduce all of the potential factors into a single metric. Service failures can have many potential effects, including user dissatisfaction, harm, or loss of trust; direct or indirect revenue loss; brand or reputational impact; and undesirable press coverage.
 
 Clearly, some of these factors are very hard to measure. To make this problem tractable and consistent across many types of systems we run, we focus on unplanned downtime.
 
@@ -169,7 +169,7 @@ Quantifying unplanned downtime as a request success rate also makes this availab
 
 ### Risk Tolerance of Services
 
-What does it mean to identify the risk rolerance of a service? In a formal environment or in the case of safety-critical systems, the risk tolerance of services is typically built directly into the basic product or service definition. At Google, services' risk tolerance tends to be less clearly defined.
+What does it mean to identify the risk tolerance of a service? In a formal environment or in the case of safety-critical systems, the risk tolerance of services is typically built directly into the basic product or service definition. At Google, services' risk tolerance tends to be less clearly defined.
 
 To identify the risk tolerance of a service, SREs must work with the product owners to turn a set of business goals into explicit objectives to which we can engineer. In this case, the business goals we're concerned about have a direct impact on the performance and reliability of the service offered. In practice, this translation is easier said than done. While consumer services often have clear product owners, it is unusual for infrastructure services to have a similar structure of product ownership.
 
@@ -219,7 +219,7 @@ To make this trade-off equation more concrete, consider the following cost/benef
 
 - **Proposed improvement in availability target:** 99.9% -> 99.99%
 
-- **Proprosed increase in availability:** 0.09%
+- **Proposed increase in availability:** 0.09%
 
 - **Service revenue:** $1M
 
@@ -243,11 +243,11 @@ Consider Bigtable, a massive-scale distributed storage system for structured dat
 
 Such services need low latency and high reliability. Other teams use Bigtable as a repository for data that they use to perform offline analysis on a regular basis. These teams tend to be more concerned about throughput than reliability. Risk tolerance for these two use cases is quite distinct.
 
-One approach to meeting the needs of boths use cases is to engineer all infrastructure services to be ultra-reliable. Given the fact that these infrastructure services also tend to aggregate huge amounts of resources, such an approach is usually far too expensive in practice. To understand the different needs of the different types of users, you can look at the desired state of the request queue for each type of Bigtable user.
+One approach to meeting the needs of both use cases is to engineer all infrastructure services to be ultra-reliable. Given the fact that these infrastructure services also tend to aggregate huge amounts of resources, such an approach is usually far too expensive in practice. To understand the different needs of the different types of users, you can look at the desired state of the request queue for each type of Bigtable user.
 
 **Types of failures**
 
-The low-latency user wants Bigtable's request queues to be empty so that the system can process each oustanding request immediately upon arrival (Indeed, inefficient queuing is often a cause of high tail latency). The user concerned with offline analysis is more interested in system throughput, so that user wants request queues to never be empty. To optimise for throughput, the Bigtable system should never need to idle while waiting for its next request.
+The low-latency user wants Bigtable's request queues to be empty so that the system can process each outstanding request immediately upon arrival (Indeed, inefficient queuing is often a cause of high tail latency). The user concerned with offline analysis is more interested in system throughput, so that user wants request queues to never be empty. To optimize for throughput, the Big-table system should never need to idle while waiting for its next request.
 
 As you can see, success and failure are antithetical for these sets of users. Success for the low-latency user is failure for the user concerned with offline analysis.
 
@@ -265,7 +265,7 @@ These tensions often reflect themselves in different opinions about the level of
 
 - **Software fault tolerance:** How hardened do we make the software to unexpected events? Too little, and we have a brittle, unusable product. Too much, and we have a product no one wants to use (but that runs very stably).
 
-- **Testing:** Again, not enough testing and you have embarrasing outages, privacy data leaks, or a number of other press-worthy events. Too much testing, and you might lose your market.
+- **Testing:** Again, not enough testing and you have embarrassing outages, privacy data leaks, or a number of other press-worthy events. Too much testing, and you might lose your market.
 
 - **Push frequency:** Every push is risky. How much should we work on reducing that risk, versus doing other work?
 
@@ -273,7 +273,7 @@ These tensions often reflect themselves in different opinions about the level of
 
 **Forming Your Error Budget**
 
-In order to base these decisions on objective data, the two teams jointly define a quarterly error budget based on the service's service level objective, or SLO. The error budget provides a clear, objetive metric that determines how unreliable the service is allowed to be within a single quarter. This metric remover thepolitics from negotiations between the SREs and the product developers when deciding how much risk to allow.
+In order to base these decisions on objective data, the two teams jointly define a quarterly error budget based on the service's service level objective, or SLO. The error budget provides a clear, objective metric that determines how unreliable the service is allowed to be within a single quarter. This metric remover the politics from negotiations between the SREs and the product developers when deciding how much risk to allow.
 
 Our practice is then as follows:
 
@@ -299,7 +299,7 @@ More subtle and effective approaches are available than this sample on/off techn
 
 - 100% is probably never the right reliability target: not only is it impossible to achieve, it's typically more reliability than a service's users want or notice. Match the profile of the service to the risk the business is willing to take.
 
-- An error budget aligns incentives and emphasizes joint ownership between SRE and product developement. Error budgets make it easier to decide the rate of releases and to effectively defuse discussions about outages with stakeholders, and allows multiple teams to reach the same conclusion about production risk without rancor.
+- An error budget aligns incentives and emphasizes joint ownership between SRE and product development. Error budgets make it easier to decide the rate of releases and to effectively defuse discussions about outages with stakeholders, and allows multiple teams to reach the same conclusion about production risk without rancor.
 
 ## Service Level Objectives
 
@@ -343,7 +343,7 @@ How do you go about identifying what metrics are meaningful to your service or s
 
 #### What Do You And Your Users Care About?
 
-You shouldn't use every metric you can track in your monitoring system as an SLI; an understading of what your users want from the system will inform the judicious selection of a few indicators. Choosing too many indicators makes it hard to pay the right level of attention to the indicators that matter, while choosing too few may leave significant behaviors of your system unexamined.
+You shouldn't use every metric you can track in your monitoring system as an SLI; an understanding of what your users want from the system will inform the judicious selection of a few indicators. Choosing too many indicators makes it hard to pay the right level of attention to the indicators that matter, while choosing too few may leave significant behaviors of your system unexamined.
 
 We typically find that a handful of representative indicators are enough to evaluate and reason about a system's health.
 
@@ -365,7 +365,7 @@ Many indicator metrics are most naturally gathered on the server side, using a m
 
 For simplicity and usability, we often aggregate raw measurements. This needs to be done carefully.
 
-Some metrics are seemingly straightforward, like the number of requests per second served, but even this apparently straightfoward measurement implicitly aggregates data over the measurement window.
+Some metrics are seemingly straightforward, like the number of requests per second served, but even this apparently straightforward measurement implicitly aggregates data over the measurement window.
 
 Most metrics are better thought of as distributions rather than averages. For example, for a latency SLI, some requests will be serviced quickly, while others will invariably take longer - sometimes much longer. A simple average can obscure these tail latencies, as well as changes in them.
 
@@ -375,11 +375,11 @@ User studies have shown that people typically prefer a slightly slower system to
 
 #### Standardize Indicators
 
-We recommend that you sntandardize on common definitions for SLIs so that you don't have to reason about them from first principles each time. Any feature that conforms to the standard definition templates can be omitted from the specification of an individual SLI:
+We recommend that you standardize on common definitions for SLIs so that you don't have to reason about them from first principles each time. Any feature that conforms to the standard definition templates can be omitted from the specification of an individual SLI:
 
 - Aggregation intervals: "Averaged over 1 minute"
 
-- Aggregation regions: "All the taks in a cluster"
+- Aggregation regions: "All the tasks in a cluster"
 
 - How frequently measurements are made: "Every 10 seconds"
 
@@ -459,7 +459,7 @@ SLIs and SLOs are crucial elements in the control loops used to manage systems:
 
 #### SLOs Set Expectations
 
-Publishing SLOs sets expectations for system behavior. Users (and potential users) often wnat to know what they can expect from a service in order to understand whether it's appropriate for their use case.
+Publishing SLOs sets expectations for system behavior. Users (and potential users) often want to know what they can expect from a service in order to understand whether it's appropriate for their use case.
 
 In order to set realistic expectations for your users, you might consider using one or both of the following tactics:
 
@@ -469,7 +469,7 @@ Using a tighter internal SLO than the SLO advertised to users give you room to r
 
 ***Don't overachieve***
 
-Users build on the reality of what you offer, rather than what you say you'll supply, particularly for infrastructure services. If your service's actual performance is much better than its stated SLO, users will come to rely on its current performance. You can avoid over-dependence by deliberately takind the system offline occasionally (Google's Chubby service introduced planned outages in response to being overly available), throttling some requests, or designing the system so that it isn't faster light loads.
+Users build on the reality of what you offer, rather than what you say you'll supply, particularly for infrastructure services. If your service's actual performance is much better than its stated SLO, users will come to rely on its current performance. You can avoid over-dependence by deliberately taking the system offline occasionally (Google's Chubby service introduced planned outages in response to being overly available), throttling some requests, or designing the system so that it isn't faster light loads.
 
 Understanding how well a system is meeting its expectations helps decide whether to invest in making the system faster, more available, and more resilient. Alternatively, if the service is doing fine, perhaps staff time should be spent on other priorities, such as paying off technical debt, adding new features, or introducing other products.
 
@@ -509,7 +509,7 @@ So what is toil? Toil is the king of work tied to running a production service t
 
 Feature development typically focuses on improving reliability, performance, or utilization, which often reduces toil as second-order effect.
 
-Toil tends to expand if left unchecked and can quickly fill 100% of everyone's time. The work of reducing toil and scaling up services is the "Engineering" in Site Reliability Engineering. Engineering work is what enables the SRE organization to scale up sublinearly with service size and to manage services more effeciently than either a pure Dev team or a pure Ops team.
+Toil tends to expand if left unchecked and can quickly fill 100% of everyone's time. The work of reducing toil and scaling up services is the "Engineering" in Site Reliability Engineering. Engineering work is what enables the SRE organization to scale up sublinearly with service size and to manage services more efficiently than either a pure Dev team or a pure Ops team.
 
 ### What Qualifies as Engineering?
 
@@ -517,7 +517,7 @@ Engineering work is novel and intrinsically requires human judgment. It produces
 
 Typical SRE activities fall into the following approximate categories:
 
-- **Software engineering:** Involves writing or modifying code, in addition to any associated design and documentation work. Examples include writing automation scripts, creating tools or frameworks, adding service features for scalability and realiability, or modifying infrastructure code to make it more robust.
+- **Software engineering:** Involves writing or modifying code, in addition to any associated design and documentation work. Examples include writing automation scripts, creating tools or frameworks, adding service features for scalability and reliability, or modifying infrastructure code to make it more robust.
 
 - **Systems engineering:** Involves configuring production systems, modifying configurations, or documenting systems in a way that produces lasting improvements from a one-time effort. Examples include monitoring setup and updates, load balancing configuration, server configuration, tunning of OS parameters, and load balances setup. Systems engineering also includes consulting on architecture, design, and productionization for developer teams.
 
@@ -537,7 +537,7 @@ Toil becomes toxic when experienced in large quantities. If you're burdened with
 
 Additionally, spending too much time on toil at the expense of time spent engineering hurst an SRE organization in the following ways:
 
-- **Creates confusion:** We work hard to ensure that everyone who works in or with the SRE organization understands that we are an engineering organization. Individuals or teams within SRE that engage in too much toil undermine the clarity of that communication and confuse people abour our role.
+- **Creates confusion:** We work hard to ensure that everyone who works in or with the SRE organization understands that we are an engineering organization. Individuals or teams within SRE that engage in too much toil undermine the clarity of that communication and confuse people about our role.
 
 - **Slow progress:** Excessive toil makes a team less productive. A product's feature velocity will slow if the SRE team is too busy with manual work and firefighting to roll out new features promptly.
 
@@ -545,7 +545,7 @@ Additionally, spending too much time on toil at the expense of time spent engine
 
 - **Promotes attrition:** Even if you're not personally unhappy with toil, your current or future teammates might like it much less. If you build too much toil into your team's procedures, you motivate the team's best engineers to start looking elsewhere for a more rewarding job.
 
-- **Causes breach of faith:** New hires or tranfers who joined SRE with the promise of project work will feel cheated, which is bad for morale.
+- **Causes breach of faith:** New hires or transfers who joined SRE with the promise of project work will feel cheated, which is bad for morale.
 
 ## Monitoring Distributed Systems
 
@@ -557,7 +557,7 @@ Additionally, spending too much time on toil at the expense of time spent engine
 
 - **Black-box monitoring:** Testing externally visible behavior as a user would see it.
 
-- **Dashboard:** An application (usually web-based) that provides a summary view of a service's core metrics. A dashboard may have filters, selectors, and so on, but is prebuilt to expose the metrics most important to its users. The dashboard might also display team information such as ticket queue length, a list of high-prority bugs, the current on-call engineer for a given area of responsibility, or recent pushes.
+- **Dashboard:** An application (usually web-based) that provides a summary view of a service's core metrics. A dashboard may have filters, selectors, and so on, but is prebuilt to expose the metrics most important to its users. The dashboard might also display team information such as ticket queue length, a list of high-priority bugs, the current on-call engineer for a given area of responsibility, or recent pushes.
 
 - **Alert:** A notification intended to be read by a human and that is pushed to a system such as a bug or ticket queue, an email alias, or a pager. Respectively, these alerts are classified as tickets, email alerts, and pages.
 
@@ -583,13 +583,13 @@ There are many reasons to monitor a system, including:
 
 - **Conducting ad hoc retrospective analysis (i.e., debugging):** Our latency just shot up; what else happened around the same time?
 
-Monitoring and alerting enables a system to tell us when it's broken, or pehaps to tell us what's about to break. When the system ins't able to automatically fix itself, we want a human to investigate the alert, determine if there's a real problem at hand, mitigate the problem, and determine the root cause of the problem.
+Monitoring and alerting enables a system to tell us when it's broken, or perhaps to tell us what's about to break. When the system ins't able to automatically fix itself, we want a human to investigate the alert, determine if there's a real problem at hand, mitigate the problem, and determine the root cause of the problem.
 
 Paging a human is a quite expensive use of an employee's time. If an employee is at work, a page interrupts their workflow. If the employee is at home, a page interrupts their personal time, and perhaps even their sleep.
 
 ### Setting Reasonable Expectations for Monitoring
 
-In general, Google has trended toward simpler and faster monitoring systems, with better tools for post hov analysis. We avoid "magic" systems that try to learn thresholds or automatically detect causality. Rules that detec unexpected changes in end-user request rates are one counterexample; while these rules are still kept as simple as possible, they give a very quick detection of a very simple, specific, severe anomaly. Other uses of monitoring data such as capacity planning and traffic prediction can tolerate more fragility, and thus, more complexity.
+In general, Google has trended toward simpler and faster monitoring systems, with better tools for post hov analysis. We avoid "magic" systems that try to learn thresholds or automatically detect causality. Rules that detect unexpected changes in end-user request rates are one counterexample; while these rules are still kept as simple as possible, they give a very quick detection of a very simple, specific, severe anomaly. Other uses of monitoring data such as capacity planning and traffic prediction can tolerate more fragility, and thus, more complexity.
 
 Rules that generate alerts for humans should be simple to understand and represent a clear failure.
 
@@ -619,7 +619,7 @@ When collecting telemetry for debugging, white-box monitoring is essential. If w
 
 The four golden signals of monitoring are latency, traffic, errors, and saturation. If you can only measure four metrics of your user-facing system, focus on these four.
 
-- **Latency:** The time it takes to service a request. It's important to distinguish between the latency of successfull requests and the latency of failed requests. For example, an HTTP 500 error triggered due to loss of connection to a database or other critical backend might be served very quickly; however, as an HTTP 500 error indicates a failed request, factoring 500s into your overall latency might result in misleading calculations. On the other hand, a slow error is even worse than a fast error! Therefore, it's important to track error latency, as opposed to just filtering out errors.
+- **Latency:** The time it takes to service a request. It's important to distinguish between the latency of successful requests and the latency of failed requests. For example, an HTTP 500 error triggered due to loss of connection to a database or other critical backend might be served very quickly; however, as an HTTP 500 error indicates a failed request, factoring 500s into your overall latency might result in misleading calculations. On the other hand, a slow error is even worse than a fast error! Therefore, it's important to track error latency, as opposed to just filtering out errors.
 
 - **Traffic:** A measure of how much demand is being placed on your system, measured in a high-level system-specific metric. For a web service, this measurement is usually HTTP requests per second, perhaps broken out by the nature of the requests (e.g., static versus dynamic content). For an audio streaming system, this measurement might focus on network I/O rate or concurrent sessions. For a key-value storage system, this measurement might be transactions and retrievals per second.
 
@@ -631,13 +631,13 @@ The four golden signals of monitoring are latency, traffic, errors, and saturati
 
 When building a monitoring system from scratch, it's tempting to design a system based upon the mean of some quantity: the mean latency, the mean CPU usage of your nodes, or the mean fullness of your databases. The danger presented by the latter two cases is obvious: CPUs and databases can easily be utilized in a very imbalanced way. The same holds for latency. If you run a web service with an average latency of 100ms at 1000 requests per second, 1% of requests might easily take 5 seconds.
 
-The simplest way to differentiate between a low average and a very slow "tail" of requests is to collect request counts bucketed by latencies (suitable for rendering a histogram), rather than actual latencies: how many requests did I serve that took between 0ms and 10ms, between 10ms and 30ms, between 30ms and 100ms, between 100ms and 300ms, and so on? Distributing the histogram boundaries approximately exponetially is often an easy way to visualize the distribution of your requests.
+The simplest way to differentiate between a low average and a very slow "tail" of requests is to collect request counts bucketed by latencies (suitable for rendering a histogram), rather than actual latencies: how many requests did I serve that took between 0ms and 10ms, between 10ms and 30ms, between 30ms and 100ms, between 100ms and 300ms, and so on? Distributing the histogram boundaries approximately exponentially is often an easy way to visualize the distribution of your requests.
 
 ### Choosing An Appropriate Resolution for Measurements
 
-Different aspects of a system hould be measured with different levels of granularity. For example:
+Different aspects of a system would be measured with different levels of granularity. For example:
 
-- Observing CPU load over the time span of a minute won't reveal even quite longlived spikes that drive high tail latencies.
+- Observing CPU load over the time span of a minute won't reveal even quite long-lived spikes that drive high tail latencies.
 
 - On the other hand, for a web service targeting no more than 9 hours aggregate downtime per year (99.9% annual uptime), probing for a 200 (success) status more than once or twice a minute is probably unnecessarily frequent.
 
@@ -657,7 +657,7 @@ Piling all these requirements on top of each other can add up to a very complex 
 
 - Alerts on different latency thresholds, at different percentiles, on all kinds of different metrics.
 
-- Extra code to detec and expose possible causes.
+- Extra code to detect and expose possible causes.
 
 - Associated dashboards for each of these possible causes.
 
@@ -669,7 +669,7 @@ Therefore, design your monitoring system with an eye toward simplicity. In choos
 
 - Data collection, aggregation, and alerting configuration that is rarely exercised (e.g., less than once a quarter for some SRE teams) should be up for removal.
 
-- Signals that are collected, but not exposed in any prebaked dashboard nor used by any alert, are candidates for removal.
+- Signals that are collected, but not exposed in any pre-baked dashboard nor used by any alert, are candidates for removal.
 
 ### Trying These Principles Together
 
@@ -679,7 +679,7 @@ When creating rules for monitoring and alerting, asking the following questions 
 
 - Will I ever be able to ignore this alert, knowing it's benign? When and why will I be able to ignore this alert, and how can I avoid this scenario?
 
-- Does this alert definitely indicate that users are being negatively afftected? Are there detectable cases in which users aren't being negatively impacted, such as drained traffic or test deployments, that should be filtered out?
+- Does this alert definitely indicate that users are being negatively affected? Are there detectable cases in which users aren't being negatively impacted, such as drained traffic or test deployments, that should be filtered out?
 
 - Can I take action in response to this alert? Is that action urgent, or could it wait until morning? Could the action be safely automated? Will that action be along-term fix, or just a short-term workaround?
 
@@ -747,9 +747,9 @@ Several layers of security and access control determine who can perform specific
 
 - Making changes to a project's build configuration.
 
-Almost all changes to the codebase require a code review, which is a steamlined action integrated into our normal developer workflow. Our automated release system produces a report of all changes contained in a release, which is archived with other build artifacts. By allowing SREs to understand what changes are included ina  new release of a project, this report can expedite troubleshooting when there are problems with a release.
+Almost all changes to the codebase require a code review, which is a steam-lined action integrated into our normal developer workflow. Our automated release system produces a report of all changes contained in a release, which is archived with other build artifacts. By allowing SREs to understand what changes are included ina  new release of a project, this report can expedite troubleshooting when there are problems with a release.
 
-### Continous Build and Deployment
+### Continuous Build and Deployment
 
 Google has developed an automated release system called Rapid. Rapid is a system that leverages a number of Google technologies to provide a framework that delivers scalable, hermetic, and reliable releases.
 
@@ -765,9 +765,9 @@ All code is checked into the main branch of the source code tree (mainline). How
 
 #### Testing
 
-A continuous test system runs unit tests against the code in the mainline each time a change is submitted, allowing us to detect build and test failures quickly. Release engineering recommends that the continous build test targets correspond to the same test targets that gate the project release. We also recommend creating releases at the revision number (version) of the last continous test build that successfully completed all tests. These measures decrease the change that subsequent changes made to the mainline will cause failures during the build performed at release time.
+A continuous test system runs unit tests against the code in the mainline each time a change is submitted, allowing us to detect build and test failures quickly. Release engineering recommends that the continuous build test targets correspond to the same test targets that gate the project release. We also recommend creating releases at the revision number (version) of the last continuous test build that successfully completed all tests. These measures decrease the change that subsequent changes made to the mainline will cause failures during the build performed at release time.
 
-During the release process, we re-run the unit tests using the release branch and create an audit trail showing that all the tests passed. This step is important because if a release incolves cherry picks, the release branch may contain a version of the code that doesn't exist anywhere on the mainline. We want to guarantee that the tests pass in the context of what's actually being released.
+During the release process, we re-run the unit tests using the release branch and create an audit trail showing that all the tests passed. This step is important because if a release involves cherry picks, the release branch may contain a version of the code that doesn't exist anywhere on the mainline. We want to guarantee that the tests pass in the context of what's actually being released.
 
 To complement the continuous test system, we use an independent testing environment that runs system-level tests on packaged build artifacts. These tests can be launched manually or from Rapid.
 
@@ -785,7 +785,7 @@ Each Rapid project has workflows that define the actions to perform during the r
 
 A typical release process proceeds as follows:
 
-1. Rapid uses the requested integration revision number (often obtained automatically from our continous test system) to create a release branch.
+1. Rapid uses the requested integration revision number (often obtained automatically from our continuous test system) to create a release branch.
 
 2. Rapid uses Blaze to compile all the binaries and execute unit tests, often performing these two steps in parallel. Compilation and testing occur in environments dedicated to those specific tasks, as opposed to taking place in the Bord jog where the Rapid workflow is executing. This separation allows us to parallelize work easily.
 
@@ -803,9 +803,9 @@ For more complicated deployments, we use Sisyphus, which is a general-purpose ro
 
 In a typical integration, Rapid creates a rollout in a long-running Sisyphus job. Rapid knows the build label associated with the MPM package it created, and can specify that build label when creating the rollout in Sisyphus. Sisyphus uses the build label to specify which version of MPM packages should be deployed.
 
-With sisyphus, the rollout process can be as simple or complicated as necessary. For example, it can update all the associated jobs immediately or it can roll out a new binary to succesive clusters over a period of several hours. Our goal is to fit the deployment process to the risk profile of a given service.
+With sisyphus, the rollout process can be as simple or complicated as necessary. For example, it can update all the associated jobs immediately or it can roll out a new binary to successive clusters over a period of several hours. Our goal is to fit the deployment process to the risk profile of a given service.
 
-In development or pre-production environments, we may build hourly and push releases automatically when all thests pass. For large user-facing services, we may push by starting in one cluster and expand exponentially until all clusters are updated. For sensitive pieces of infrastructure, we may extend the rollout over several days, interleaving them across instances in different geographic regions.
+In development or pre-production environments, we may build hourly and push releases automatically when all tests pass. For large user-facing services, we may push by starting in one cluster and expand exponentially until all clusters are updated. For sensitive pieces of infrastructure, we may extend the rollout over several days, interleaving them across instances in different geographic regions.
 
 ### Configuration Management
 
@@ -817,14 +817,16 @@ This was the first method used to configure services in Bord (and the systems th
 
 #### Include configuration files and binaries in the same MPM package
 
-For projects with few configuration files or projects where the files (or a subset of files) change with each release cycle, the configuration files can be included in the MPM package with the binaries. While this strategy limits flexibility by binding the binary and configuration files tighly, it simplifies deployment, because it only requires installing one package.
+For projects with few configuration files or projects where the files (or a subset of files) change with each release cycle, the configuration files can be included in the MPM package with the binaries. While this strategy limits flexibility by binding the binary and configuration files tightly, it simplifies deployment, because it only requires installing one package.
 
 #### Package configuration files into MPM "configuration packages"
 
-We can apply the hermetic principle to configuration management. Binary configurations tend to be tighly bound to particular versions of binaries, so we leverage the build and packaging systems to snapshot and release configuration files alongisde their binaries, we can use the build ID to reconstruct the configuration at a specific point in time.
+We can apply the hermetic principle to configuration management. Binary configurations tend to be tightly bound to particular versions of binaries, so we leverage the build and packaging systems to snapshot and release configuration files alongside their binaries, we can use the build ID to reconstruct the configuration at a specific point in time.
 
 #### Read configuration files from an external store
 
-Some projects have configuration files that need to change frequently or gynamically (while the binary is running). These files can be stored in Chubby Bigtable, or our source-based filesystem. In summary, project owners consider the different options for distributing and managing configuration files and decide which works best on a case-by-case basis.
+Some projects have configuration files that need to change frequently or dynamically (while the binary is running). These files can be stored in Chubby Bigtable, or our source-based filesystem. In summary, project owners consider the different options for distributing and managing configuration files and decide which works best on a case-by-case basis.
 
-<!--- Current Page 169 / Last Page 169 -->
+
+
+<!--- Current Page 169 / Last Page 182 -->
