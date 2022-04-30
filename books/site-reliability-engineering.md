@@ -827,6 +827,46 @@ We can apply the hermetic principle to configuration management. Binary configur
 
 Some projects have configuration files that need to change frequently or dynamically (while the binary is running). These files can be stored in Chubby Bigtable, or our source-based filesystem. In summary, project owners consider the different options for distributing and managing configuration files and decide which works best on a case-by-case basis.
 
+## Simplicity
 
+The price of reliability is the pursuit of the utmost simplicity. Software systems are inherently dynamic and unstable. A software system can only be perfectly stable if it exists in a vacuum. If we stop changing the codebase, we stop introducing bugs. If the underlying hardware or libraries never change, neither of these components will introduce bugs. If we freeze the current user base, we'll never have to scale the system. In fact, a good summary of the SRE approach to managing systems is: "At the end of the day, our job is to keep agility and stability in balance in the system".
 
-<!--- Current Page 169 / Last Page 182 -->
+### System Stability Versus Agility
+
+It sometimes makes sense to sacrifice stability for the sake of agility. Code that comes with an expiration date can be much more liberal with test coverage and release management because it will never be shipped to production or be seen by users.
+
+For the majority of production software systems, we want a balanced mix of stability and agility. SREs work to create procedures, practices, and tools that render software more reliable. At the same time, SREs ensure that this work has as little impact on developer agility as possible.
+
+In fact, SRE's experience has found that reliable processes tend to actually increase developer agility: rapid, reliable production rollouts make changes in production easier to see. As a result, once a bug surfaces, it takes less time to find and fix that bug. Building reliability into development allows developers to focus their attention on what we really do care about - the functionality and performance of their software and systems.
+
+### The Virtue of Boring
+
+Unlike just about everything else in life, "boring" is actually a positive attribute when it comes to software! We don't want our programs to be spontaneous and interesting; we want them to stick to the script and predictably accomplish their business goals.
+
+It is very important to consider the difference between essential complexity and accidental complexity. Essential complexity is the complexity inherent in a given situation that cannot be removed from a problem definition, whereas accidental complexity is more fluid and can be resolved with engineering effort. For example, writing a web server entails dealing with the essential complexity of serving web pages quickly. However, if we write a web server in Java, we may introduce accidental complexity when trying to minimize the performance impact of garbage collection.
+
+With an eye towards minimizing accidental complexity, SRE teams should:
+
+- Push back when accidental complexity is introduced into the systems for which they are responsible.
+
+- Constantly strive to eliminate complexity in systems they onboard and for which they assume operational responsibility.
+
+### Minimal APIs
+
+"Perfection is finally attained not when there is no longer more to add, but when there is no longer anything to take away". This principle is also applicable to the design and construction of software. APIs are a particularly clear expression of why this rule should be followed.
+
+Writing clear, minimal APIs is an essential aspect of managing simplicity in a software system. The fewer methods and arguments we provide to consumers of the API, the easier that API will be to understand, and the more effort we can devote to making those methods as good as they can possibly be. Again, a recurring theme appears: the conscious decision to not take on certain problems allows us to focus on our code problem and make the solutions we explicitly set out to create substantially better. In software, less is more! A small simple API is usually also a hallmark of a well-understood problem.
+
+### Modularity
+
+The ability to make changes to parts of the system in isolation is essential to creating a supportable system. Specifically, loose coupling between binaries, or between binaries and configuration, is a simplicity pattern that simultaneously promotes developer agility and system stability. If a bug is discovered in one program that is a component of a larger system, that bug can be fixed and pushed to production independent of the rest of the system.
+
+As a system grows more complex, the separation of responsibility between APIs and between binaries becomes increasingly important.
+
+### Release Simplicity
+
+Simples releases are generally better than complicated releases. It is much easier to measure and understand the impact of a single change rather than a batch of changes released simultaneously. If we release 100 unrelated changes to a system at the same time and performance gets worse, understanding which changes impacted performance, and how they did so, will take considerable effort or additional instrumentation.
+
+If the release is performed in smaller batches, we can move faster with more confidence because each code change can be understood in isolation in the larger system.
+
+<!--- Current Page 182 / Last Page 182 -->
