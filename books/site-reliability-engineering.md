@@ -869,4 +869,60 @@ Simples releases are generally better than complicated releases. It is much easi
 
 If the release is performed in smaller batches, we can move faster with more confidence because each code change can be understood in isolation in the larger system.
 
-<!--- Current Page 182 / Last Page 182 -->
+## Being On-Call
+
+Being on-call is a critical duty that many operations and engineering teams must undertake in order to keep their services reliable and available.
+
+Several professions require employees to perform some sort on-call duty, which entails being available for calls during both working and nonworking hours.
+
+The SRE teams are quite different from purely operational teams in that they place heavy emphasis on the use of engieering to approach problems.
+
+### Life of an On-Call Engineer
+
+As the guardians of production systems, on-call engineers take care of their assigned operations by managing outages that affect the team and performing and/or vetting production changes.
+
+When on-call, an engineer is available to perform operations on production systems within minutes, according to the paging response times agreed to by the team and the business system owners. Typical values are 5 minutes for user-facing or otherwise highly time-critical services, and 30 minutes for less time-sensitive systems.
+
+As soon as a page is received and acknowledged, the on-call engineer is expected to triage the problem and work toward its resolution, possibly involving other team members and escalating as needed.
+
+### Balanced On-Call
+
+SRE teams have specific constraints on the quantity of on-call shifts. The quantity of on-call can be calculated by the percent of time spent by engineers on on-call duties.The quality of on-call can be calculated by the number of incidents that occur during an on-call shift.
+
+If a service entails enough work to justify growing a single-site team, we prefer to create a multi-site team. A multi-site team is advantageous for two reasons:
+
+- Night shifts have detrimental effects on people's health, and a multi-site "follow the sun" rotation allows teams to avoid night shifts altogether.
+
+- Limiting the number of engineers in the on-call rotation ensures that engineers do not lose touch with the production systems.
+
+However, multi-site teams incur communication and coordination overhead. Therefore, the decision to go multi-site or single-site should be based upon the tradeoffs each option entails, the importance of the system, and the workload each system generates.
+
+#### Compesation
+
+Adequate compensation neds to be considered for out-of-hours support. Different organizations handle on-call compensation in different ways; Google offers time-off-in-lieu or straight cash compensation, capped at some propostion of overall salary.
+
+The compesation cap represents, in practice, a limit on the amount of on-call work that will be taken on by any individual.
+
+### Feeling Safe
+
+Modern research identifies two distinct ways of thinking that an individual may, consciously or subconsciously, choose when faced with challenges:
+
+- Intuitive, automatic, and rapid action.
+
+- Rational, focused, and deliberate cognitive functions.
+
+When one is dealing with the outages related to complex systems, the second of these options is more likely to produce better results and lead to well-planned incident handling.
+
+Heuristics are very tempting behaviors when one is one-call. For example, when the same alert pages for the fourth time in the week, and the previous three pages were initiated by an external infrastructure system, it is extremely tempting to exercise confirmation bias by automatically associating this fourth occurence of the problem with the previous cause.
+
+While intuition and quick reactions can seem like desirable traits in the middle of incident management, they have downsides. Intuition can be wrong and is often less supportable by obvious data. Thus, following intuition can lead an engineer to waste time pursuing a line of reasoning that is incorrect from the start.
+
+It's important that on-call SREs understand that they can rely on several resources that make the experience of being on-call less daunting than it may seem. The most important on-call resources are:
+
+- Clear escalation paths.
+
+- Well-defined incident-management procedures.
+
+- A blameless postmortem culture.
+
+<!--- Current Page 220 / Last Page 220 -->
