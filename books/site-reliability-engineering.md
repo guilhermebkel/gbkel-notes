@@ -925,4 +925,128 @@ It's important that on-call SREs understand that they can rely on several resour
 
 - A blameless postmortem culture.
 
-<!--- Current Page 220 / Last Page 220 -->
+## Effective Troubleshooting
+
+> "Be warned that being an expert is more than understanding how a system is supposed to work. Expertise is gained by investigating why a system doesn't work."
+>
+> "Ways in which things go right are special cases of the ways in which things go wrong"
+
+Troubleshooting is a critical skill for anyone who operates distributed computing systems - especially SREs - but it's often viewed as an innate skill that some people have and others don't. One reason for this assumption is that, for those who troubleshoot often, it's an ingrained process; explaining how to troubleshoot is difficult, much like explaining how to ride a bike. However, we believe that troubleshooting is both learnable and teachable.
+
+Novices are often tripped up when troubleshooting because the exercise ideally depends upon two factors: an understanding of how to troubleshoot generically (per example, without any particular system knowledge) and a solid knowledge of the system. While you can investigate a problem using only the generic process and derivation from first principles, we usually find this approach to be less efficient and less effective than understanding how things are supposed to work. Knowledge of the system typically limits the effectiveness of an SRE new to a system; there's little substitute to learning how the system is designed and built.
+
+### Theory
+
+Formally, we can think of the troubleshooting process as an application of the hypothetico-deductive method: given a set of observations about a system and a theoretical basis for understanding system behavior, we iteratively hypothesize potential causes for the failure and try to test those hypotheses.
+
+We'd start with a problem report telling us that something is wrong with the system. Then we can look at the system's telemetry and logs to understand its current state. This information, combined with our knowledge of how the system is built, how it should operate, and its failure modes, enables us to identify some possible causes.
+
+> Problem Report -> Triage -> Examine -> Diagnose -> Test/Treat -> Cure
+
+We can then test our hypotheses in one of two ways. We can compare the observed state of the system against our theories to find confirming or disconfirming evidence. Or, in some cases, we can actively "treat" the system - that is, change the system in a controlled way - and observe the results. This second approach refines our understanding of the system's state and possible cause(s) of the reported problems. Using either of these strategies, we repeatedly test until a root cause is identified, at which point we can then take corrective action to prevent a recurrence and write a postmortem. Of course, fixing the proximate cause(s) needn't always wait for root-causing or portmortem writing.
+
+### Common Pitfalls
+
+Ineffective troubleshooting sessions are plagued by problems at the Triage, Examine, and Diagnose steps, often because of a lack of deep system understanding. The following are common pitfalls to avoid:
+
+- Looking at symptoms that aren't relevant or misunderstanding the meaning of system metrics. Wild goose chases often result.
+
+- Misunderstanding how to change the system, its inputs, or its environment, so as to safely and effectively test hypotheses.
+
+- Coming up with wildly improbable theories about what's wrong, or latching on to cause of past problems, reasoning that since it happened once, it must be happening again.
+
+- Hunting down spurious correlations that are actually coincidences or are correlated with shared causes.
+
+The third trap is a set of logical fallacies that can be avoided by remembering that correlation is not causation. As systems grow in size and complexity and as more metrics are monitored, it's inevitable that there will be events that happen to correlate well with other events, purely by coincidence.
+
+Understanding failured in our reasoning process is the first step to avoiding them and becoming more effective in solving problems. A methodical approach to knowing what we do know, what we don't know, and what we need to know, makes it simpler and more straightforward to figure out what's gone wrong and how to fix it.
+
+### In Practice
+
+In practice, of course, troubleshooting is never as clean as our idealized model suggests it should be.There are some steps that can make the process less painful and more productive for both those experiencing system problems and those responding to them.
+
+#### Problem Report
+
+Every problem starts with a problem report, which might be an automated alert or one of your colleagues saying, "The system is slow". An effective report should tell you the expected behavior, the actual behavior, and, if possible, how to reproduce the behavior.
+
+Ideally, the reports should have a consistent form and be stored in a searchable location, such as a bug tracking system. This may also be a good point at which to provide tools for problem reporters to try self-diagnosing or self-repairing common issues on their own.
+
+#### Triage
+
+Once you receive a problem report, the next step is to figure out what to do about it. Problems can vary in severity: an issue might affect only one user under very specific circumstances (and might have a workaround), or it might entail a complete global outage for a service.
+
+Your response should be appropriate for the problem's impact: it's appropriate to declare an all-hands-on-deck emergency for the latter, but doing so for the former is overkill. Assessing an issue's severity requires an exercise of good engineering judgment and, often, a degree of calm under pressure.
+
+Your first response in a major outage may be to start troubleshooting and try to find a root cause as quickly as possible. Ignore that instinct!
+
+Instead, your couse of action should be to make the system work as well as it can under the circumstances. This may entail emergency options, such as diverting traffic from a broken cluster to others that are still working, dropping traffic wholesale to prevent a cascading failure, or disabling subsystems to lighten the load. Stopping the bleeding should be your first priority; you aren't helping your users if the system dies while you're root-causing. Of course, an emphasis on rapid triage doesn't preclude taking steps to preserve evidence of what's going wrong, such as logs, to help with subsequent root-cause analysis.
+
+Novice pilots are taught that their first responsibility in an emergency is to fly the airplane; troubleshooting is secondary to getting the plane and everyone on it safely onto the ground. This approach is also applicable to computer systems: for example, if a bug is leading to possible unrecoverable data corruption, freezing the system to prevent further failure may be better than letting this behavior continue.
+
+#### Examine
+
+We need to be able to examine what each component in the system is doing in order to understand whether or not it's behaving correctly.
+
+Ideally, a monitoring system is recording metrics for your system. These metrics are a good place to start figuring out what's wrong.
+
+Logging is another invaluable tool. Exporting information about each operation and about system state makes it possible to understand exactly what a process was doing at a given point in time. You may need to analyze system logs across one or many processes.
+
+Tracing requests through the whole stack provides a very powerful way to understand how a distributed system is working, though varying use cases imply significantly different tracing designs.
+
+#### Diagnose
+
+A thorough understanding of the system's design is decidedly helpful for coming up with plausible hypotheses about what's gone wrong, but there are also some generic practices that will help even without domain knowledge.
+
+Ideally, components in a system have well-defined interfaces and perform known transformations from their input to their output. It's then possible to look at the connections between components - or, equivalently, at the data flowing between them - to determine whether a given component is working properly.
+
+Having a solid reproducible test case makes debugging much faster, and it may be possible to use the case in a non-production environment where more invasive or riskier techniques are available than would be possible in production.
+
+A malfunctioning system is often still trying to do something - just not the thing you want it to be doing. Finding out what it's doing, then asking why it's doing that and where its resources are being used or where its output is going can help you understand how things have gone wrong.
+
+Systems have inertia: we've found that a working computer system tends to remain in motion until acted upon by an external force, such as a configuration change or a shift in the type of load served. Recent changes to a system can be a productive place to start identifying what's going wrong.
+
+While the generic tools described previously are helpful across a broad range of problem domains, you will likely find it helpful to build tools and systems to help with diagnosing your particular services.
+
+#### Test and Treat
+
+Once you've come up with a short list of possible causes, it's time to try to find which factor is at the root of the actual problem. Using the experimental method, we can try to tule in or rule out our hypotheses.
+
+For instance, suppose we think a problem is caused by either a network failure between an application logic server and a database server, or by the database refusing connections. Trying to connect to the database with the same credentials the application logic server uses can refute the second hypothesis, while pinging the database server may be able to refute the first, depending on network topology, firewall rules, and other factors. Following the code and trying to imitate the code flow, step-by-step, may point exactly what's going wrong.
+
+There are a number of considerations to keep in mind when designing tests:
+
+- An ideal test should have mutually exclusive alternatives, so that it can rule one group of hypotheses in and rule another set out. In practice, this may be difficuld to achieve.
+
+- Consider the obvious first: perform the tests in decreasing order of likelihood, considering possible risks to the system from the test.
+
+- An experiment may provide misleading results due to confounding factors.
+
+- Active tests may have side effects that change future test results.
+
+Take clear notes of what ideas you had, which tests you ran, and the results you saw. Particularly when you are dealing with more complicated and drawn-out cases, this documentation may be crucial in helping you remember exactly what happened and prevent having to repeat these steps.
+
+#### Cure
+
+Ideally, you've now narrowed the set of possible causes to one. Next, we'd like to prove that it's the actual cause. Definitively proving that a given factor caused a problem - by reproducing it at will - can be difficult to do in production systems; often, we can only find probable causal factors, for the following reasons:
+
+- **Systems are complex.** It's quite likely that there are multiple factors, each of which individually is not the cause, but which taken jointly are causes. Real systems are also often path-dependent, so that they must be in a specific state before a failure occurs.
+
+- **Reproducing the problem in a live production system may not be an option,** either because of the complexity of getting the system into a state where the failure can be triggered, or because further downtime may be unacceptable. Having a nonproduction environment can mitigate these challenges, though at the cost of having another copy of the system to run.
+
+Once you've found the factors that caused the problem, it's time to write up notes on what went wrong with the system, how you tracked down the problem, how you fixed the problem, and how to provent it from happening again. In other words, you need to write a postmortem.
+
+### Negative Results Are Magic
+
+A "negative" result is an experimental outcome in which the expected effect is absent - that is, any experiment that doesn't work out as planned. This includes new designs, heruistics, or human processes that fail yo improve upon the systems they replace.
+
+- **Negative results should not be ignored or discounted:** Realizing you're wrong has much value; a clear negative result can resolve some of the hardest design questions. Often a team has two seemingly reasonable designs but process in one direction has to address vague and speculative questions about whether the other direction might be better.
+
+- **Experiments with negative results are conclusive:** They tell us something certain about production, or the design space, or the performance limits of an existing system. They can help others determine whether their own experiments or designs are worthwhile.
+
+- **Tools and methods can outlive the experiment and inform future work:** As an example, benchmarking tools and load generators can result just as easily from disconforming experiment as a supporting one.
+
+- **Publishing negative results improves our industry's data-driven culture:** Accounting for negative results and statistical insignificance reduces the bias in our metrics and provides an example to others of how to maturely accept uncertainty. By publishing everything, you encourage others to do the same, and everyone in the industry collectively learns much more quickly.
+
+- **Publish your results:** If you are interested in an experiment's results, there's a good chance that other people are as well. When you publish the results, those people do not have to design and run a similar experiment themselves. It's tempting and common to avoid reporting negative results because it's easy to perceive that the experiment "failed". Some experiments are doomed, and they tend to be caught by review. Many more experiments are simply unreported because people mistakenly believe that negative results are not progress.
+
+<!--- Current Page 248 / Last Page 248 -->
