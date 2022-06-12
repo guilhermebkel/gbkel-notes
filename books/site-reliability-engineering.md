@@ -1049,4 +1049,99 @@ A "negative" result is an experimental outcome in which the expected effect is a
 
 - **Publish your results:** If you are interested in an experiment's results, there's a good chance that other people are as well. When you publish the results, those people do not have to design and run a similar experiment themselves. It's tempting and common to avoid reporting negative results because it's easy to perceive that the experiment "failed". Some experiments are doomed, and they tend to be caught by review. Many more experiments are simply unreported because people mistakenly believe that negative results are not progress.
 
-<!--- Current Page 248 / Last Page 248 -->
+## Emergency Response
+
+Things break,; that's life.
+
+Regardless of the stakes involved or the size of an organization, one trait that's vital to the long-term health of an organization, and that consequently sets that organization apart from others, is how the people involved respond to an emergency.
+
+Few of us naturally respond well during an emergency. A proper response takes preparation and periodic, pertinent, hands-on training. Establishing and maintaining thorough training and testing processes requires the support of the board and management, in addition to the careful attention of staff.
+
+### What to Do When Systems Break
+
+First of all, don't panic! You aren't alone, and the sky isn't falling. You're a professional and trained to handle this sort of situation. Typically, no one is in physical danger - only those poor electrons are in peril. At the very worst, half of the internet is down. So take a deep breath...and carry on.
+
+If you feel overwhelmed, pull in more people. Sometimes it may even be necessary to page the entire company.
+
+### Induced Emergency
+
+In Google they try to force the system to break by something in order to learn and improve the systems.
+
+
+- **Test-Induced Emergency:** SRE break their systems, watch how they fail, and make changes to improve reliability and prevent the failures from recurring.
+
+- **Change-Induced Emergency:** Perform numerous tests on configuration changes to make sure they don't result in unexpected and undesired behavior.
+
+- **Process-Induced Emergency:** Sometimes, the efficiency of automations can be a bit frightening when things do not go quite according to plan.
+
+That way, you can answer some questions such as: Details, Response, Findings (What went well, What we learned).
+
+### All Problems Have Solutions
+
+Time and experience have shown that systems will not only break, but will break in ways that one could never previously imagine. One of the greatest lessons Google has learned is that a solution exists, even if it may not be obvious, especially to the person whose pager is screaming. If you can't think of a solution, cast your net farther. Involve more of your teammates, seek help, do whatever you have to do, but do it quickly. The highest priority is to resolve the issue at hand quickly. Oftentimes, the person with the most state is the one whose actions somehow triggered the event. Utilize that person.
+
+### Learn from the Past. Don't Repeat It.
+
+#### Keep a History of Outages
+
+There is no better way to learn than to document what has broken in the past. History is about learning from everyone's mistakes. Be thorough, be honest, but most of all, ask hard questions. Look for specific actions that might prevent such an outage from recurring, not just tactically, but also strategically. Ensure that everyone within the company can learn what you have learned by publishing and organizing postmortems.
+
+#### Ask the Big, Even Improbable, Questions: What If...?
+
+There is no greater test than reality. Ask yourself some big, open-ended questions. What if the building power fails...? What if the network equipmant racks are standing in two feet of water...? What if the primary datacenter suddenly goes dark...?
+
+What do you do? Who do you call? Who will write the check? Do you have a plan? Do you know how to react? Do you know how your systems will react? Could you minimize the impact if it were to happen now? Could the person sitting next to you do the same?
+
+#### Encourage Proactive Testing
+
+When it comes to failures, theory and reality are two very different realms. Until your system has actually failed, you don't truly know how that system, its dependent systems, or your users will react. Don't rely on assumptions or what you can't or haven't tested.
+
+## Managing Incidents
+
+Effective incident management is key to limiting the disruption caused by an incident and restoring normal business operations as quickly as possible. If you haven't gamed out your response to potential incidents in advance, principled incident management can go out the window in real-life situations.
+
+### Elements of Incident Management Process
+
+Incident management skills and practices exist to channel the energies of enthusiastic individuals.
+
+#### Recursive Separation of Responsabilities
+
+It''s important to make sure that everybody involved in the incident knows their role and doesn't stray onto someone else's turf. Somewhat counterintuitively, a clear separation of responsibilities allows individuals more autonomy than they might otherwise have, since they need not second-guess their colleagues.
+
+If the load on a given member becomes excessive, that person needs to ask the planning lead for more staff. They should then delegate work to others, a task that might entail creating subincidents. Alternatively, a role leader might delegate system components to colleagues, who report high-level information back up to the leaders.
+
+Several distinct roles should be delegated to particular individuals:
+
+- **Incident Command:** The incident commander holds the high-level state about the incident. They structure the incident response task force, assigning responsibilities according to need and priority. De facto, the commander holds all positions that they have not delegated. If appropriate, they can remove roadblocks that prevent Ops from working most effectively.
+
+- **Operational Work:** The Ops lead works with the incident commander to respond to the incident by applying operational tools to the task at hand. The operations team should be the only group modifying the system during an incident.
+
+- **Communication:** This person is the public face of the incident response task force. Their duties most definitely include issuing periodic updates to the incident response team and stakeholders (usually via email), and may extend to tasks such as keeping the incident document accurate and up to date.
+
+- **Planning:** The planning role supports Ops by dealing with longer-term issues, such as filing bugs, ordering dinner, arranging handoffs, and tracking how the system has diverged from the norm so it can be reverted once the incident is resolved.
+
+## Postmortem Culture: Learning from Failure
+
+As SREs, we work with large-scale, complex, distributed systems. We constantly enchance our services with new features and add new systems. Incidents and outages are inevitable given our scale and velocity of change. When an incident occurs, we fix the underlying issue, and services return to their normal operation conditions. Unless we have some formaliezd process of learning from these incidents in place, they may recur ad infinitum. Left unchecked, incidents can multiply in complexity or even cascade, overwhelming a system and its operators and ultimately impacting our users.
+
+The postmortem concept is well known in the technology industry. A postmortem is a written record of an incident, its impact, the actions taken to mitigate or resolve it, the root cause(s) and the follow up actions to prevent the incident from recurring.
+
+Teams have some internal flexibility, but common postmortem triggers include:
+
+- User-visible downtime or degradation beyond a certain threshold.
+
+- Data loss of any kind.
+
+- On-call engineer intervention (release rollback, rerouting of traffic, etc.).
+
+- A resolution time above some threshold.
+
+- A monitoring failure (which usually implies manual incident discovery).
+
+It is important to define postmortem criteria before an incident occurs so that everyone knows when a postmortem is necessary. In addition to these objective triggers, any stakeholder may request a postmortem for an event.
+
+Blameless postmortems are a tenet of SRE culture. For a postmortem to be truly blameless it must focus on identifying the contributing causes of the incident without indicting any individual or team for bad or inappropriate behavior.
+
+## Tracking Outages
+
+<!--- Current Page 282 / Last Page 301 -->
