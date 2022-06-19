@@ -1144,4 +1144,88 @@ Blameless postmortems are a tenet of SRE culture. For a postmortem to be truly b
 
 ## Tracking Outages
 
-<!--- Current Page 282 / Last Page 301 -->
+Improving reliability over time is only possible if you start from a known baseline and can track progress.
+
+### Aggregation
+
+A single event may, and often will, trigger multiple alerts. For example, network failures cause timeouts and unreachable backend services fore everyone, so all affected teams receive their own alerts, including the owners of backend services; meanwhile, the network operations center will have its own klaxons ringing.
+
+However, even smaller issues affecting a single service may trigger multiple alerts due to multiple error conditions being diagnosed.
+
+While it is worthwhile to attempt to minimize the number of alerts triggered by a single event, triggering multiple alerts is unavoidable in most trade-off calculations between false positives and false negatives.
+
+The ability to group multiple alerts together into a single incident is critical n dealing with this duplication. Sending an email saying "this is the same thing as that other thing; they are symptoms of the same incident" works for a given alert: it can prevent duplication of debugging or panic.
+
+### Tagging
+
+Of course, not every alerting event is an incident. False-positive alerts occur, as well as test events or mistargeted emails from humans.
+
+Tagging is used to add metadata to notifications, at any level. Tags are mostly free-form, single "words". Colons, however, are interpreted as semantic separators, which subtly promotes the use of hierarchical namespaces and allows some automatic treatment.
+
+This namespacing is supported by suggested tag prefixes, primarily "cause" and "action", but the list is team-specific and generated based on historical usage.
+
+### Analysis
+
+Of course, SRE does much more than just react to incidents. Historical data is useful when one is responding to an incident - the question "what did we do last time?" is always a good starting point. But historical information is far more useful when it concerns systemic, periodic, or other wider problems that may exist. Enabling such analysis is one of the most important functions of an outage tracking tool.
+
+The bottom layer of analysis encompasses counting and basic aggregate statistics for reporting. The details depend on the team, but include information such as incidents per week/month/quarter and alerts per incident.
+
+The next layer is more important, and easy to provide: comparison between teams/services and over tme to identify first patterns and trends. This layer allows teams to determine whether a given alert load is "normal" relative to their own track record and that of other services. "That's the third time this week" can be good or bad, but knowing whether "it" used to happen five times per day or five times per month allows interpretation.
+
+The next step in data analysis is finding wider issues, which are not just raw counts but require some semantic analysis. For example, identifying the infrastructure component causing most incidents, and therefore the potential benefit from increasing the stability or performance of this component, assumes that there is a straightforward way to provide this information alongside the incident records.
+
+### Unexpected Benefits
+
+Being able to identify that an alert, or flood of alerts, coincides with a given other outage has obvious benefits: it increases the speed of diagnosis and reduces load on other teams by acknowledging that there is indeed an incident. there are additional nonobvious benefits.
+
+Improved cross-team visibility can and does make a big difference in incident resolution, or at least in incident mitigation.
+
+## Testing for Reliability
+
+One key responsibility of Site Reliability Engineers is to quantify confidence in systems they maintain. SREs perform this task by adapting classical software testing techniques to system at scale. Confidence can be measured both by past reliability and future reliability.
+
+The former is captured by analyzing data provided by monitoring historic system behavior, while the latter is quantified by making predictions from data about past system behavior.
+
+In order for these predictions to be strong enough to be useful, one of the following conditions must hold:
+
+- The site remains completely unchanged over time with no software releases or changes in the server fleet, which means that future behavior will be similar to past behavior.
+
+- You can confidently describe all changes to the site, in order for analysis to allow for the uncertainty incurred by each of these changes.
+
+Testing is a mechanism you use to demonstrate specific areas of equivalence when changes occur. Each test that passes both before and after a change reduces the uncertainty for which the analysis needs to allow.
+
+The amount of testing you need to conduct depends on the reliability requirements for your system. As the percentage of your codebase covered by tests increases, you reduce uncertainty and the potential decrease in reliability from each change.
+
+### Types of Software Testing
+
+Software tests broadly fall into two categories: traditional and production. Traditional tests are more common in software development to evaluate the correctness of software offline, during development. Production tests are performed on a live web service to evaluate whether a deployed software system is working correctly.
+
+#### Traditional Tests
+
+- **Unit tests:** A unit test is the smallest and simplest form of software testing. These tests are employed to assess a separable unit of software, such as a class or function, for correctness independent of the larger software system that contains the unit. Unit tests are also employed as a form of specification to ensure that a function or module exactly performs the behavior required by the system. Unit tests are commonly used to introduce test-driven development concepts.
+
+- **Integration tests:** Software components that pass individual unit tests are assembled into larger components. Engineers that run an integration test on an assembled component to verify that it functions correctly.
+
+- **System tests:** A system test is the largest scale test that engineers run for an undeployed system. All modules belonging to a specific component, such as a server that passed integration tests, are assembled into the system. Then the engineer tests the end-to-end functionality of the system. System tests come in many different flavors:
+
+  - **Smoke tests:** Smoke tests, in which engineers test very simple but critical behavior, are among the simplest type of system tests. Smoke tests are also known as sanity testing, and serve to short-circuit additional and more expensive testing.
+
+  - **Performance tests:** Once basic correctness is established via a smoke test, a common next step is to write another variant of a system test to ensure that the performance of the system stays acceptable over the duration of its lifecycle.
+
+  - **Regression tests:** Another type of system test involves preventing bugs from sneaking back into the codebase. Regression tests can be analogized to a gallery of rogue bugs that historically caused the system to fail or produce incorrect results. By documenting these bugs as tests at the system or integration level, engineers refactoring the codebase can be sure that they don't accidentally introduce bugs that they've already invested time and effort to eliminate.
+
+It is important to note that tests have a cost, both in terms of time and computational resources. At one extreme, unit tests are very cheap in both dimensions, as they can usually be completed in milliseconds on the resources available on a laptop. At the other end of the spectrum, bringing up a complete server with required dependencies (or mock equivalents) to run related tests can take significantly more time - from several minutes to multiple hours - and possibly require dedicated computing resources. Mindfulness of these costs is essential to developer productivity, and also encourages more efficient use of testing resources.
+
+#### Production Tests
+
+- **Configuration test:** Configuration tests are built and tested for a specific version of the checked-in configuration file. Comparing which version of the test is passing in relation to the goal version for automation implicitly indicates how far actual production currently lags being ongoing engineering work. Nonhermetic configuration tests tend to be especially valuable as part of a distributed monitoring solution since the pattern of passes/fails across production can identify paths through the service stack that don't have sensible combinations of the local configurations.
+
+- **Stress test:** In order to safely operate a system, SREs need to understand the limits of both the system and its components. In many cases, individual components don't gracefully degrade beyond a certain point - instead, they catastrophically fail. Engineers use stress tests to find the limits on a web service. Stress tests answer questions such as:
+
+  - How full can a database get before writes start to fail?
+
+  - How many queries a second can be sent to an application server before it becomes overloaded, causing requests to fail?
+
+- **Canary test:** The canary test is conspicuously absent from this list of production tests. The term canary comes from the phrase "canary in a coal mine", and refers to the practice of using a live bird to detect toxic gases before humans were poisoned. A canary test isn't really a test; rather, it's structured user acceptance. Whereas configuration and stress tests confirm the existence of a specific condition over deterministic software, a canary test is more ad hoc. It only exposes the code under test to less predictable live production traffic.
+
+<!--- Current Page 301 / Last Page 301 -->
