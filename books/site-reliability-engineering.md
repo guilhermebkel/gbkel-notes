@@ -1228,4 +1228,4 @@ It is important to note that tests have a cost, both in terms of time and comput
 
 - **Canary test:** The canary test is conspicuously absent from this list of production tests. The term canary comes from the phrase "canary in a coal mine", and refers to the practice of using a live bird to detect toxic gases before humans were poisoned. A canary test isn't really a test; rather, it's structured user acceptance. Whereas configuration and stress tests confirm the existence of a specific condition over deterministic software, a canary test is more ad hoc. It only exposes the code under test to less predictable live production traffic.
 
-<!--- Current Page 301 / Last Page 301 -->
+<!--- Current Page 327 / Last Page 327 -->
