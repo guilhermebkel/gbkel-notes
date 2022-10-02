@@ -12,6 +12,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## 📓 Books
 
+- [Comunicação Assertiva - Aprenda a arte da falar e influenciar](./books/comunicacao-assertiva-aprenda-a-arte-da-falar-e-influenciar.md)
+
 - [Site Reliability Engineering](./books/site-reliability-engineering.md)
 
 - [Domain-Driven Design: Tackling Complexity in the Heart of Software](./books/domain-driven-design-tackling-complexity-in-the-heart-of-software.md)
