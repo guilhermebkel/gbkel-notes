@@ -40,6 +40,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## ⚙️ Tutorials
 
+- [Updating Google Chrome on Ubuntu](./tutorials/updating-google-chrome-on-ubuntu.md)
+
 - [Installing NVIDIA Graphics Drivers On Ubuntu](./tutorials/installing-nvidia-graphics-drivers-on-ubuntu.md)
 
 - [Setting up Captain Rover](./tutorials/setting-up-captain-rover.md)
