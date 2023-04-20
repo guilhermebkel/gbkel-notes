@@ -40,6 +40,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## ⚙️ Tutorials
 
+- [Creating a Private Fork on Github](./tutorials/creating-a-private-fork-on-github.md)
+
 - [Using Custom Slack Alert Template on Grafana](./tutorials/using-custom-slack-alert-template-on-grafana.md)
 
 - [Updating Google Chrome on Ubuntu](./tutorials/updating-google-chrome-on-ubuntu.md)
