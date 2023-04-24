@@ -40,6 +40,8 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## ⚙️ Tutorials
 
+- [Cleaning Up Docker Temp Disk Space](./tutorials/cleaning-up-docker-temp-disk-space.md)
+
 - [Creating a Private Fork on Github](./tutorials/creating-a-private-fork-on-github.md)
 
 - [Using Custom Slack Alert Template on Grafana](./tutorials/using-custom-slack-alert-template-on-grafana.md)
