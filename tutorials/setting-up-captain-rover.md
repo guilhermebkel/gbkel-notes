@@ -23,7 +23,7 @@ sudo systemctl enable docker
 5. Install Captain Rover with the following commands:
 
 ```sh
-docker run -p 80:80 -p 443:443 -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock -v /captain:/captain caprover/caprover
+docker run -p 80:80 -p 443:443 -p 3000:3000 -e ACCEPTED_TERMS=true -v /var/run/docker.sock:/var/run/docker.sock -v /captain:/captain caprover/caprover
 ```
 
 6. As soon as Captain Rover is installed, you can reach it on `http://[IP_OF_YOUR_SERVER]:3000` using the default password `captain42`.
