@@ -4,12 +4,12 @@
 
 	```tf
 	variable "bucket_name" {
-		description = "Nome do bucket S3 para armazenar a chave"
+		description = "The name of the S3 bucket where the key will be stored"
 		type        = string
 	}
 
 	variable "ssh_key_name" {
-		description = "Nome do arquivo .pem para armazenar no S3"
+		description = "The name of the .pem file to be stored in the S3 bucket"
 		type        = string
 	}
 
