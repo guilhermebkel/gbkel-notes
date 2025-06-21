@@ -5,12 +5,27 @@
 1. Create the following Terraform file:
 
 	```tf
+	variable "bucket_name" {
+		description = "Nome do bucket S3 para armazenar a chave"
+		type        = string
+	}
+
+	variable "ssh_key_name" {
+		description = "Nome do arquivo .pem para armazenar no S3"
+		type        = string
+	}
+
+	variable "instance_name" {
+		description = "Nome para a EC2"
+		type        = string
+	}
+
 	provider "aws" {
-		region      = "us-east-1"
+		region = "us-east-1"
 	}
 
 	resource "aws_s3_bucket" "key_bucket" {
-		bucket = "$VARIABLE_BUCKET_CREDENTIALS_NAME"
+		bucket = var.bucket_name
 	}
 
 	resource "tls_private_key" "ssh_key" {
@@ -20,7 +35,7 @@
 
 	resource "aws_s3_object" "key_file" {
 		bucket  = aws_s3_bucket.key_bucket.id
-		key     = "$VARIABLE_SSH_KEY_NAME.pem"
+		key     = var.ssh_key_name
 		content = tls_private_key.ssh_key.private_key_pem
 	}
 
@@ -67,6 +82,10 @@
 		instance_type = "t2.micro"
 		key_name      = aws_key_pair.ec2_key.key_name
 		vpc_security_group_ids = [aws_security_group.web_sg.id]
+
+		tags = {
+			Name = var.instance_name
+		}
 
 		root_block_device {
 			volume_type = "gp3"
