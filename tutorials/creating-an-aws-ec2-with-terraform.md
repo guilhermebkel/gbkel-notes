@@ -98,35 +98,35 @@
 
 2. Create the following BashScript file:
 	```sh
-		#!/bin/bash
-		export AWS_ACCESS_KEY_ID="ACESS_KEY_ID"
-		export AWS_SECRET_ACCESS_KEY="SECRET_ACCESS_KEY"
-		export AWS_REGION="us-east-1"
+	#!/bin/bash
+	export AWS_ACCESS_KEY_ID="ACESS_KEY_ID"
+	export AWS_SECRET_ACCESS_KEY="SECRET_ACCESS_KEY"
+	export AWS_REGION="us-east-1"
 
-		BUCKET="guilhermebkelaws01-credentials2"
-		KEY_NAME="apps.pem"
-		INSTANCE_NAME="apps"
+	BUCKET="guilhermebkelaws01-credentials2"
+	KEY_NAME="apps.pem"
+	INSTANCE_NAME="apps"
 
-		export TF_VAR_bucket_name=$BUCKET
-		export TF_VAR_ssh_key_name=$KEY_NAME
-		export TF_VAR_instance_name=$INSTANCE_NAME
+	export TF_VAR_bucket_name=$BUCKET
+	export TF_VAR_ssh_key_name=$KEY_NAME
+	export TF_VAR_instance_name=$INSTANCE_NAME
 
-		# 1. Use terraform to create EC2 instance
-		terraform init
-		terraform apply -auto-approve
+	# 1. Use terraform to create EC2 instance
+	terraform init
+	terraform apply -auto-approve
 
-		# 2. Get the key
-		aws s3 cp s3://$BUCKET/$KEY_NAME ./
-		chmod 600 $KEY_NAME
+	# 2. Get the key
+	aws s3 cp s3://$BUCKET/$KEY_NAME ./
+	chmod 600 $KEY_NAME
 
-		# 3. Get the EC2 public IP
-		EC2_IP=$(aws ec2 describe-instances \
-				--filters "Name=tag:Name,Values=$INSTANCE_NAME" \
-				--query "Reservations[*].Instances[*].PublicIpAddress" \
-				--output text)
+	# 3. Get the EC2 public IP
+	EC2_IP=$(aws ec2 describe-instances \
+			--filters "Name=tag:Name,Values=$INSTANCE_NAME" \
+			--query "Reservations[*].Instances[*].PublicIpAddress" \
+			--output text)
 
-		# 4. Connect to EC2
-		ssh -o StrictHostKeyChecking=no -i $KEY_NAME ubuntu@$EC2_IP
+	# 4. Connect to EC2
+	ssh -o StrictHostKeyChecking=no -i $KEY_NAME ubuntu@$EC2_IP
 	```
 
 3. Run the bash script.
