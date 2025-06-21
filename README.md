@@ -70,7 +70,7 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 - [Setting up Nginx inside an instance](./tutorials/setting-up-nginx-inside-an-instance.md)
 
-- [Setting up Coolify](./tutorials/setting-up-coolify.md)
+- [Creating an AWS EC2 with Terraform](./tutorials/creating-an-aws-ec2-with-terraform.md)
 
 ## 📜 Notes
 
