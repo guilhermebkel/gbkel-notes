@@ -111,21 +111,21 @@
 	export TF_VAR_ssh_key_name=$KEY_NAME
 	export TF_VAR_instance_name=$INSTANCE_NAME
 
-	# 1. Use terraform to create EC2 instance
+	# 1. Create the EC2 instance with Terraform
 	terraform init
 	terraform apply -auto-approve
 
-	# 2. Get the key
+	# 2. Get the SSH Key to connect to EC2 instance
 	aws s3 cp s3://$BUCKET/$KEY_NAME ./
 	chmod 600 $KEY_NAME
 
-	# 3. Get the EC2 public IP
+	# 3. Get the EC2 Public IP
 	EC2_IP=$(aws ec2 describe-instances \
 			--filters "Name=tag:Name,Values=$INSTANCE_NAME" \
 			--query "Reservations[*].Instances[*].PublicIpAddress" \
 			--output text)
 
-	# 4. Connect to EC2
+	# 4. Connect to the EC2 instance
 	ssh -o StrictHostKeyChecking=no -i $KEY_NAME ubuntu@$EC2_IP
 	```
 
