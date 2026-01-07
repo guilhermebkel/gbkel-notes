@@ -40,7 +40,7 @@ I usually take notes from everything I'm learning in order to make sure I unders
 
 ## ⚙️ Tutorials
 
-- [Cleaning Up Docker Temp Disk Space](./tutorials/cleaning-up-docker-temp-disk-space.md)
+- [Cleaning Up Ubuntu Temp Disk Space](./tutorials/cleaning-up-ubuntu-temp-disk-space.md)
 
 - [Creating a Private Fork on Github](./tutorials/creating-a-private-fork-on-github.md)
 
